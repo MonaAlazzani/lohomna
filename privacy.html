@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية - لحومنا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #DA4900;
+            --primary-dark: #B83D00;
+            --primary-light: #FF7A38;
+            --primary-gradient: linear-gradient(135deg, #DA4900 0%, #FF7A38 100%);
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --border: #2A2A2A;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Almarai', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 50px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            margin-top: 40px;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        p, li {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            padding-right: 30px;
+            margin-bottom: 30px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background: rgba(218, 73, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-right: 4px solid var(--primary);
+            margin: 30px 0;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 50px;
+            padding: 15px 30px;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(218, 73, 0, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="logo">
+                <img src="logo.jpeg" alt="لحومنا شعار">
+                <span class="logo-text">لحومنا</span>
+            </a>
+            <h1>سياسة الخصوصية</h1>
+            <p class="last-updated">آخر تحديث: يناير 2026</p>
+        </div>
+
+        <div class="content">
+            <div class="highlight">
+                <p>نحن في لحومنا نأخذ خصوصيتك على محمل الجد. توضح سياسة الخصوصية هذه كيفية جمع واستخدام وحماية معلوماتك الشخصية عند استخدام تطبيقنا وخدماتنا.</p>
+            </div>
+
+            <h2>المعلومات التي نجمعها</h2>
+            <p>قد نقوم بجمع الأنواع التالية من المعلومات:</p>
+            <ul>
+                <li><strong>معلومات التعريف الشخصية:</strong> الاسم الكامل، البريد الإلكتروني، رقم الهاتف، العنوان</li>
+                <li><strong>معلومات الحساب:</strong> اسم المستخدم، كلمة المرور (مشفرة)</li>
+                <li><strong>معلومات الطلب:</strong> تفاصيل الطلبات، تفضيلات الذبح، عناوين التوصيل</li>
+                <li><strong>معلومات الدفع:</strong> طرق الدفع المستخدمة (لا نخزن معلومات البطاقات الائتمانية كاملة)</li>
+                <li><strong>معلومات الاستخدام:</strong> كيفية استخدامك للتطبيق، الأجهزة المستخدمة، سجلات النشاط</li>
+                <li><strong>معلومات الموقع:</strong> موقع التوصيل المطلوب</li>
+            </ul>
+
+            <h2>كيف نستخدم معلوماتك</h2>
+            <p>نستخدم معلوماتك للأغراض التالية:</p>
+            <ol>
+                <li>توفير وتحسين خدماتنا الأساسية</li>
+                <li>معالجة طلباتك وتوصيلها بفعالية</li>
+                <li>التواصل معك بشأن طلباتك واستفساراتك</li>
+                <li>تحسين تجربة المستخدم وتطوير الميزات الجديدة</li>
+                <li>إرسال تحديثات وعروض ترويجية (إذا وافقت على ذلك)</li>
+                <li>ضمان الأمان ومنع الاحتيال</li>
+                <li>الامتثال للالتزامات القانونية</li>
+            </ol>
+
+            <h2>حماية معلوماتك</h2>
+            <p>نحن نطبق إجراءات أمنية صارمة لحماية معلوماتك:</p>
+            <ul>
+                <li>تشفير البيانات الحساسة أثناء النقل والتخزين</li>
+                <li>الوصول المحدود للموظفين المعتمدين فقط</li>
+                <li>مراجعات أمنية منتظمة للنظام</li>
+                <li>تدريب الموظفين على أفضل ممارسات الخصوصية</li>
+            </ul>
+            <p>مع ذلك، لا يمكن ضمان الأمان المطلق لأي معلومات تنتقل عبر الإنترنت.</p>
+
+            <h2>مشاركة المعلومات</h2>
+            <p>نحن لا نبيع أو نؤجر معلوماتك الشخصية لأطراف ثالثة. قد نشارك معلوماتك مع:</p>
+            <ul>
+                <li><strong>مقدمي الخدمات:</strong> شركات التوصيل، معالجة المدفوعات، الاستضافة</li>
+                <li><strong>الجهات التنظيمية:</strong> عند الاقتضاء بموجب القانون</li>
+                <li><strong>الشركات التابعة:</strong> ضمن مجموعة لحومنا فقط</li>
+            </ul>
+            <p>جميع الأطراف الثالثة ملزمة باتفاقيات سرية تحمى خصوصيتك.</p>
+
+            <h2>ملفات تعريف الارتباط والتقنيات المشابهة</h2>
+            <p>نستخدم ملفات تعريف الارتباط (Cookies) والتقنيات المشابهة ل:</p>
+            <ul>
+                <li>تحسين تجربة التصفح</li>
+                <li>تذكر تفضيلاتك</li>
+                <li>تحليل استخدام التطبيق</li>
+                <li>تحسين الأمان</li>
+            </ul>
+            <p>يمكنك التحكم في ملفات تعريف الارتباط من خلال إعدادات المتصفح.</p>
+
+            <h2>حقوقك</h2>
+            <p>لديك الحق في:</p>
+            <ul>
+                <li>الوصول إلى معلوماتك الشخصية</li>
+                <li>تصحيح المعلومات غير الدقيقة</li>
+                <li>طلب حذف معلوماتك (في حدود القانون)</li>
+                <li>تقييد معالجة معلوماتك</li>
+                <li>الاعتراض على معالجة معلوماتك</li>
+                <li>طلب نسخة من معلوماتك</li>
+                <li>سحب الموافقة على التسويق في أي وقت</li>
+            </ul>
+
+            <h2>احتفاظ البيانات</h2>
+            <p>نحتفظ ببياناتك طالما كان ذلك ضرورياً للأغراض المحددة، أو للامتثال للالتزامات القانونية، أو لحل النزاعات، أو لتنفيذ الاتفاقيات.</p>
+
+            <h2>خصوصية الأطفال</h2>
+            <p>تطبيقنا وخدماتنا لا تستهدف الأطفال تحت سن 18 سنة. لا نجمع عن عمد معلومات شخصية من الأطفال. إذا اكتشفنا أننا جمعنا معلومات من طفل، سنقوم بحذفها فوراً.</p>
+
+            <h2>التغييرات على سياسة الخصوصية</h2>
+            <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. عند حدوث تغييرات جوهرية:</p>
+            <ul>
+                <li>سننشر الإشعار على التطبيق</li>
+                <li>سنرسل إشعاراً للمستخدمين المسجلين</li>
+                <li>سنحدد تاريخ سريان التعديلات</li>
+                <li>الاستمرار في استخدام الخدمة يعني القبول بالتحديثات</li>
+            </ul>
+
+            <h2>الاتصال بنا</h2>
+            <p>لأية استفسارات أو ممارسة حقوقك المتعلقة بالخصوصية، يمكنك التواصل معنا عبر:</p>
+            <ul>
+                <li>مسؤول حماية البيانات: قسم الدعم الفني</li>
+                <li>الهاتف: 00971554484488</li>
+                <li>واتساب: 00971554484488</li>
+                <li>العنوان: أبو ظبي، الإمارات العربية المتحدة</li>
+            </ul>
+
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-right"></i>
+                العودة إلى الموقع الرئيسي
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 لحومنا (Lohomna). جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+</body>
+</html>
