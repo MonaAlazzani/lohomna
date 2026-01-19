@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لحومنا - Lohomna</title>
+    <title>لحومنا - Lohomna | ذبائح طازجة حسب الشريعة الإسلامية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: rgba(218, 73, 0, 1);
-            --primary-dark: rgba(180, 60, 0, 1);
-            --primary-light: rgba(255, 120, 50, 1);
-            --dark-bg: #121212;
-            --darker-bg: #0a0a0a;
-            --card-bg: #1e1e1e;
-            --text-primary: #f5f5f5;
-            --text-secondary: #b0b0b0;
-            --border-color: #333;
-            --success: #4CAF50;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            --transition: all 0.3s ease;
+            --primary: #DA4900;
+            --primary-dark: #B83D00;
+            --primary-light: #FF7A38;
+            --primary-gradient: linear-gradient(135deg, #DA4900 0%, #FF7A38 100%);
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-section: #0B0B0B;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --text-tertiary: #777777;
+            --border: #2A2A2A;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius: 12px;
+            --radius-lg: 20px;
         }
 
         [lang="en"] {
@@ -35,36 +42,40 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--dark-bg);
+            font-family: 'Almarai', sans-serif;
+            background-color: var(--bg-dark);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
-            transition: var(--transition);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body[lang="en"] {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: 100%;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
-            background-color: rgba(18, 18, 18, 0.95);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
-            border-bottom: 2px solid var(--primary-color);
-            box-shadow: var(--shadow);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
             transition: var(--transition);
         }
 
@@ -72,209 +83,234 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
             text-decoration: none;
-            color: inherit;
-        }
-
-        .logo h1 {
-            font-size: 2rem;
-            background: linear-gradient(to right, var(--primary-color), var(--primary-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 700;
         }
 
         .logo-image {
             height: 50px;
             width: auto;
-            border-radius: 5px;
+            border-radius: 80px;
             transition: var(--transition);
         }
 
-        .logo-image:hover {
-            transform: scale(1.05);
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
         }
 
+        /* Navigation */
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 32px;
         }
 
         nav a {
-            color: var(--text-primary);
+            color: var(--text-secondary);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 8px 0;
             position: relative;
-            padding: 5px 0;
             transition: var(--transition);
         }
 
-        nav a:hover, nav a.active {
-            color: var(--primary-color);
+        nav a:hover,
+        nav a.active {
+            color: var(--text-primary);
         }
 
-        nav a:after {
+        nav a::after {
             content: '';
             position: absolute;
             bottom: 0;
             right: 0;
             width: 0;
-            height: 3px;
-            background-color: var(--primary-color);
+            height: 2px;
+            background: var(--primary-gradient);
             transition: var(--transition);
         }
 
-        [lang="en"] nav a:after {
+        [lang="en"] nav a::after {
             right: auto;
             left: 0;
         }
 
-        nav a:hover:after, nav a.active:after {
+        nav a:hover::after,
+        nav a.active::after {
             width: 100%;
         }
 
+        /* Language Switcher */
         .lang-switcher {
             display: flex;
             align-items: center;
             gap: 10px;
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border-radius: 50px;
             cursor: pointer;
-            padding: 8px 15px;
-            background-color: var(--card-bg);
-            border-radius: 30px;
             transition: var(--transition);
+            border: 1px solid var(--border);
         }
 
         .lang-switcher:hover {
-            background-color: var(--primary-color);
-        }
-
-        .lang-switcher i {
-            font-size: 1.2rem;
+            background: var(--primary);
+            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
-             padding: 300px 0 200px;
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('https://plus.unsplash.com/premium_photo-1667099522627-46973f1ff3dd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
+            padding: 200px 0 150px;
             position: relative;
             overflow: hidden;
+
+            /* background image + black overlay */
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url("images/sheep.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        .hero h2 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(218, 73, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(218, 73, 0, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.2;
             opacity: 0;
-            animation: fadeUp 1s forwards 0.3s;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards 0.2s;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
+            font-size: 1.3rem;
             color: var(--text-secondary);
+            margin-bottom: 48px;
             opacity: 0;
-            animation: fadeUp 1s forwards 0.5s;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards 0.4s;
         }
 
         .cta-button {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 48px;
+            background: var(--primary-gradient);
             color: white;
-            padding: 15px 40px;
+            border: none;
             border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-top: 20px;
+            cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(218, 73, 0, 0.4);
             opacity: 0;
-            animation: fadeUp 1s forwards 0.7s;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards 0.6s;
+            box-shadow: 0 10px 30px rgba(218, 73, 0, 0.3);
         }
 
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(218, 73, 0, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(218, 73, 0, 0.4);
         }
 
-        /* Sections */
-        section {
-            padding: 100px 0;
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: var(--bg-section);
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
-            position: relative;
+            margin-bottom: 64px;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             display: inline-block;
-            padding-bottom: 15px;
         }
 
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 100px;
+        .section-title .title-line {
+            width: 80px;
             height: 4px;
-            background-color: var(--primary-color);
+            background: var(--primary-gradient);
+            margin: 0 auto;
+            border-radius: 2px;
         }
 
-        [lang="en"] .section-title h2:after {
-            right: auto;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* About Section */
         .about-content {
             display: flex;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .about-text {
-            flex: 1;
-            min-width: 300px;
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
         }
 
+
         .about-text p {
-            font-size: 1.3rem;
+            margin-bottom: 24px;
             line-height: 1.8;
-            margin-bottom: 20px;
         }
 
         .about-image {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 20px;
+            height: 500px;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            position: relative;
         }
 
         .about-image img {
             width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
         }
 
         .about-image:hover img {
@@ -283,105 +319,151 @@
 
         /* Features Section */
         .features {
-            background-color: var(--darker-bg);
+            padding: 120px 0;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
         }
 
         .feature-card {
-            background-color: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 15px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
             text-align: center;
             transition: var(--transition);
-            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            border-color: var(--primary-color);
+            border-color: var(--primary);
             box-shadow: var(--shadow);
         }
 
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
         .feature-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-tertiary);
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         /* Download Section */
-        .download-content {
+        .download {
+            padding: 120px 0;
+            background: var(--bg-section);
             text-align: center;
+        }
+
+        .download-content {
             max-width: 800px;
             margin: 0 auto;
         }
 
         .download-text {
-            font-size: 1.3rem;
-            margin-bottom: 50px;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            line-height: 1.8;
         }
 
         .download-buttons {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 24px;
             flex-wrap: wrap;
         }
 
         .download-btn {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 20px 40px;
-            background-color: var(--card-bg);
-            border-radius: 15px;
+            gap: 20px;
+            padding: 24px 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             text-decoration: none;
             color: var(--text-primary);
             transition: var(--transition);
-            min-width: 250px;
+            min-width: 280px;
         }
 
         .download-btn:hover {
-            background-color: var(--primary-color);
-            transform: scale(1.05);
+            background: var(--primary);
+            transform: translateY(-5px);
+            border-color: var(--primary);
         }
 
         .download-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
         }
 
         .download-info h3 {
             font-size: 1.3rem;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            text-align: right;
+        }
+
+        [lang="en"] .download-info h3 {
+            text-align: left;
         }
 
         .download-info p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
         }
 
         .coming-soon {
-            background-color: rgba(218, 73, 0, 0.2);
-            color: var(--primary-light);
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            margin-top: 10px;
             display: inline-block;
+            padding: 6px 16px;
+            background: rgba(218, 73, 0, 0.2);
+            color: var(--primary-light);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-top: 12px;
         }
 
-        /* Social Media */
-        .social-section {
-            background-color: var(--darker-bg);
+        /* Social Media Section */
+        .social {
+            padding: 120px 0;
         }
 
         .social-links {
@@ -394,49 +476,60 @@
         .social-link {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 20px 40px;
-            background-color: var(--card-bg);
-            border-radius: 15px;
+            gap: 16px;
+            padding: 20px 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             text-decoration: none;
             color: var(--text-primary);
             transition: var(--transition);
-            min-width: 200px;
+            min-width: 220px;
         }
 
         .social-link:hover {
+            background: var(--primary);
             transform: translateY(-5px);
-            background-color: var(--primary-color);
+            border-color: var(--primary);
         }
 
         .social-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .social-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .social-info p {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
         }
 
         /* Footer */
         footer {
-            background-color: var(--darker-bg);
-            padding: 70px 0 30px;
-            border-top: 1px solid var(--border-color);
+            background: var(--bg-section);
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--border);
         }
 
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+            margin-bottom: 60px;
         }
 
         .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .footer-column p {
+            color: var(--text-tertiary);
+            line-height: 1.7;
         }
 
         .footer-links {
@@ -444,64 +537,51 @@
         }
 
         .footer-links li {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .footer-links a {
-            color: var(--text-secondary);
+            color: var(--text-tertiary);
             text-decoration: none;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .footer-links a:hover {
-            color: var(--primary-color);
-            padding-right: 10px;
+            color: var(--primary);
+            transform: translateX(5px);
         }
 
-        [lang="en"] .footer-links a:hover {
-            padding-right: 0;
-            padding-left: 10px;
+        [lang="ar"] .footer-links a:hover {
+            transform: translateX(-5px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .contact-icon {
+            color: var(--primary);
+            font-size: 1.1rem;
         }
 
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
+            color: var(--text-tertiary);
             font-size: 0.9rem;
-        }
-
-        /* Page Content */
-        .page-content {
-            padding: 150px 0 100px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-        }
-
-        .page-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .page-text ul, .page-text ol {
-            padding-right: 20px;
-            margin-bottom: 25px;
-        }
-
-        [lang="en"] .page-text ul, [lang="en"] .page-text ol {
-            padding-right: 0;
-            padding-left: 20px;
-        }
-
-        .page-text li {
-            margin-bottom: 10px;
         }
 
         /* Animations */
@@ -510,9 +590,20 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
             }
         }
 
@@ -527,156 +618,174 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            nav ul {
-                gap: 15px;
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
             }
-            
-            .hero h2 {
-                font-size: 2.8rem;
+
+            .about-image {
+                height: 400px;
             }
-            
-            .hero p {
-                font-size: 1.3rem;
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 20px;
+            .hero h1 {
+                font-size: 2.8rem;
             }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .hero {
-                padding: 200px 0 80px;
-            }
-            
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            
+
             .hero p {
                 font-size: 1.1rem;
             }
-            
-            section {
-                padding: 70px 0;
+
+            nav ul {
+                display: none;
             }
-            
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .section-title h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
-            
-            .download-btn {
-                min-width: 100%;
-            }
-            
+
+            .feature-card,
+            .download-btn,
             .social-link {
                 min-width: 100%;
             }
-            
+
+            .download-buttons,
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
             .logo-image {
                 height: 40px;
             }
         }
 
-        /* Modal Styles */
-        .modal {
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
             display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
             position: fixed;
-            z-index: 2000;
-            left: 0;
             top: 0;
+            right: -100%;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            overflow-y: auto;
-            padding: 20px;
+            background: var(--bg-dark);
+            z-index: 2000;
+            padding: 80px 24px;
+            transition: right 0.3s ease;
         }
 
-        .modal-content {
-            background-color: var(--card-bg);
-            margin: 5% auto;
-            padding: 40px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 800px;
-            position: relative;
-            border: 2px solid var(--primary-color);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-            animation: modalFadeIn 0.5s;
-        }
-
-        @keyframes modalFadeIn {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            left: 25px;
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .close-modal:hover {
-            color: var(--primary-light);
-        }
-
-        [lang="ar"] .close-modal {
+        [lang="en"] .mobile-menu {
+            right: -100%;
             left: auto;
-            right: 25px;
         }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 15px;
+
+        .mobile-menu.active {
+            right: 0;
         }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+
+        [lang="en"] .mobile-menu.active {
+            right: 0;
         }
-        
-        .contact-icon {
-            color: var(--primary-color);
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        [lang="ar"] .mobile-menu-close {
+            left: auto;
+            right: 24px;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 24px;
+        }
+
+        .mobile-menu-links a {
+            color: var(--text-primary);
+            text-decoration: none;
             font-size: 1.2rem;
+            padding: 12px 0;
+            display: block;
+            border-bottom: 1px solid var(--border);
         }
     </style>
 </head>
+
 <body lang="ar" dir="rtl">
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#home" class="logo">
-                <!-- Your Logo Here -->
-                <img src="logo.jpeg" alt="Lohomna Logo" class="logo-image">
-                <h1>لحومنا</h1>
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpeg" alt="لحومنا Logo" class="logo-image">
+                <span class="logo-text">لحومنا</span>
             </a>
-            
-            <nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="desktop-nav">
                 <ul>
-                    <li><a href="#home" class="active" data-page="home">الرئيسية</a></li>
-                    <li><a href="#about" data-page="about">من نحن</a></li>
-                    <li><a href="#features" data-page="features">المميزات</a></li>
-                    <li><a href="#download" data-page="download">التطبيق</a></li>
-                    <li><a href="#contact" data-page="contact">تواصل معنا</a></li>
+                    <li><a href="#home" class="active">الرئيسية</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#download">التطبيق</a></li>
+                    <li><a href="#social">التواصل</a></li>
                 </ul>
             </nav>
-            
+
             <div class="lang-switcher" id="langSwitcher">
                 <i class="fas fa-globe"></i>
                 <span>العربية</span>
@@ -684,177 +793,205 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main id="mainContent">
-        <!-- Home Page -->
-        <section id="home" class="page active">
-            <div class="hero">
-                <div class="container">
-                    <h2>لحومنا - الذبائح الطازجة على باب منزلك</h2>
-                    <p>تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية. نلتزم بأعلى معايير النظافة والأمان والموثوقية.</p>
-                    <a href="#download" class="cta-button">حمل التطبيق الآن</a>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-menu-links">
+            <li><a href="#home" class="active">الرئيسية</a></li>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#features">المميزات</a></li>
+            <li><a href="#download">التطبيق</a></li>
+            <li><a href="#social">التواصل</a></li>
+            <li><a href="terms.html">شروط الاستخدام</a></li>
+            <li><a href="privacy.html">سياسة الخصوصية</a></li>
+        </ul>
+        <div class="lang-switcher mobile-lang-switcher" id="mobileLangSwitcher">
+            <i class="fas fa-globe"></i>
+            <span>العربية</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>لحومنا </h1>
+                <p>تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية. نلتزم بأعلى معايير
+                    النظافة والأمان والموثوقية.</p>
+                <a href="#download" class="cta-button">
+                    حمل التطبيق الآن
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>من نحن</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>لحومنا هو تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية. يلتزم
+                        التطبيق بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية، من اختيار الذبيحة وحتى
+                        توصيلها مباشرة إلى باب المنزل، مما يوفر للمستخدمين تجربة احترافية ومريحة وموثوقة.</p>
+                    <p>نؤمن في لحومنا بأن الجودة والثقة هما أساس علاقتنا مع عملائنا. لذلك نحرص على تقديم أفضل أنواع
+                        اللحوم المذبوحة حسب الشريعة الإسلامية، مع ضمان وصولها طازجة وفي أسرع وقت ممكن.</p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>مميزاتنا</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>ذبح إسلامي</h3>
+                    <p>جميع الذبائح تُنفّذ وفق الشريعة الإسلامية وبأعلى معايير الجودة والرعاية للحيوان.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>توصيل إلى باب المنزل</h3>
+                    <p>نوصل طلباتك طازجة مباشرة إلى باب منزلك مع الحفاظ على أعلى معايير الجودة.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>جودة عالية</h3>
+                    <p>نلتزم بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>تجربة متميزة</h3>
+                    <p>واجهة مستخدم سهلة ومريحة تجعل عملية الطلب بسيطة وسريعة للجميع.</p>
                 </div>
             </div>
-            
-            <!-- About Section -->
-            <section id="about" class="about">
-                <div class="container">
-                    <div class="section-title">
-                        <h2>من نحن</h2>
-                    </div>
-                    
-                    <div class="about-content fade-in">
-                        <div class="about-text">
-                            <p>لحومنا هو تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية. يلتزم التطبيق بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية، من اختيار الذبيحة وحتى توصيلها مباشرة إلى باب المنزل، مما يوفر للمستخدمين تجربة احترافية ومريحة وموثوقة.</p>
-                            <p>نؤمن في لحومنا بأن الجودة والثقة هما أساس علاقتنا مع عملائنا. لذلك نحرص على تقديم أفضل أنواع اللحوم المذبوحة حسب الشريعة الإسلامية، مع ضمان وصولها طازجة وفي أسرع وقت ممكن.</p>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>حمل تطبيق لحومنا</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="download-content">
+                <p class="download-text fade-in">حمل تطبيق لحومنا الآن واستمتع بتجربة فريدة في طلب الذبائح الطازجة
+                    المذبوحة إسلامياً. التطبيق متوفر قريباً على متاجر التطبيقات.</p>
+
+                <div class="download-buttons">
+                    <a href="#" class="download-btn fade-in">
+                        <div class="download-icon">
+                            <i class="fab fa-apple"></i>
                         </div>
-                        
-                    </div>
+                        <div class="download-info">
+                            <h3>حمله من App Store</h3>
+                            <span class="coming-soon">قريباً</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="download-btn fade-in">
+                        <div class="download-icon">
+                            <i class="fab fa-google-play"></i>
+                        </div>
+                        <div class="download-info">
+                            <h3>حمله من Google Play</h3>
+                            <span class="coming-soon">قريباً</span>
+                        </div>
+                    </a>
                 </div>
-            </section>
-            
-            <!-- Features Section -->
-            <section id="features" class="features">
-                <div class="container">
-                    <div class="section-title">
-                        <h2>مميزاتنا</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social" class="social">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>تابعنا على وسائل التواصل</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://instagram.com/lohomna" target="_blank" class="social-link fade-in">
+                    <div class="social-icon">
+                        <i class="fab fa-instagram"></i>
                     </div>
-                    
-                    <div class="features-grid">
-                        <div class="feature-card fade-in">
-                            <div class="feature-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <h3>ذبح إسلامي</h3>
-                            <p>جميع الذبائح تُنفّذ وفق الشريعة الإسلامية وبأعلى معايير الجودة والرعاية للحيوان.</p>
-                        </div>
-                        
-                        <div class="feature-card fade-in">
-                            <div class="feature-icon">
-                                <i class="fas fa-truck"></i>
-                            </div>
-                            <h3>توصيل سريع</h3>
-                            <p>نوصل طلباتك طازجة إلى باب منزلك في أسرع وقت ممكن مع الحفاظ على الجودة.</p>
-                        </div>
-                        
-                        <div class="feature-card fade-in">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>جودة عالية</h3>
-                            <p>نلتزم بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية.</p>
-                        </div>
-                        
-                        <div class="feature-card fade-in">
-                            <div class="feature-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h3>تجربة متميزة</h3>
-                            <p>واجهة مستخدم سهلة ومريحة تجعل عملية الطلب بسيطة وسريعة للجميع.</p>
-                        </div>
+                    <div class="social-info">
+                        <h3>Instagram</h3>
+                        <p>@lohomna</p>
                     </div>
-                </div>
-            </section>
-            
-            <!-- Download Section -->
-            <section id="download" class="download">
-                <div class="container">
-                    <div class="section-title">
-                        <h2>حمل تطبيق لحومنا</h2>
+                </a>
+
+                <a href="https://snapchat.com/add/lohomna" target="_blank" class="social-link fade-in">
+                    <div class="social-icon">
+                        <i class="fab fa-snapchat"></i>
                     </div>
-                    
-                    <div class="download-content fade-in">
-                        <p class="download-text">حمل تطبيق لحومنا الآن واستمتع بتجربة فريدة في طلب الذبائح الطازجة المذبوحة إسلامياً. التطبيق متوفر قريباً على متاجر التطبيقات.</p>
-                        
-                        <div class="download-buttons">
-                            <a href="#" class="download-btn">
-                                <div class="download-icon">
-                                    <i class="fab fa-apple"></i>
-                                </div>
-                                <div class="download-info">
-                                    <h3>حمله من App Store</h3>
-                                    <p>متوفر قريباً على iOS</p>
-                                    <span class="coming-soon">قريباً</span>
-                                </div>
-                            </a>
-                            
-                            <a href="#" class="download-btn">
-                                <div class="download-icon">
-                                    <i class="fab fa-google-play"></i>
-                                </div>
-                                <div class="download-info">
-                                    <h3>حمله من Google Play</h3>
-                                    <p>متوفر قريباً على Android</p>
-                                    <span class="coming-soon">قريباً</span>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="social-info">
+                        <h3>Snapchat</h3>
+                        <p>@lohomna</p>
                     </div>
-                </div>
-            </section>
-            
-            <!-- Social Media -->
-            <section id="contact" class="social-section">
-                <div class="container">
-                    <div class="section-title">
-                        <h2>تابعنا على وسائل التواصل</h2>
+                </a>
+
+                <a href="https://twitter.com/lohomna" target="_blank" class="social-link fade-in">
+                    <div class="social-icon">
+                        <i class="fab fa-twitter"></i>
                     </div>
-                    
-                    <div class="social-links fade-in">
-                        <a href="#" class="social-link">
-                            <div class="social-icon">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <div class="social-info">
-                                <h3>Instagram</h3>
-                                <p>@lohomna</p>
-                            </div>
-                        </a>
-                        
-                        <a href="#" class="social-link">
-                            <div class="social-icon">
-                                <i class="fab fa-snapchat"></i>
-                            </div>
-                            <div class="social-info">
-                                <h3>Snapchat</h3>
-                                <p>@lohomna</p>
-                            </div>
-                        </a>
-                        
-                        <a href="#" class="social-link">
-                            <div class="social-icon">
-                                <i class="fab fa-twitter"></i>
-                            </div>
-                            <div class="social-info">
-                                <h3>Twitter (X)</h3>
-                                <p>@lohomna</p>
-                            </div>
-                        </a>
-                        
-                        <a href="#" class="social-link">
-                            <div class="social-icon">
-                                <i class="fab fa-tiktok"></i>
-                            </div>
-                            <div class="social-info">
-                                <h3>TikTok</h3>
-                                <p>@lohomna</p>
-                            </div>
-                        </a>
-                        
-                        <a href="#" class="social-link">
-                            <div class="social-icon">
-                                <i class="fab fa-youtube"></i>
-                            </div>
-                            <div class="social-info">
-                                <h3>YouTube</h3>
-                                <p>@lohomna</p>
-                            </div>
-                        </a>
+                    <div class="social-info">
+                        <h3>Twitter (X)</h3>
+                        <p>@lohomna</p>
                     </div>
-                </div>
-            </section>
-        </section>
-    </main>
+                </a>
+
+                <a href="https://tiktok.com/@lohomna" target="_blank" class="social-link fade-in">
+                    <div class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>TikTok</h3>
+                        <p>@lohomna</p>
+                    </div>
+                </a>
+
+                <a href="https://youtube.com/@lohomna" target="_blank" class="social-link fade-in">
+                    <div class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>YouTube</h3>
+                        <p>@lohomna</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -864,151 +1001,80 @@
                     <h3>لحومنا</h3>
                     <p>تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية.</p>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>روابط سريعة</h3>
                     <ul class="footer-links">
                         <li><a href="#home">الرئيسية</a></li>
                         <li><a href="#about">من نحن</a></li>
+                        <li><a href="#features">المميزات</a></li>
                         <li><a href="#download">حمل التطبيق</a></li>
-                        <li><a href="#contact">تواصل معنا</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
-                    <h3>المعلومات القانونية</h3>
+                    <h3>معلومات قانونية</h3>
                     <ul class="footer-links">
-                        <li><a href="#" id="terms-link">شروط الاستخدام</a></li>
-                        <li><a href="#" id="privacy-link">سياسة الخصوصية</a></li>
+                        <li><a href="terms.html">شروط الاستخدام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>اتصل بنا</h3>
-                    <ul class="footer-links">
-                        <li class="contact-item">
+                    <div class="contact-info">
+                        <div class="contact-item">
                             <i class="fas fa-phone contact-icon"></i>
                             <span>00971554484488</span>
-                        </li>
-                        <li class="contact-item">
+                        </div>
+                        <div class="contact-item">
                             <i class="fab fa-whatsapp contact-icon"></i>
                             <span>واتساب: 00971554484488</span>
-                        </li>
-                        <li class="contact-item">
+                        </div>
+                        <div class="contact-item">
                             <i class="fas fa-map-marker-alt contact-icon"></i>
                             <span>أبو ظبي، الإمارات العربية المتحدة</span>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+
             <div class="copyright">
-                <p>© 2026 لحومنا (Lohomna). جميع الحقوق محفوظة.</p>
+                <p>© 2026 لحومنا جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Terms of Use Modal -->
-    <div id="terms-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="page-content">
-                <h1 class="page-title">شروط الاستخدام</h1>
-                
-                <p class="page-text">مرحباً بكم في تطبيق لحومنا. يرجى قراءة شروط الاستخدام هذه بعناية قبل استخدام تطبيقنا أو خدماتنا.</p>
-                
-                <h3>القبول</h3>
-                <p class="page-text">باستخدامك تطبيق لحومنا، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي جزء من هذه الشروط، فيرجى عدم استخدام التطبيق.</p>
-                
-                <h3>الخدمات</h3>
-                <p class="page-text">يوفر تطبيق لحومنا منصة لطلب الذبائح الطازجة المذبوحة وفق الشريعة الإسلامية. نحن نضمن جودة المنتجات وطريقة الذبح ولكن لا نتحمل مسؤولية أي أضرار ناتجة عن سوء الاستخدام أو التخزين غير المناسب.</p>
-                
-                <h3>الحسابات</h3>
-                <p class="page-text">للاستفادة من خدماتنا، قد تحتاج إلى إنشاء حساب. أنت مسؤول عن الحفاظ على سرية معلومات حسابك وجميع الأنشطة التي تحدث تحت حسابك.</p>
-                
-                <h3>الدفع والتسعير</h3>
-                <p class="page-text">جميع الأسعار المعروضة في التطبيق تشمل الضرائب المطبقة. نحتفظ بالحق في تغيير الأسعار في أي وقت دون إشعار مسبق.</p>
-                
-                <h3>التوصيل</h3>
-                <p class="page-text">نحن نسعى لتوصيل طلباتك في الوقت المحدد. ومع ذلك، قد تحدث تأخيرات بسبب ظروف خارجة عن إرادتنا. لا نتحمل مسؤولية أي تأخير في التوصيل.</p>
-                
-                <h3>التعديلات</h3>
-                <p class="page-text">نحتفظ بالحق في تعديل هذه الشروط في أي وقت. سيتم إشعار المستخدمين بأي تغييرات جوهرية.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Privacy Policy Modal -->
-    <div id="privacy-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="page-content">
-                <h1 class="page-title">سياسة الخصوصية</h1>
-                
-                <p class="page-text">في لحومنا، نأخذ خصوصيتك على محمل الجد. توضح سياسة الخصوصية هذه كيفية جمع واستخدام وحماية معلوماتك الشخصية.</p>
-                
-                <h3>المعلومات التي نجمعها</h3>
-                <p class="page-text">قد نجمع الأنواع التالية من المعلومات:</p>
-                <ul class="page-text">
-                    <li>معلومات التعريف الشخصية (الاسم، البريد الإلكتروني، رقم الهاتف)</li>
-                    <li>معلومات الدفع (نحن لا نخزن معلومات بطاقتك الائتمانية)</li>
-                    <li>معلومات عن استخدامك للتطبيق</li>
-                    <li>عنوان التوصيل والموقع</li>
-                </ul>
-                
-                <h3>كيف نستخدم معلوماتك</h3>
-                <p class="page-text">نستخدم معلوماتك لتقديم وتحسين خدماتنا، بما في ذلك:</p>
-                <ul class="page-text">
-                    <li>معالجة طلباتك وتوصيلها</li>
-                    <li>التواصل معك بشأن طلباتك أو استفساراتك</li>
-                    <li>تحسين تجربة المستخدم في التطبيق</li>
-                </ul>
-                
-                <h3>حماية معلوماتك</h3>
-                <p class="page-text">نحن نطبق إجراءات أمنية مناسبة لحماية معلوماتك الشخصية من الوصول غير المصرح به أو التعديل أو الكشف. ومع ذلك، لا يمكن ضمان الأمان المطلق لأي معلومات تنتقل عبر الإنترنت.</p>
-                
-                <h3>مشاركة المعلومات</h3>
-                <p class="page-text">لا نبيع أو نؤجر معلوماتك الشخصية لأطراف ثالثة. قد نشارك معلوماتك مع:</p>
-                <ul class="page-text">
-                    <li>مقدمي الخدمات الذين يساعدوننا في تشغيل التطبيق (مثل شركات التوصيل)</li>
-                    <li>السلطات القانونية عند الاقتضاء بموجب القانون</li>
-                </ul>
-                
-                <h3>حقوقك</h3>
-                <p class="page-text">لديك الحق في الوصول إلى معلوماتك الشخصية وتصحيحها أو حذفها. يمكنك أيضًا طلب تقييد معالجة معلوماتك أو الاعتراض عليها.</p>
-                
-                <h3>التغييرات على سياسة الخصوصية</h3>
-                <p class="page-text">قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سننشر أي تغييرات على هذه الصفحة ونخطر المستخدمين بالتغييرات الجوهرية.</p>
-            </div>
-        </div>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Language switching functionality
             const langSwitcher = document.getElementById('langSwitcher');
+            const mobileLangSwitcher = document.getElementById('mobileLangSwitcher');
             const htmlElement = document.documentElement;
             const bodyElement = document.body;
             let currentLang = 'ar';
-            
             // Arabic content
             const arabicContent = {
                 siteName: "لحومنا",
+                logoAlt: "لحومنا شعار",
                 home: "الرئيسية",
                 about: "من نحن",
                 features: "المميزات",
                 download: "التطبيق",
-                contact: "تواصل معنا",
-                heroTitle: "لحومنا - الذبائح الطازجة على باب منزلك",
+                social: "التواصل",
+                terms: "شروط الاستخدام",
+                privacy: "سياسة الخصوصية",
+                heroTitle: "لحومنا",
                 heroText: "تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية. نلتزم بأعلى معايير النظافة والأمان والموثوقية.",
                 ctaButton: "حمل التطبيق الآن",
                 aboutTitle: "من نحن",
                 aboutText: "لحومنا هو تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية. يلتزم التطبيق بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية، من اختيار الذبيحة وحتى توصيلها مباشرة إلى باب المنزل، مما يوفر للمستخدمين تجربة احترافية ومريحة وموثوقة.",
+                aboutTextPart2: "نؤمن في لحومنا بأن الجودة والثقة هما أساس علاقتنا مع عملائنا. لذلك نحرص على تقديم أفضل أنواع اللحوم المذبوحة حسب الشريعة الإسلامية، مع ضمان وصولها طازجة وفي أسرع وقت ممكن.",
                 featuresTitle: "مميزاتنا",
                 feature1: "ذبح إسلامي",
                 feature1Text: "جميع الذبائح تُنفّذ وفق الشريعة الإسلامية وبأعلى معايير الجودة والرعاية للحيوان.",
-                feature2: "توصيل سريع",
-                feature2Text: "نوصل طلباتك طازجة إلى باب منزلك في أسرع وقت ممكن مع الحفاظ على الجودة.",
+                feature2: "توصيل إلى باب المنزل",
+                feature2Text: "نوصل طلباتك طازجة مباشرة إلى باب منزلك مع الحفاظ على أعلى معايير الجودة.",
                 feature3: "جودة عالية",
                 feature3Text: "نلتزم بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية.",
                 feature4: "تجربة متميزة",
@@ -1016,34 +1082,44 @@
                 downloadTitle: "حمل تطبيق لحومنا",
                 downloadText: "حمل تطبيق لحومنا الآن واستمتع بتجربة فريدة في طلب الذبائح الطازجة المذبوحة إسلامياً. التطبيق متوفر قريباً على متاجر التطبيقات.",
                 socialTitle: "تابعنا على وسائل التواصل",
-                termsTitle: "شروط الاستخدام",
-                privacyTitle: "سياسة الخصوصية",
                 footerQuickLinks: "روابط سريعة",
-                footerLegal: "المعلومات القانونية",
+                footerLegal: "معلومات قانونية",
                 footerContact: "اتصل بنا",
-                copyright: "© 2026 لحومنا (Lohomna). جميع الحقوق محفوظة.",
+                copyright: "© 2026 لحومنا. جميع الحقوق محفوظة.",
                 whatsapp: "واتساب: 00971554484488",
-                location: "أبو ظبي، الإمارات العربية المتحدة"
+                location: "أبو ظبي، الإمارات العربية المتحدة",
+                appStore: "حمله من App Store",
+                googlePlay: "حمله من Google Play",
+                soon: "قريباً",
+                homeLink: "الرئيسية",
+                aboutLink: "من نحن",
+                featuresLink: "المميزات",
+                downloadLink: "حمل التطبيق",
+                contactLink: "تواصل معنا"
             };
-            
+
             // English content
             const englishContent = {
                 siteName: "Lohomna",
+                logoAlt: "Lohomna Logo",
                 home: "Home",
                 about: "About Us",
                 features: "Features",
                 download: "Download",
-                contact: "Contact Us",
-                heroTitle: "Lohomna - Fresh Halal Meat at Your Doorstep",
+                social: "Contact",
+                terms: "Terms of Use",
+                privacy: "Privacy Policy",
+                heroTitle: "Lohomna",
                 heroText: "A UAE-based app that delivers fresh, carefully selected meat slaughtered according to Islamic law. We adhere to the highest standards of cleanliness, safety, and reliability.",
-                ctaButton: "Download the App Now",
+                ctaButton: "Download App Now",
                 aboutTitle: "About Us",
                 aboutText: "Lohomna is a UAE-based application that offers fresh meat with care and performs slaughter according to Islamic law. The app adheres to the highest standards of hygiene, safety, and reliability at all stages of the process, from selecting the animal to delivering it directly to your doorstep, providing users with a professional, convenient, and reliable experience.",
+                aboutTextPart2: "At Lohomna, we believe that quality and trust are the foundation of our relationship with our customers. Therefore, we strive to provide the best types of meat slaughtered according to Islamic law, while ensuring it arrives fresh and in the shortest possible time.",
                 featuresTitle: "Our Features",
                 feature1: "Islamic Slaughter",
                 feature1Text: "All animals are slaughtered according to Islamic law with the highest standards of quality and animal care.",
-                feature2: "Fast Delivery",
-                feature2Text: "We deliver your orders fresh to your doorstep as quickly as possible while maintaining quality.",
+                feature2: "Delivery to Your Door",
+                feature2Text: "We deliver your orders fresh directly to your doorstep while maintaining the highest quality standards.",
                 feature3: "High Quality",
                 feature3Text: "We adhere to the highest standards of hygiene, safety, and reliability at all stages of the process.",
                 feature4: "Premium Experience",
@@ -1051,16 +1127,22 @@
                 downloadTitle: "Download Lohomna App",
                 downloadText: "Download the Lohomna app now and enjoy a unique experience in ordering fresh, Islamically slaughtered meat. The app will be available soon on app stores.",
                 socialTitle: "Follow Us on Social Media",
-                termsTitle: "Terms of Use",
-                privacyTitle: "Privacy Policy",
                 footerQuickLinks: "Quick Links",
                 footerLegal: "Legal Information",
                 footerContact: "Contact Us",
                 copyright: "© 2026 Lohomna. All rights reserved.",
                 whatsapp: "WhatsApp: 00971554484488",
-                location: "Abu Dhabi, United Arab Emirates"
+                location: "Abu Dhabi, United Arab Emirates",
+                appStore: "Download on App Store",
+                googlePlay: "Get it on Google Play",
+                soon: "Coming Soon",
+                homeLink: "Home",
+                aboutLink: "About Us",
+                featuresLink: "Features",
+                downloadLink: "Download App",
+                contactLink: "Contact Us"
             };
-            
+
             // Function to switch language
             function switchLanguage() {
                 if (currentLang === 'ar') {
@@ -1069,68 +1151,113 @@
                     htmlElement.dir = 'ltr';
                     bodyElement.lang = 'en';
                     bodyElement.dir = 'ltr';
-                    langSwitcher.innerHTML = '<i class="fas fa-globe"></i><span>English</span>';
                     updateContent(englishContent);
+                    langSwitcher.innerHTML = '<i class="fas fa-globe"></i><span>English</span>';
+                    mobileLangSwitcher.innerHTML = '<i class="fas fa-globe"></i><span>English</span>';
                 } else {
                     currentLang = 'ar';
                     htmlElement.lang = 'ar';
                     htmlElement.dir = 'rtl';
                     bodyElement.lang = 'ar';
                     bodyElement.dir = 'rtl';
-                    langSwitcher.innerHTML = '<i class="fas fa-globe"></i><span>العربية</span>';
                     updateContent(arabicContent);
+                    langSwitcher.innerHTML = '<i class="fas fa-globe"></i><span>العربية</span>';
+                    mobileLangSwitcher.innerHTML = '<i class="fas fa-globe"></i><span>العربية</span>';
                 }
             }
-            
+
             // Function to update content based on language
             function updateContent(content) {
+                // Update logo alt text
+                document.querySelector('.logo-image').alt = content.logoAlt;
+
                 // Update site name
-                document.querySelector('.logo h1').textContent = content.siteName;
-                
+                document.querySelector('.logo-text').textContent = content.siteName;
+
                 // Update navigation
-                document.querySelectorAll('nav a')[0].textContent = content.home;
-                document.querySelectorAll('nav a')[1].textContent = content.about;
-                document.querySelectorAll('nav a')[2].textContent = content.features;
-                document.querySelectorAll('nav a')[3].textContent = content.download;
-                document.querySelectorAll('nav a')[4].textContent = content.contact;
-                
+                const navLinks = document.querySelectorAll('nav a, .mobile-menu-links a');
+                navLinks[0].textContent = content.home;
+                navLinks[1].textContent = content.about;
+                navLinks[2].textContent = content.features;
+                navLinks[3].textContent = content.download;
+                navLinks[4].textContent = content.social;
+
+                // Update mobile menu legal links
+                if (navLinks[5]) navLinks[5].textContent = content.terms;
+                if (navLinks[6]) navLinks[6].textContent = content.privacy;
+
                 // Update hero section
-                document.querySelector('.hero h2').textContent = content.heroTitle;
+                document.querySelector('.hero h1').textContent = content.heroTitle;
                 document.querySelector('.hero p').textContent = content.heroText;
-                document.querySelector('.cta-button').textContent = content.ctaButton;
-                
+                document.querySelector('.cta-button').innerHTML = content.ctaButton + ' <i class="fas fa-arrow-down"></i>';
+
                 // Update about section
                 document.querySelectorAll('.section-title h2')[0].textContent = content.aboutTitle;
-                document.querySelectorAll('.about-text p')[0].textContent = content.aboutText;
-                
+
+                // Update both parts of about text
+                const aboutParagraphs = document.querySelectorAll('.about-text p');
+                if (aboutParagraphs.length >= 1) {
+                    aboutParagraphs[0].textContent = content.aboutText;
+                }
+                if (aboutParagraphs.length >= 2) {
+                    aboutParagraphs[1].textContent = content.aboutTextPart2;
+                }
+
                 // Update features section
                 document.querySelectorAll('.section-title h2')[1].textContent = content.featuresTitle;
-                document.querySelectorAll('.feature-card h3')[0].textContent = content.feature1;
-                document.querySelectorAll('.feature-card p')[0].textContent = content.feature1Text;
-                document.querySelectorAll('.feature-card h3')[1].textContent = content.feature2;
-                document.querySelectorAll('.feature-card p')[1].textContent = content.feature2Text;
-                document.querySelectorAll('.feature-card h3')[2].textContent = content.feature3;
-                document.querySelectorAll('.feature-card p')[2].textContent = content.feature3Text;
-                document.querySelectorAll('.feature-card h3')[3].textContent = content.feature4;
-                document.querySelectorAll('.feature-card p')[3].textContent = content.feature4Text;
-                
+                const featureCards = document.querySelectorAll('.feature-card');
+                featureCards[0].querySelector('h3').textContent = content.feature1;
+                featureCards[0].querySelector('p').textContent = content.feature1Text;
+                featureCards[1].querySelector('h3').textContent = content.feature2;
+                featureCards[1].querySelector('p').textContent = content.feature2Text;
+                featureCards[2].querySelector('h3').textContent = content.feature3;
+                featureCards[2].querySelector('p').textContent = content.feature3Text;
+                featureCards[3].querySelector('h3').textContent = content.feature4;
+                featureCards[3].querySelector('p').textContent = content.feature4Text;
+
                 // Update download section
                 document.querySelectorAll('.section-title h2')[2].textContent = content.downloadTitle;
                 document.querySelector('.download-text').textContent = content.downloadText;
-                
-                // Update social media
+                document.querySelectorAll('.download-info h3')[0].textContent = content.appStore;
+                document.querySelectorAll('.download-info h3')[1].textContent = content.googlePlay;
+                document.querySelectorAll('.coming-soon').forEach(el => el.textContent = content.soon);
+
+                // Update social media section
                 document.querySelectorAll('.section-title h2')[3].textContent = content.socialTitle;
-                
-                // Update terms and privacy titles in modals
-                document.querySelectorAll('.page-title')[0].textContent = content.termsTitle;
-                document.querySelectorAll('.page-title')[1].textContent = content.privacyTitle;
-                
+
                 // Update footer
-                document.querySelectorAll('.footer-column h3')[1].textContent = content.footerQuickLinks;
-                document.querySelectorAll('.footer-column h3')[2].textContent = content.footerLegal;
-                document.querySelectorAll('.footer-column h3')[3].textContent = content.footerContact;
+                const footerColumns = document.querySelectorAll('.footer-column h3');
+                footerColumns[1].textContent = content.footerQuickLinks;
+                footerColumns[2].textContent = content.footerLegal;
+                footerColumns[3].textContent = content.footerContact;
+
+                // Update footer quick links
+                const footerQuickLinks = document.querySelectorAll('.footer-links');
+                if (footerQuickLinks.length > 0) {
+                    const quickLinks = footerQuickLinks[0].querySelectorAll('a');
+                    if (quickLinks.length >= 4) {
+                        quickLinks[0].textContent = content.homeLink;
+                        quickLinks[1].textContent = content.aboutLink;
+                        quickLinks[2].textContent = content.featuresLink;
+                        quickLinks[3].textContent = content.downloadLink;
+                    }
+                }
+
+                // Update footer legal links
+                if (footerQuickLinks.length > 1) {
+                    const legalLinks = footerQuickLinks[1].querySelectorAll('a');
+                    if (legalLinks.length >= 2) {
+                        legalLinks[0].textContent = content.terms;
+                        legalLinks[1].textContent = content.privacy;
+                    }
+                }
+
+                // Update footer description
+                document.querySelector('.footer-column p').textContent = content.aboutText.split('.')[0] + '.';
+
+                // Update copyright
                 document.querySelector('.copyright p').textContent = content.copyright;
-                
+
                 // Update contact info
                 const contactItems = document.querySelectorAll('.contact-item');
                 if (contactItems.length >= 3) {
@@ -1138,133 +1265,89 @@
                     contactItems[2].querySelector('span').textContent = content.location;
                 }
             }
-            
+            // Event listeners for language switcher
             langSwitcher.addEventListener('click', switchLanguage);
-            
-            // Modal functionality
-            const termsLink = document.getElementById('terms-link');
-            const privacyLink = document.getElementById('privacy-link');
-            const termsModal = document.getElementById('terms-modal');
-            const privacyModal = document.getElementById('privacy-modal');
-            const closeButtons = document.querySelectorAll('.close-modal');
-            
-            // Open Terms modal
-            termsLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                termsModal.style.display = 'block';
+            mobileLangSwitcher.addEventListener('click', switchLanguage);
+
+            // Mobile menu functionality
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
-            
-            // Open Privacy modal
-            privacyLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                privacyModal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
+
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
             });
-            
-            // Close modals
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    termsModal.style.display = 'none';
-                    privacyModal.style.display = 'none';
+
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
                     document.body.style.overflow = 'auto';
                 });
             });
-            
-            // Close modals when clicking outside
-            window.addEventListener('click', function(e) {
-                if (e.target === termsModal) {
-                    termsModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-                if (e.target === privacyModal) {
-                    privacyModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // Page navigation
-            const navLinks = document.querySelectorAll('nav a, .footer-links a');
-            
-            // Handle navigation
-            function navigateToSection(sectionId) {
-                const targetElement = document.getElementById(sectionId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active nav link
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            }
-            
-            // Add click event listeners to navigation links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Don't prevent default for modal links (handled above)
-                    if (this.id === 'terms-link' || this.id === 'privacy-link') {
-                        return;
-                    }
-                    
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') === '#') return;
+
                     e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    
-                    if (targetId === 'home') {
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
                         window.scrollTo({
-                            top: 0,
+                            top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
                         });
-                        
+
                         // Update active nav link
-                        navLinks.forEach(link => {
+                        document.querySelectorAll('nav a').forEach(link => {
                             link.classList.remove('active');
                         });
                         this.classList.add('active');
-                    } else {
-                        navigateToSection(targetId);
                     }
                 });
             });
-            
+
             // Scroll animations
             const fadeElements = document.querySelectorAll('.fade-in');
-            
+
             function checkScroll() {
                 fadeElements.forEach(element => {
                     const elementTop = element.getBoundingClientRect().top;
                     const windowHeight = window.innerHeight;
-                    
+
                     if (elementTop < windowHeight - 100) {
                         element.classList.add('visible');
                     }
                 });
             }
-            
+
             // Initial check
             checkScroll();
-            
+
             // Check on scroll
             window.addEventListener('scroll', checkScroll);
-            
+
             // Update active nav link on scroll
-            window.addEventListener('scroll', function() {
+            window.addEventListener('scroll', function () {
                 const scrollPosition = window.scrollY + 100;
-                
-                // Get all sections
                 const sections = document.querySelectorAll('section[id]');
-                
+                const navLinks = document.querySelectorAll('nav a');
+
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
                     const sectionId = section.getAttribute('id');
-                    
+
                     if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                         navLinks.forEach(link => {
                             link.classList.remove('active');
@@ -1275,8 +1358,20 @@
                     }
                 });
             });
-            
-            // Initialize with Arabic (default)
+
+            // Header scroll effect
+            window.addEventListener('scroll', function () {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(10, 10, 10, 0.98)';
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+                } else {
+                    header.style.background = 'rgba(10, 10, 10, 0.95)';
+                    header.style.boxShadow = 'none';
+                }
+            });
+
+            // Initialize with Arabic
             updateContent(arabicContent);
         });
     </script>
