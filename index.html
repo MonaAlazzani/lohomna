@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لحومنا - Lohomna</title>
+    <title>لحومنا - Lohomna   </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,17 +154,15 @@
         }
 
         /* Language Switcher */
-        .lang-switcher {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            background: var(--bg-card);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 1px solid var(--border);
-        }
+      .lang-switcher {
+    padding: 8px 14px;
+    min-width: 44px;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
 
         .lang-switcher:hover {
             background: var(--primary);
@@ -179,7 +177,7 @@
 
             /* background image + black overlay */
             background:
-                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.7)),
                 url("sheep.jpg");
 
             background-size: cover;
@@ -300,7 +298,7 @@
         }
 
         .about-image {
-            height: 500px;
+            height: 900px;
             border-radius: var(--radius-lg);
             overflow: hidden;
             position: relative;
@@ -787,9 +785,9 @@
             </nav>
 
             <div class="lang-switcher" id="langSwitcher">
-                <i class="fas fa-globe"></i>
-                <span>العربية</span>
-            </div>
+    <span class="lang-text">عربي</span>
+</div>
+
         </div>
     </header>
 
@@ -807,10 +805,11 @@
             <li><a href="terms.html">شروط الاستخدام</a></li>
             <li><a href="privacy.html">سياسة الخصوصية</a></li>
         </ul>
-        <div class="lang-switcher mobile-lang-switcher" id="mobileLangSwitcher">
-            <i class="fas fa-globe"></i>
-            <span>العربية</span>
-        </div>
+     <div class="lang-switcher mobile-lang-switcher" id="mobileLangSwitcher">
+    <span class="lang-text">ع</span>
+</div>
+
+
     </div>
 
     <!-- Hero Section -->
@@ -1144,27 +1143,37 @@
             };
 
             // Function to switch language
-            function switchLanguage() {
-                if (currentLang === 'ar') {
-                    currentLang = 'en';
-                    htmlElement.lang = 'en';
-                    htmlElement.dir = 'ltr';
-                    bodyElement.lang = 'en';
-                    bodyElement.dir = 'ltr';
-                    updateContent(englishContent);
-                    langSwitcher.innerHTML = '<i class="fas fa-globe"></i><span>English</span>';
-                    mobileLangSwitcher.innerHTML = '<i class="fas fa-globe"></i><span>English</span>';
-                } else {
-                    currentLang = 'ar';
-                    htmlElement.lang = 'ar';
-                    htmlElement.dir = 'rtl';
-                    bodyElement.lang = 'ar';
-                    bodyElement.dir = 'rtl';
-                    updateContent(arabicContent);
-                    langSwitcher.innerHTML = '<i class="fas fa-globe"></i><span>العربية</span>';
-                    mobileLangSwitcher.innerHTML = '<i class="fas fa-globe"></i><span>العربية</span>';
-                }
-            }
+           function switchLanguage() {
+    if (currentLang === 'عربي') {
+        currentLang = 'en';
+
+        htmlElement.lang = 'en';
+        htmlElement.dir = 'ltr';
+        bodyElement.lang = 'en';
+        bodyElement.dir = 'ltr';
+
+        updateContent(englishContent);
+
+        // Short text switcher
+        langSwitcher.querySelector('.lang-text').textContent = 'EN';
+        mobileLangSwitcher.querySelector('.lang-text').textContent = 'EN';
+
+    } else {
+        currentLang = 'عربي';
+
+        htmlElement.lang = 'عربي';
+        htmlElement.dir = 'rtl';
+        bodyElement.lang = 'عربي';
+        bodyElement.dir = 'rtl';
+
+        updateContent(arabicContent);
+
+        // Arabic letter only
+        langSwitcher.querySelector('.lang-text').textContent = 'عربي';
+        mobileLangSwitcher.querySelector('.lang-text').textContent = 'عربي';
+    }
+}
+
 
             // Function to update content based on language
             function updateContent(content) {
@@ -1378,5 +1387,3 @@
 </body>
 
 </html>
-
-
