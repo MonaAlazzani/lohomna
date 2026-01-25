@@ -2,9 +2,15 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لحومنا - Lohomna   </title>
+    <title>لحومنا - Lohomna</title>
+    <!-- Add this line to set the browser tab icon -->
+    <link rel="icon" href="logo.jpeg" type="image/jpeg">
+      <link rel="icon" type="image/png" sizes="32x32" href="logo.jpeg">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.jpeg">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,38 +159,48 @@
             width: 100%;
         }
 
-        /* Language Switcher */
-      .lang-switcher {
-    padding: 8px 14px;
-    min-width: 44px;
+       /* New simplified styling */
+.lang-switcher {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    padding: 8px 12px;
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    min-width: 60px;
 }
 
+.lang-switcher:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
 
-        .lang-switcher:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-        }
+/* Mobile language switcher */
+.mobile-lang-switcher {
+    margin-top: 40px;
+    width: 100%;
+    justify-content: center;
+    background: transparent !important;
+    border: none !important;
+}
 
         /* Hero Section */
         .hero {
             padding: 200px 0 150px;
             position: relative;
             overflow: hidden;
-
-            /* background image + black overlay */
             background:
                 linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.7)),
                 url("sheep.jpg");
-
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
-
 
         .hero::before {
             content: '';
@@ -290,7 +306,6 @@
             text-align: center;
             margin: 0 auto;
         }
-
 
         .about-text p {
             margin-bottom: 24px;
@@ -460,50 +475,83 @@
         }
 
         /* Social Media Section */
-        .social {
-            padding: 120px 0;
-        }
+       .social {
+    padding: 120px 0;
+}
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px 32px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: var(--transition);
-            min-width: 220px;
-        }
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: var(--transition);
+    min-width: 220px;
+    position: relative;
+    overflow: hidden;
+}
 
-        .social-link:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
+/* Add the top colored line */
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
 
-        .social-icon {
-            font-size: 1.8rem;
-        }
+/* Update hover effect to match feature cards */
+.social-link:hover {
+    background: var(--bg-card);
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow);
+}
 
-        .social-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
+/* Show the top line on hover */
+.social-link:hover::before {
+    transform: scaleX(1);
+}
 
-        .social-info p {
-            font-size: 0.9rem;
-            color: var(--text-tertiary);
-        }
+.social-icon {
+    font-size: 1.8rem;
+    transition: var(--transition);
+    color: var(--primary);
+}
+
+/* Make icon have gradient background on hover (like feature icons) */
+.social-link:hover .social-icon {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transform: scale(1.1);
+}
+
+.social-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.social-info p {
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+}
 
         /* Footer */
         footer {
@@ -758,6 +806,12 @@
             display: block;
             border-bottom: 1px solid var(--border);
         }
+        
+        .mobile-lang-switcher {
+            margin-top: 40px;
+            width: 100%;
+            justify-content: center;
+        }
     </style>
 </head>
 
@@ -785,9 +839,8 @@
             </nav>
 
             <div class="lang-switcher" id="langSwitcher">
-    <span class="lang-text">عربي</span>
-</div>
-
+                <span class="lang-text">English</span>
+            </div>
         </div>
     </header>
 
@@ -805,11 +858,9 @@
             <li><a href="terms.html">شروط الاستخدام</a></li>
             <li><a href="privacy.html">سياسة الخصوصية</a></li>
         </ul>
-     <div class="lang-switcher mobile-lang-switcher" id="mobileLangSwitcher">
-    <span class="lang-text">ع</span>
-</div>
-
-
+        <div class="lang-switcher mobile-lang-switcher" id="mobileLangSwitcher">
+            <span class="lang-text">English</span>
+        </div>
     </div>
 
     <!-- Hero Section -->
@@ -843,8 +894,6 @@
                     <p>نؤمن في لحومنا بأن الجودة والثقة هما أساس علاقتنا مع عملائنا. لذلك نحرص على تقديم أفضل أنواع
                         اللحوم المذبوحة حسب الشريعة الإسلامية، مع ضمان وصولها طازجة وفي أسرع وقت ممكن.</p>
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -858,6 +907,14 @@
             </div>
 
             <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>فحص طبي</h3>
+                    <p>جميع الحيوانات تخضع لفحص طبي دقيق قبل الذبح لضمان سلامتها وصحتها.</p>
+                </div>
+
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-check-circle"></i>
@@ -1051,7 +1108,10 @@
             const mobileLangSwitcher = document.getElementById('mobileLangSwitcher');
             const htmlElement = document.documentElement;
             const bodyElement = document.body;
+            
+            // Initialize with Arabic (default)
             let currentLang = 'ar';
+            
             // Arabic content
             const arabicContent = {
                 siteName: "لحومنا",
@@ -1070,14 +1130,16 @@
                 aboutText: "لحومنا هو تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية. يلتزم التطبيق بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية، من اختيار الذبيحة وحتى توصيلها مباشرة إلى باب المنزل، مما يوفر للمستخدمين تجربة احترافية ومريحة وموثوقة.",
                 aboutTextPart2: "نؤمن في لحومنا بأن الجودة والثقة هما أساس علاقتنا مع عملائنا. لذلك نحرص على تقديم أفضل أنواع اللحوم المذبوحة حسب الشريعة الإسلامية، مع ضمان وصولها طازجة وفي أسرع وقت ممكن.",
                 featuresTitle: "مميزاتنا",
-                feature1: "ذبح إسلامي",
-                feature1Text: "جميع الذبائح تُنفّذ وفق الشريعة الإسلامية وبأعلى معايير الجودة والرعاية للحيوان.",
-                feature2: "توصيل إلى باب المنزل",
-                feature2Text: "نوصل طلباتك طازجة مباشرة إلى باب منزلك مع الحفاظ على أعلى معايير الجودة.",
-                feature3: "جودة عالية",
-                feature3Text: "نلتزم بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية.",
-                feature4: "تجربة متميزة",
-                feature4Text: "واجهة مستخدم سهلة ومريحة تجعل عملية الطلب بسيطة وسريعة للجميع.",
+                feature1: "فحص طبي",
+                feature1Text: "جميع الحيوانات تخضع لفحص طبي دقيق قبل الذبح لضمان سلامتها وصحتها.",
+                feature2: "ذبح إسلامي",
+                feature2Text: "جميع الذبائح تُنفّذ وفق الشريعة الإسلامية وبأعلى معايير الجودة والرعاية للحيوان.",
+                feature3: "توصيل إلى باب المنزل",
+                feature3Text: "نوصل طلباتك طازجة مباشرة إلى باب منزلك مع الحفاظ على أعلى معايير الجودة.",
+                feature4: "جودة عالية",
+                feature4Text: "نلتزم بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية.",
+                feature5: "تجربة متميزة",
+                feature5Text: "واجهة مستخدم سهلة ومريحة تجعل عملية الطلب بسيطة وسريعة للجميع.",
                 downloadTitle: "حمل تطبيق لحومنا",
                 downloadText: "حمل تطبيق لحومنا الآن واستمتع بتجربة فريدة في طلب الذبائح الطازجة المذبوحة إسلامياً. التطبيق متوفر قريباً على متاجر التطبيقات.",
                 socialTitle: "تابعنا على وسائل التواصل",
@@ -1093,8 +1155,7 @@
                 homeLink: "الرئيسية",
                 aboutLink: "من نحن",
                 featuresLink: "المميزات",
-                downloadLink: "حمل التطبيق",
-                contactLink: "تواصل معنا"
+                downloadLink: "حمل التطبيق"
             };
 
             // English content
@@ -1115,14 +1176,16 @@
                 aboutText: "Lohomna is a UAE-based application that offers fresh meat with care and performs slaughter according to Islamic law. The app adheres to the highest standards of hygiene, safety, and reliability at all stages of the process, from selecting the animal to delivering it directly to your doorstep, providing users with a professional, convenient, and reliable experience.",
                 aboutTextPart2: "At Lohomna, we believe that quality and trust are the foundation of our relationship with our customers. Therefore, we strive to provide the best types of meat slaughtered according to Islamic law, while ensuring it arrives fresh and in the shortest possible time.",
                 featuresTitle: "Our Features",
-                feature1: "Islamic Slaughter",
-                feature1Text: "All animals are slaughtered according to Islamic law with the highest standards of quality and animal care.",
-                feature2: "Delivery to Your Door",
-                feature2Text: "We deliver your orders fresh directly to your doorstep while maintaining the highest quality standards.",
-                feature3: "High Quality",
-                feature3Text: "We adhere to the highest standards of hygiene, safety, and reliability at all stages of the process.",
-                feature4: "Premium Experience",
-                feature4Text: "An easy and comfortable user interface makes the ordering process simple and fast for everyone.",
+                feature1: "Medical Examination",
+                feature1Text: "All animals undergo thorough medical examination before slaughter to ensure their safety and health.",
+                feature2: "Islamic Slaughter",
+                feature2Text: "All animals are slaughtered according to Islamic law with the highest standards of quality and animal care.",
+                feature3: "Delivery to Your Door",
+                feature3Text: "We deliver your orders fresh directly to your doorstep while maintaining the highest quality standards.",
+                feature4: "High Quality",
+                feature4Text: "We adhere to the highest standards of hygiene, safety, and reliability at all stages of the process.",
+                feature5: "Premium Experience",
+                feature5Text: "An easy and comfortable user interface makes the ordering process simple and fast for everyone.",
                 downloadTitle: "Download Lohomna App",
                 downloadText: "Download the Lohomna app now and enjoy a unique experience in ordering fresh, Islamically slaughtered meat. The app will be available soon on app stores.",
                 socialTitle: "Follow Us on Social Media",
@@ -1138,42 +1201,42 @@
                 homeLink: "Home",
                 aboutLink: "About Us",
                 featuresLink: "Features",
-                downloadLink: "Download App",
-                contactLink: "Contact Us"
+                downloadLink: "Download App"
             };
 
             // Function to switch language
-           function switchLanguage() {
-    if (currentLang === 'عربي') {
-        currentLang = 'en';
-
-        htmlElement.lang = 'en';
-        htmlElement.dir = 'ltr';
-        bodyElement.lang = 'en';
-        bodyElement.dir = 'ltr';
-
-        updateContent(englishContent);
-
-        // Short text switcher
-        langSwitcher.querySelector('.lang-text').textContent = 'EN';
-        mobileLangSwitcher.querySelector('.lang-text').textContent = 'EN';
-
-    } else {
-        currentLang = 'عربي';
-
-        htmlElement.lang = 'عربي';
-        htmlElement.dir = 'rtl';
-        bodyElement.lang = 'عربي';
-        bodyElement.dir = 'rtl';
-
-        updateContent(arabicContent);
-
-        // Arabic letter only
-        langSwitcher.querySelector('.lang-text').textContent = 'عربي';
-        mobileLangSwitcher.querySelector('.lang-text').textContent = 'عربي';
-    }
-}
-
+            function switchLanguage() {
+                if (currentLang === 'ar') {
+                    // Switch to English
+                    currentLang = 'en';
+                    
+                    htmlElement.lang = 'en';
+                    htmlElement.dir = 'ltr';
+                    bodyElement.lang = 'en';
+                    bodyElement.dir = 'ltr';
+                    
+                    updateContent(englishContent);
+                    
+                    // Update language switcher button text
+                    langSwitcher.querySelector('.lang-text').textContent = 'عربي';
+                    mobileLangSwitcher.querySelector('.lang-text').textContent = 'عربي';
+                    
+                } else {
+                    // Switch to Arabic
+                    currentLang = 'ar';
+                    
+                    htmlElement.lang = 'ar';
+                    htmlElement.dir = 'rtl';
+                    bodyElement.lang = 'ar';
+                    bodyElement.dir = 'rtl';
+                    
+                    updateContent(arabicContent);
+                    
+                    // Update language switcher button text
+                    langSwitcher.querySelector('.lang-text').textContent = 'English';
+                    mobileLangSwitcher.querySelector('.lang-text').textContent = 'English';
+                }
+            }
 
             // Function to update content based on language
             function updateContent(content) {
@@ -1223,6 +1286,8 @@
                 featureCards[2].querySelector('p').textContent = content.feature3Text;
                 featureCards[3].querySelector('h3').textContent = content.feature4;
                 featureCards[3].querySelector('p').textContent = content.feature4Text;
+                featureCards[4].querySelector('h3').textContent = content.feature5;
+                featureCards[4].querySelector('p').textContent = content.feature5Text;
 
                 // Update download section
                 document.querySelectorAll('.section-title h2')[2].textContent = content.downloadTitle;
@@ -1274,6 +1339,7 @@
                     contactItems[2].querySelector('span').textContent = content.location;
                 }
             }
+
             // Event listeners for language switcher
             langSwitcher.addEventListener('click', switchLanguage);
             mobileLangSwitcher.addEventListener('click', switchLanguage);
@@ -1380,7 +1446,7 @@
                 }
             });
 
-            // Initialize with Arabic
+            // Initialize with Arabic (default)
             updateContent(arabicContent);
         });
     </script>
