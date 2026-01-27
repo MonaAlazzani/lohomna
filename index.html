@@ -2,21 +2,19 @@
 <html lang="ar" dir="rtl">
 
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لحومنا - Lohomna</title>
     <!-- Add this line to set the browser tab icon -->
     <link rel="icon" href="logo.jpeg" type="image/jpeg">
-      <link rel="icon" type="image/png" sizes="32x32" href="logo.jpeg">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.jpeg">
     <link rel="icon" type="image/png" sizes="16x16" href="logo.jpeg">
     <link rel="apple-touch-icon" sizes="180x180" href="logo.jpeg">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -24,18 +22,27 @@
             --primary-dark: #B83D00;
             --primary-light: #FF7A38;
             --primary-gradient: linear-gradient(135deg, #DA4900 0%, #FF7A38 100%);
-            --bg-dark: #0A0A0A;
-            --bg-card: #141414;
-            --bg-section: #0B0B0B;
-            --text-primary: #FFFFFF;
-            --text-secondary: #B0B0B0;
-            --text-tertiary: #777777;
-            --border: #2A2A2A;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+            --bg-dark: #F7F7F7;
+            /* main background */
+            --bg-card: #FFFFFF;
+            /* cards */
+            --bg-section: #F1F1F1;
+            /* sections */
+
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --text-tertiary: #888888;
+
+            --border: #E0E0E0;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
             --radius: 12px;
             --radius-lg: 20px;
         }
+
 
         [lang="en"] {
             direction: ltr;
@@ -79,9 +86,13 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
+
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
+
             border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow);
+
             transition: var(--transition);
         }
 
@@ -91,6 +102,7 @@
             align-items: center;
             padding: 20px 0;
         }
+
 
         .logo {
             display: flex;
@@ -159,35 +171,35 @@
             width: 100%;
         }
 
-       /* New simplified styling */
-.lang-switcher {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 12px;
-    color: var(--text-primary);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    text-decoration: none;
-    background: transparent;
-    border: none;
-    min-width: 60px;
-}
+        /* New simplified styling */
+        .lang-switcher {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            background: transparent;
+            border: none;
+            min-width: 60px;
+        }
 
-.lang-switcher:hover {
-    color: var(--primary);
-    transform: translateY(-2px);
-}
+        .lang-switcher:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
 
-/* Mobile language switcher */
-.mobile-lang-switcher {
-    margin-top: 40px;
-    width: 100%;
-    justify-content: center;
-    background: transparent !important;
-    border: none !important;
-}
+        /* Mobile language switcher */
+        .mobile-lang-switcher {
+            margin-top: 40px;
+            width: 100%;
+            justify-content: center;
+            background: transparent !important;
+            border: none !important;
+        }
 
         /* Hero Section */
         .hero {
@@ -200,6 +212,11 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+
+        .hero h1,
+        .hero p {
+            color: #ffffff;
         }
 
         .hero::before {
@@ -239,6 +256,14 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero h1 {
+            color: #ffffff;
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .cta-button {
@@ -426,27 +451,53 @@
         }
 
         .download-btn {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 24px 40px;
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius);
+            padding: 24px;
             text-decoration: none;
             color: var(--text-primary);
             transition: var(--transition);
-            min-width: 280px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .download-btn:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .download-btn:hover::before {
+            transform: scaleX(1);
         }
 
         .download-icon {
-            font-size: 3rem;
+            width: 56px;
+            height: 56px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #fff;
+            transition: var(--transition);
         }
 
         .download-info h3 {
@@ -464,94 +515,86 @@
             color: var(--text-tertiary);
         }
 
-        .coming-soon {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(218, 73, 0, 0.2);
-            color: var(--primary-light);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-top: 12px;
-        }
+      
 
         /* Social Media Section */
-       .social {
-    padding: 120px 0;
-}
+        .social {
+            padding: 120px 0;
+        }
 
-.social-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
 
-.social-link {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 32px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: var(--transition);
-    min-width: 220px;
-    position: relative;
-    overflow: hidden;
-}
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition);
+            min-width: 220px;
+            position: relative;
+            overflow: hidden;
+        }
 
-/* Add the top colored line */
-.social-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--primary-gradient);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
+        /* Add the top colored line */
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
 
-/* Update hover effect to match feature cards */
-.social-link:hover {
-    background: var(--bg-card);
-    transform: translateY(-10px);
-    border-color: var(--primary);
-    box-shadow: var(--shadow);
-}
+        /* Update hover effect to match feature cards */
+        .social-link:hover {
+            background: var(--bg-card);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
 
-/* Show the top line on hover */
-.social-link:hover::before {
-    transform: scaleX(1);
-}
+        /* Show the top line on hover */
+        .social-link:hover::before {
+            transform: scaleX(1);
+        }
 
-.social-icon {
-    font-size: 1.8rem;
-    transition: var(--transition);
-    color: var(--primary);
-}
+        .social-icon {
+            font-size: 1.8rem;
+            transition: var(--transition);
+            color: var(--primary);
+        }
 
-/* Make icon have gradient background on hover (like feature icons) */
-.social-link:hover .social-icon {
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    transform: scale(1.1);
-}
+        /* Make icon have gradient background on hover (like feature icons) */
+        .social-link:hover .social-icon {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transform: scale(1.1);
+        }
 
-.social-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-}
+        .social-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
 
-.social-info p {
-    font-size: 0.9rem;
-    color: var(--text-tertiary);
-}
+        .social-info p {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+        }
 
         /* Footer */
         footer {
@@ -806,7 +849,7 @@
             display: block;
             border-bottom: 1px solid var(--border);
         }
-        
+
         .mobile-lang-switcher {
             margin-top: 40px;
             width: 100%;
@@ -1102,16 +1145,16 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Language switching functionality
             const langSwitcher = document.getElementById('langSwitcher');
             const mobileLangSwitcher = document.getElementById('mobileLangSwitcher');
             const htmlElement = document.documentElement;
             const bodyElement = document.body;
-            
+
             // Initialize with Arabic (default)
             let currentLang = 'ar';
-            
+
             // Arabic content
             const arabicContent = {
                 siteName: "لحومنا",
@@ -1209,29 +1252,29 @@
                 if (currentLang === 'ar') {
                     // Switch to English
                     currentLang = 'en';
-                    
+
                     htmlElement.lang = 'en';
                     htmlElement.dir = 'ltr';
                     bodyElement.lang = 'en';
                     bodyElement.dir = 'ltr';
-                    
+
                     updateContent(englishContent);
-                    
+
                     // Update language switcher button text
                     langSwitcher.querySelector('.lang-text').textContent = 'عربي';
                     mobileLangSwitcher.querySelector('.lang-text').textContent = 'عربي';
-                    
+
                 } else {
                     // Switch to Arabic
                     currentLang = 'ar';
-                    
+
                     htmlElement.lang = 'ar';
                     htmlElement.dir = 'rtl';
                     bodyElement.lang = 'ar';
                     bodyElement.dir = 'rtl';
-                    
+
                     updateContent(arabicContent);
-                    
+
                     // Update language switcher button text
                     langSwitcher.querySelector('.lang-text').textContent = 'English';
                     mobileLangSwitcher.querySelector('.lang-text').textContent = 'English';
@@ -1369,7 +1412,7 @@
 
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+                anchor.addEventListener('click', function(e) {
                     if (this.getAttribute('href') === '#') return;
 
                     e.preventDefault();
@@ -1413,7 +1456,7 @@
             window.addEventListener('scroll', checkScroll);
 
             // Update active nav link on scroll
-            window.addEventListener('scroll', function () {
+            window.addEventListener('scroll', function() {
                 const scrollPosition = window.scrollY + 100;
                 const sections = document.querySelectorAll('section[id]');
                 const navLinks = document.querySelectorAll('nav a');
@@ -1435,16 +1478,19 @@
             });
 
             // Header scroll effect
-            window.addEventListener('scroll', function () {
+            // Header scroll effect (Light Mode)
+            window.addEventListener('scroll', function() {
                 const header = document.querySelector('header');
+
                 if (window.scrollY > 100) {
-                    header.style.background = 'rgba(10, 10, 10, 0.98)';
-                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.08)';
                 } else {
-                    header.style.background = 'rgba(10, 10, 10, 0.95)';
+                    header.style.background = 'rgba(255, 255, 255, 0.9)';
                     header.style.boxShadow = 'none';
                 }
             });
+
 
             // Initialize with Arabic (default)
             updateContent(arabicContent);
