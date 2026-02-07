@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لحومنا - Lohomna</title>
     <!-- Add this line to set the browser tab icon -->
-    <link rel="icon" href="logo.jpeg" type="image/jpeg">
-    <link rel="icon" type="image/png" sizes="32x32" href="logo.jpeg">
-    <link rel="icon" type="image/png" sizes="16x16" href="logo.jpeg">
-    <link rel="apple-touch-icon" sizes="180x180" href="logo.jpeg">
+    <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo.jpeg">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.jpeg">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -203,12 +205,12 @@
 
         /* Hero Section */
         .hero {
-            padding: 200px 0 150px;
+            padding: 300px 0 300px;
             position: relative;
             overflow: hidden;
             background:
-                linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.3)),
-                url("sheep.jpg");
+                linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.3)),
+                url("images/sheep.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -515,7 +517,7 @@
             color: var(--text-tertiary);
         }
 
-      
+
 
         /* Social Media Section */
         .social {
@@ -863,7 +865,7 @@
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="logo.jpeg" alt="لحومنا Logo" class="logo-image">
+                <img src="images/logo.jpeg" alt="لحومنا Logo" class="logo-image">
                 <span class="logo-text">لحومنا</span>
             </a>
 
@@ -900,6 +902,8 @@
             <li><a href="#social">التواصل</a></li>
             <li><a href="terms.html">شروط الاستخدام</a></li>
             <li><a href="privacy.html">سياسة الخصوصية</a></li>
+            <li><a href="refund.html">سياسة الاسترجاع</a></li>
+
         </ul>
         <div class="lang-switcher mobile-lang-switcher" id="mobileLangSwitcher">
             <span class="lang-text">English</span>
@@ -1116,6 +1120,7 @@
                     <ul class="footer-links">
                         <li><a href="terms.html">شروط الاستخدام</a></li>
                         <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="refund.html">سياسة الاسترجاع</a></li>
                     </ul>
                 </div>
 
@@ -1145,7 +1150,7 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Language switching functionality
             const langSwitcher = document.getElementById('langSwitcher');
             const mobileLangSwitcher = document.getElementById('mobileLangSwitcher');
@@ -1166,6 +1171,7 @@
                 social: "التواصل",
                 terms: "شروط الاستخدام",
                 privacy: "سياسة الخصوصية",
+                refund: "سياسة الاسترجاع",
                 heroTitle: "لحومنا",
                 heroText: "تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية. نلتزم بأعلى معايير النظافة والأمان والموثوقية.",
                 ctaButton: "حمل التطبيق الآن",
@@ -1211,6 +1217,7 @@
                 download: "Download",
                 social: "Contact",
                 terms: "Terms of Use",
+                refund: "Refund Policy",
                 privacy: "Privacy Policy",
                 heroTitle: "Lohomna",
                 heroText: "A UAE-based app that delivers fresh, carefully selected meat slaughtered according to Islamic law. We adhere to the highest standards of cleanliness, safety, and reliability.",
@@ -1300,7 +1307,7 @@
                 // Update mobile menu legal links
                 if (navLinks[5]) navLinks[5].textContent = content.terms;
                 if (navLinks[6]) navLinks[6].textContent = content.privacy;
-
+                if (navLinks[7]) navLinks[7].textContent = content.refund;
                 // Update hero section
                 document.querySelector('.hero h1').textContent = content.heroTitle;
                 document.querySelector('.hero p').textContent = content.heroText;
@@ -1363,9 +1370,11 @@
                 // Update footer legal links
                 if (footerQuickLinks.length > 1) {
                     const legalLinks = footerQuickLinks[1].querySelectorAll('a');
-                    if (legalLinks.length >= 2) {
+
+                    if (legalLinks.length >= 3) {
                         legalLinks[0].textContent = content.terms;
                         legalLinks[1].textContent = content.privacy;
+                        legalLinks[2].textContent = content.refund;
                     }
                 }
 
@@ -1412,7 +1421,7 @@
 
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     if (this.getAttribute('href') === '#') return;
 
                     e.preventDefault();
@@ -1456,7 +1465,7 @@
             window.addEventListener('scroll', checkScroll);
 
             // Update active nav link on scroll
-            window.addEventListener('scroll', function() {
+            window.addEventListener('scroll', function () {
                 const scrollPosition = window.scrollY + 100;
                 const sections = document.querySelectorAll('section[id]');
                 const navLinks = document.querySelectorAll('nav a');
@@ -1479,7 +1488,7 @@
 
             // Header scroll effect
             // Header scroll effect (Light Mode)
-            window.addEventListener('scroll', function() {
+            window.addEventListener('scroll', function () {
                 const header = document.querySelector('header');
 
                 if (window.scrollY > 100) {
@@ -1499,4 +1508,3 @@
 </body>
 
 </html>
-
