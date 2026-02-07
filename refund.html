@@ -255,20 +255,13 @@
             left: 0;
         }
 
-        /* Contact Card - Special Styling */
-        /* Contact Section - Normal styling like other parts */
+        /* Contact Section */
         .contact-section {
             margin-bottom: 50px;
             padding: 0;
             background: transparent;
             border-radius: 0;
             box-shadow: none;
-            position: static;
-            overflow: visible;
-        }
-
-        .contact-section::before {
-            content: none;
         }
 
         .contact-section h2 {
@@ -369,11 +362,6 @@
             h2 {
                 font-size: 1.4rem;
             }
-
-            .contact-card {
-                padding: 30px 25px;
-                margin: 50px 0 30px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -392,10 +380,6 @@
             p,
             li {
                 font-size: 1rem;
-            }
-
-            .contact-card {
-                padding: 25px 20px;
             }
 
             .back-button {
@@ -424,7 +408,6 @@
 
     <!-- Main Content -->
     <div class="content-wrapper">
-
 
         <h1>سياسة الاسترجاع</h1>
 
@@ -472,8 +455,7 @@
             </ul>
         </div>
 
-        <!-- Contact Card - Special Styling -->
-        <!-- Contact Section - Normal styling -->
+        <!-- Contact Section -->
         <div class="section contact-section">
             <h2>التواصل</h2>
             <p>في حال وجود أي استفسار عام بخصوص التطبيق، يمكنكم التواصل معنا عبر:</p>
@@ -535,8 +517,7 @@
                 contactItem: "الهاتف / واتساب: <strong>00971554484488</strong>",
                 backButton: "العودة إلى التطبيق",
                 copyright: "© 2026 لحومنا. جميع الحقوق محفوظة.",
-                langText: "English",
-                langIcon: "🌐"
+                langText: "English"
             };
 
             // English content
@@ -568,8 +549,7 @@
                 contactItem: "Phone / WhatsApp: <strong>00971554484488</strong>",
                 backButton: "Back to App",
                 copyright: "© 2026 Lohomna. All rights reserved.",
-                langText: "عربي",
-                langIcon: "🌐"
+                langText: "عربي"
             };
 
             // Function to switch language
@@ -610,15 +590,24 @@
                 document.querySelector('.site-title').textContent = content.siteTitle;
                 document.querySelector('.site-subtitle').textContent = content.lastUpdated;
 
-
                 // Update page heading
                 document.querySelector('h1').textContent = content.pageHeading;
 
                 // Update paragraphs
                 const paragraphs = document.querySelectorAll('.section p');
+                
+                // Introduction paragraph
                 if (paragraphs[0]) paragraphs[0].innerHTML = content.paragraph1;
+                
+                // Section 1 content
                 if (paragraphs[1]) paragraphs[1].innerHTML = content.section1Content;
+                
+                // Section 2 content
                 if (paragraphs[2]) paragraphs[2].textContent = content.section2Content;
+                
+                // Contact section paragraph (section 5)
+                const contactSectionParagraph = document.querySelector('.contact-section p');
+                if (contactSectionParagraph) contactSectionParagraph.textContent = content.section5Content;
 
                 // Update section titles
                 const headings = document.querySelectorAll('h2');
@@ -628,11 +617,7 @@
                 if (headings[3]) headings[3].textContent = content.section4Title;
                 if (headings[4]) headings[4].textContent = content.section5Title;
 
-                // Update contact paragraph
-                const contactParagraph = document.querySelector('.contact-card p');
-                if (contactParagraph) contactParagraph.textContent = content.section5Content;
-
-                // Update merchant list items
+                // Update merchant list items (section 3)
                 const merchantList = document.querySelectorAll('.section')[3]?.querySelectorAll('li');
                 if (merchantList && content.section3Items) {
                     content.section3Items.forEach((item, index) => {
@@ -642,7 +627,7 @@
                     });
                 }
 
-                // Update customer list items
+                // Update customer list items (section 4)
                 const customerList = document.querySelectorAll('.section')[4]?.querySelectorAll('li');
                 if (customerList && content.section4Items) {
                     content.section4Items.forEach((item, index) => {
@@ -652,10 +637,10 @@
                     });
                 }
 
-                // Update contact list item
-                const contactItem = document.querySelector('.contact-card li');
-                if (contactItem) {
-                    contactItem.innerHTML = content.contactItem;
+                // Update contact list item (contact section)
+                const contactListItem = document.querySelector('.contact-section li');
+                if (contactListItem) {
+                    contactListItem.innerHTML = content.contactItem;
                 }
 
                 // Update back button
@@ -682,9 +667,7 @@
 
                 // Update language switcher
                 const langText = document.querySelector('.lang-text');
-                const langIcon = document.querySelector('.lang-icon');
                 if (langText) langText.textContent = content.langText;
-                if (langIcon) langIcon.textContent = content.langIcon;
             }
 
             // Event listener for language switcher
