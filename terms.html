@@ -4,65 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شروط الاستخدام - لحومنا</title>
+
+    <!-- Icons & Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --primary: #DA4900;
+            --primary-dark: #B83D00;
+            --primary-light: #FF7A38;
+            --primary-gradient: linear-gradient(135deg, #DA4900 0%, #FF7A38 100%);
+
+            --bg-dark: #F7F7F7;
+            --bg-card: #FFFFFF;
+            --bg-section: #F1F1F1;
+
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --text-tertiary: #888888;
+
+            --border: #E0E0E0;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
         body {
             font-family: 'Almarai', sans-serif;
-            background: #141414;
-            color: #fff;
-            padding: 20px;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            padding: 12px;
         }
+
         .container {
             max-width: 800px;
             margin: auto;
-            background: #1f1f1f;
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid #2a2a2a;
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
         }
+
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
+
         .logo img {
-            height: 60px;
-            border-radius: 10px;
+            height: 52px;
+            border-radius: var(--radius);
             margin-bottom: 10px;
         }
+
         .logo-text {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            color: #DA4900;
+            color: var(--primary);
             display: block;
-            margin-bottom: 5px;
         }
+
         .last-updated {
-            font-size: 0.9rem;
-            color: #ccc;
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
         }
-        h1 { color: #DA4900; margin: 20px 0; text-align:center; }
-        h2 { color: #DA4900; margin: 20px 0 10px; }
-        p, li { color: #ccc; margin-bottom: 15px; line-height: 1.6; }
+
+        h1 {
+            color: var(--primary);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--text-primary);
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        p,
+        li {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            padding-right: 18px;
+        }
+
         a.back-button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 25px;
-            background: #DA4900;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 10px 22px;
+            background: var(--primary-gradient);
             color: #fff;
             text-decoration: none;
             border-radius: 30px;
+            transition: var(--transition);
         }
-        a.back-button:hover { opacity: 0.9; }
+
+        a.back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        footer {
+            margin-top: 28px;
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <div class="logo">
-                <img src="logo.jpeg" alt="لحومنا شعار">
+                <img src="images/logo.jpeg" alt="لحومنا شعار">
                 <span class="logo-text">لحومنا</span>
             </div>
             <p class="last-updated">آخر تحديث: يناير 2026</p>
@@ -71,33 +139,55 @@
         <h1>شروط الاستخدام</h1>
 
         <h2>القبول بالشروط</h2>
-        <p>باستخدامك تطبيق <strong>لحومنا</strong>، فإنك توافق على الالتزام بهذه الشروط. إذا كنت لا توافق على أي جزء منها، يرجى عدم استخدام التطبيق.</p>
+        <p>
+            باستخدامك تطبيق <strong>لحومنا</strong>، فإنك توافق على الالتزام بهذه الشروط.
+            إذا كنت لا توافق على أي جزء منها، يرجى عدم استخدام التطبيق.
+        </p>
 
         <h2>الوصول للخدمة</h2>
-        <p>التطبيق يوفر خدمة طلب الذبائح الطازجة وفق الشريعة الإسلامية والتوصيل إلى منزلك. استخدامك للتطبيق يجب أن يكون وفق القوانين المحلية ووفق الأغراض الشخصية فقط.</p>
+        <p>
+            يوفر التطبيق خدمة طلب الذبائح الطازجة وفق الشريعة الإسلامية والتوصيل إلى منزل العميل.
+            يجب استخدام التطبيق بما يتوافق مع القوانين المحلية وللأغراض الشخصية فقط.
+        </p>
 
         <h2>حساب المستخدم</h2>
-        <p>للاستخدام الكامل، تحتاج لتسجيل حساب باسمك ورقم هاتفك فقط. أنت مسؤول عن الحفاظ على معلوماتك صحيحة وسرية.</p>
+        <p>
+            للاستفادة من خدمات التطبيق، يتطلب إنشاء حساب باستخدام الاسم ورقم الهاتف فقط.
+            يتحمل المستخدم مسؤولية صحة البيانات والحفاظ على سريتها.
+        </p>
 
         <h2>الدفع والتوصيل</h2>
-        <p>الأسعار كما هي معروضة في التطبيق، وقد تشمل رسوم التوصيل. التطبيق لا يخزن بيانات بطاقات الدفع.</p>
+        <p>
+            الأسعار معروضة بوضوح داخل التطبيق وقد تشمل رسوم التوصيل.
+            لا يقوم التطبيق بتخزين أي بيانات متعلقة ببطاقات الدفع.
+        </p>
 
         <h2>الملكية الفكرية</h2>
-        <p>جميع محتويات التطبيق، بما في ذلك الشعار والتصميم والمحتوى، محمية بحقوق الملكية الفكرية ولا يجوز نسخها أو إعادة استخدامها دون إذن.</p>
+        <p>
+            جميع محتويات التطبيق بما في ذلك الشعارات، التصاميم، والنصوص
+            محمية بحقوق الملكية الفكرية ولا يجوز إعادة استخدامها دون إذن مسبق.
+        </p>
 
         <h2>التعديلات</h2>
-        <p>يحق لنا تعديل هذه الشروط في أي وقت. استمرارك في استخدام التطبيق يعني موافقتك على التعديلات.</p>
-
+        <p>
+            يحق لإدارة التطبيق تعديل شروط الاستخدام في أي وقت.
+            استمرار استخدام التطبيق يُعد موافقة على أي تحديثات.
+        </p>
 
         <h2>التواصل</h2>
-        <p>لأي استفسار، يمكنك التواصل معنا عبر:</p>
+        <p>لأي استفسار، يمكنكم التواصل معنا عبر:</p>
         <ul>
-            <li>الهاتف/واتساب: 00971554484488</li>
+            <li>الهاتف / واتساب: 00971554484488</li>
         </ul>
 
-        <a href="index.html" class="back-button"><i class="fas fa-arrow-right"></i> العودة إلى التطبيق</a>
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-right"></i>
+            العودة إلى التطبيق
+        </a>
 
-        <p style="margin-top:30px; color:#666; text-align:center;">© 2026 لحومنا. جميع الحقوق محفوظة.</p>
+        <footer>
+            © 2026 لحومنا. جميع الحقوق محفوظة.
+        </footer>
     </div>
 </body>
 </html>
