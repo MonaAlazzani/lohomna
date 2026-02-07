@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سياسة الخصوصية - لحومنا</title>
+    <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
 
     <!-- Icons & Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         :root {
@@ -17,170 +21,668 @@
             --primary-dark: #B83D00;
             --primary-light: #FF7A38;
             --primary-gradient: linear-gradient(135deg, #DA4900 0%, #FF7A38 100%);
+            --black-gradient: linear-gradient(135deg, #1A1A1A 0%, #2C3E50 100%);
 
-            --bg-dark: #F7F7F7;
-            --bg-card: #FFFFFF;
-            --bg-section: #F1F1F1;
-
-            --text-primary: #111111;
-            --text-secondary: #555555;
-            --text-tertiary: #888888;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-tertiary: #666666;
 
             --border: #E0E0E0;
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --divider: #DA4900;
 
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s ease;
+        }
 
-            --radius: 12px;
-            --radius-lg: 20px;
+        [lang="en"] {
+            direction: ltr;
+            text-align: left;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Almarai', sans-serif;
-            background: var(--bg-dark);
+            background-color: #FFFFFF;
             color: var(--text-primary);
-            padding: 12px;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: var(--bg-card);
-            padding: 24px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
+        body[lang="en"] {
+            font-family: 'Poppins', sans-serif;
         }
 
+        /* Header Section */
         .header {
-            text-align: center;
-            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--border);
         }
 
-        .logo img {
-            height: 52px;
-            border-radius: var(--radius);
-            margin-bottom: 10px;
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
-        .logo-text {
-            font-size: 1.8rem;
+        .logo-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FFF;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-title {
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--primary);
-            display: block;
         }
 
+        .site-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        /* Language Switcher - Fixed with logo */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 2px 20px;
+            background: #F8F8F8;
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .lang-switcher:hover {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(218, 73, 0, 0.2);
+        }
+
+        .lang-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            padding: 20px 0;
+        }
+
+        /* Last Updated */
         .last-updated {
-            font-size: 0.85rem;
+            text-align: center;
             color: var(--text-tertiary);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
         }
 
+        /* Main Title */
         h1 {
-            color: var(--primary);
-            margin: 16px 0;
+            color: var(--text-primary);
             text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        [lang="en"] h1::after {
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 50px;
         }
 
         h2 {
             color: var(--text-primary);
-            margin-top: 20px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--divider);
+            border-radius: 2px;
+        }
+
+        [lang="en"] h2::after {
+            right: auto;
+            left: 0;
+        }
+
+        p {
+            color: var(--text-primary);
+            margin-bottom: 20px;
             font-size: 1.1rem;
+            line-height: 1.8;
         }
 
-        p,
-        li {
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-            line-height: 1.7;
-            font-size: 0.95rem;
+        strong {
+            color: var(--primary);
+            font-weight: 700;
         }
 
+        /* Lists */
         ul {
-            padding-right: 18px;
+            list-style: none;
+            padding-right: 20px;
+            margin-bottom: 20px;
         }
 
-        a.back-button {
+        [lang="en"] ul {
+            padding-right: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 25px;
+            line-height: 1.6;
+        }
+
+        [lang="en"] li {
+            padding-right: 0;
+            padding-left: 25px;
+        }
+
+        li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        [lang="en"] li::before {
+            right: auto;
+            left: 0;
+        }
+
+        /* Contact Section - Normal styling like other parts */
+        .contact-section {
+            margin-bottom: 50px;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            position: static;
+            overflow: visible;
+        }
+
+        .contact-section::before {
+            content: none;
+        }
+
+        .contact-section h2 {
+            color: var(--text-primary);
+            border-bottom-color: var(--divider);
+        }
+
+        .contact-section p {
+            color: var(--text-primary);
+            margin-bottom: 25px;
+        }
+
+        .contact-section ul {
+            margin-top: 0;
+        }
+
+        .contact-section li {
+            color: var(--text-primary);
+        }
+
+        .contact-section li::before {
+            background: var(--primary);
+        }
+
+        .contact-section strong {
+            color: var(--primary);
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        /* Back Button */
+        .back-button-container {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .back-button {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 24px;
-            padding: 10px 22px;
+            gap: 12px;
+            padding: 15px 35px;
             background: var(--primary-gradient);
-            color: #fff;
+            color: white;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 25px;
             transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
         }
 
-        a.back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(218, 73, 0, 0.3);
         }
 
+        /* Footer */
         footer {
-            margin-top: 28px;
             text-align: center;
             color: var(--text-tertiary);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+                padding: 20px 0;
+            }
+
+            .logo-section {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .site-title {
+                font-size: 1.9rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .contact-card {
+                padding: 30px 25px;
+                margin: 50px 0 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 1.7rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            p,
+            li {
+                font-size: 1rem;
+            }
+
+            .contact-card {
+                padding: 25px 20px;
+            }
+
+            .back-button {
+                padding: 12px 30px;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <img src="images/logo.jpeg" alt="لحومنا شعار">
-                <span class="logo-text">لحومنا</span>
+<body lang="ar" dir="rtl">
+    <!-- Header with Logo and Language Switcher -->
+    <div class="header">
+        <div class="logo-section">
+            <img src="images/logo.jpeg" alt="لحومنا شعار" class="logo-image">
+            <div>
+                <div class="site-title">لحومنا</div>
+                <div class="site-subtitle"> آخر تحديث: يناير 2026</div>
             </div>
-            <p class="last-updated">آخر تحديث: يناير 2026</p>
         </div>
+
+        <div class="lang-switcher" id="langSwitcher">
+            <span class="lang-text">English</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
 
         <h1>سياسة الخصوصية</h1>
 
-        <p>
-            نحن في تطبيق <strong>لحومنا</strong> نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.
-        </p>
+        <!-- Introduction -->
+        <div class="section">
+            <p>
+                نحن في تطبيق <strong>لحومنا</strong> نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.
+            </p>
+        </div>
 
-        <h2>المعلومات التي نجمعها</h2>
-        <p>نجمع فقط المعلومات الضرورية لتقديم خدماتنا، وتشمل:</p>
-        <ul>
-            <li>الاسم الكامل</li>
-            <li>رقم الهاتف</li>
-        </ul>
+        <!-- Section 1 -->
+        <div class="section">
+            <h2>المعلومات التي نجمعها</h2>
+            <p>نجمع فقط المعلومات الضرورية لتقديم خدماتنا، وتشمل:</p>
+            <ul>
+                <li>الاسم الكامل</li>
+                <li>رقم الهاتف</li>
+            </ul>
+        </div>
 
-        <h2>كيفية استخدام المعلومات</h2>
-        <p>
-            نستخدم معلوماتك فقط للتواصل معك أو لتقديم خدمات التطبيق،
-            ولا نشارك بياناتك مع أي طرف ثالث.
-        </p>
+        <!-- Section 2 -->
+        <div class="section">
+            <h2>كيفية استخدام المعلومات</h2>
+            <p>
+                نستخدم معلوماتك فقط للتواصل معك أو لتقديم خدمات التطبيق،
+                ولا نشارك بياناتك مع أي طرف ثالث.
+            </p>
+        </div>
 
-        <h2>أمان البيانات</h2>
-        <p>
-            نحتفظ ببياناتك بأمان على خوادمنا،
-            ولا نقوم بتخزين أي بيانات مالية أو معلومات حساسة أخرى.
-        </p>
+        <!-- Section 3 -->
+        <div class="section">
+            <h2>أمان البيانات</h2>
+            <p>
+                نحتفظ ببياناتك بأمان على خوادمنا،
+                ولا نقوم بتخزين أي بيانات مالية أو معلومات حساسة أخرى.
+            </p>
+        </div>
 
-        <h2>حقوقك</h2>
-        <p>
-            يحق لك طلب تعديل أو حذف بياناتك في أي وقت
-            من خلال التواصل معنا عبر قنوات الدعم المتاحة.
-        </p>
+        <!-- Section 4 -->
+        <div class="section">
+            <h2>حقوقك</h2>
+            <p>
+                يحق لك طلب تعديل أو حذف بياناتك في أي وقت
+                من خلال التواصل معنا عبر قنوات الدعم المتاحة.
+            </p>
+        </div>
 
-        <h2>التواصل معنا</h2>
-        <p>لأي استفسار، يمكنكم التواصل معنا عبر:</p>
-        <ul>
-            <li>الهاتف / واتساب: 00971554484488</li>
-        </ul>
+        <!-- Contact Section -->
+        <div class="section contact-section">
+            <h2>التواصل معنا</h2>
+            <p>لأي استفسار، يمكنكم التواصل معنا عبر:</p>
+            <ul>
+                <li>الهاتف / واتساب: <strong>00971554484488</strong></li>
+            </ul>
+        </div>
 
-        <a href="index.html" class="back-button">
-            <i class="fas fa-arrow-right"></i>
-            العودة إلى التطبيق
-        </a>
+        <!-- Back Button -->
+        <div class="back-button-container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-right"></i>
+                العودة إلى التطبيق
+            </a>
+        </div>
 
+        <!-- Footer -->
         <footer>
             © 2026 لحومنا. جميع الحقوق محفوظة.
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Language switching functionality
+            const langSwitcher = document.getElementById('langSwitcher');
+            const htmlElement = document.documentElement;
+            const bodyElement = document.body;
+
+            // Initialize with Arabic (default)
+            let currentLang = 'ar';
+
+            // Arabic content
+            const arabicContent = {
+                pageTitle: "سياسة الخصوصية - لحومنا",
+                logoAlt: "لحومنا شعار",
+                siteTitle: "لحومنا",
+                siteSubtitle: "جودة اللحوم الطازجة مباشرة إلى منزلك",
+                lastUpdated: "آخر تحديث: يناير 2026",
+                pageHeading: "سياسة الخصوصية",
+                paragraph1: "نحن في تطبيق <strong>لحومنا</strong> نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.",
+                section1Title: "المعلومات التي نجمعها",
+                section1Intro: "نجمع فقط المعلومات الضرورية لتقديم خدماتنا، وتشمل:",
+                section1Items: [
+                    "الاسم الكامل",
+                    "رقم الهاتف"
+                ],
+                section2Title: "كيفية استخدام المعلومات",
+                section2Content: "نستخدم معلوماتك فقط للتواصل معك أو لتقديم خدمات التطبيق، ولا نشارك بياناتك مع أي طرف ثالث.",
+                section3Title: "أمان البيانات",
+                section3Content: "نحتفظ ببياناتك بأمان على خوادمنا، ولا نقوم بتخزين أي بيانات مالية أو معلومات حساسة أخرى.",
+                section4Title: "حقوقك",
+                section4Content: "يحق لك طلب تعديل أو حذف بياناتك في أي وقت من خلال التواصل معنا عبر قنوات الدعم المتاحة.",
+                section5Title: "التواصل معنا",
+                section5Content: "لأي استفسار، يمكنكم التواصل معنا عبر:",
+                contactItem: "الهاتف / واتساب: <strong>00971554484488</strong>",
+                backButton: "العودة إلى التطبيق",
+                copyright: "© 2026 لحومنا. جميع الحقوق محفوظة.",
+                langText: "English"
+            };
+
+            // English content
+            const englishContent = {
+                pageTitle: "Privacy Policy - Lohomna",
+                logoAlt: "Lohomna Logo",
+                siteTitle: "Lohomna",
+                siteSubtitle: "Fresh Meat Quality Directly to Your Home",
+                lastUpdated: "Last Updated: January 2026",
+                pageHeading: "Privacy Policy",
+                paragraph1: "We at the <strong>Lohomna</strong> application respect your privacy and are committed to protecting your personal data.",
+                section1Title: "Information We Collect",
+                section1Intro: "We collect only the necessary information to provide our services, including:",
+                section1Items: [
+                    "Full name",
+                    "Phone number"
+                ],
+                section2Title: "How We Use Information",
+                section2Content: "We use your information only to communicate with you or to provide application services, and we do not share your data with any third party.",
+                section3Title: "Data Security",
+                section3Content: "We keep your data secure on our servers, and we do not store any financial data or other sensitive information.",
+                section4Title: "Your Rights",
+                section4Content: "You have the right to request modification or deletion of your data at any time by contacting us through available support channels.",
+                section5Title: "Contact Us",
+                section5Content: "For any inquiries, you can contact us via:",
+                contactItem: "Phone / WhatsApp: <strong>00971554484488</strong>",
+                backButton: "Back to App",
+                copyright: "© 2026 Lohomna. All rights reserved.",
+                langText: "عربي"
+            };
+
+            // Function to switch language
+            function switchLanguage() {
+                if (currentLang === 'ar') {
+                    // Switch to English
+                    currentLang = 'en';
+
+                    htmlElement.lang = 'en';
+                    htmlElement.dir = 'ltr';
+                    bodyElement.lang = 'en';
+                    bodyElement.dir = 'ltr';
+
+                    updateContent(englishContent);
+
+                } else {
+                    // Switch to Arabic
+                    currentLang = 'ar';
+
+                    htmlElement.lang = 'ar';
+                    htmlElement.dir = 'rtl';
+                    bodyElement.lang = 'ar';
+                    bodyElement.dir = 'rtl';
+
+                    updateContent(arabicContent);
+                }
+            }
+
+            // Function to update content based on language
+            function updateContent(content) {
+                // Update page title
+                document.title = content.pageTitle;
+
+                // Update logo alt text
+                document.querySelector('.logo-image').alt = content.logoAlt;
+
+                // Update site title and subtitle
+                document.querySelector('.site-title').textContent = content.siteTitle;
+                document.querySelector('.site-subtitle').textContent = content.lastUpdated;
+
+                // Update page heading
+                document.querySelector('h1').textContent = content.pageHeading;
+
+                // Update paragraphs
+                const paragraphs = document.querySelectorAll('.section p');
+                
+                // Introduction paragraph
+                if (paragraphs[0]) paragraphs[0].innerHTML = content.paragraph1;
+                
+                // Section 1 intro (after the title)
+                const section1Paragraph = document.querySelectorAll('.section')[1]?.querySelector('p');
+                if (section1Paragraph) section1Paragraph.textContent = content.section1Intro;
+                
+                // Section 2 content
+                if (paragraphs[2]) paragraphs[2].textContent = content.section2Content;
+                
+                // Section 3 content
+                if (paragraphs[3]) paragraphs[3].textContent = content.section3Content;
+                
+                // Section 4 content
+                if (paragraphs[4]) paragraphs[4].textContent = content.section4Content;
+                
+                // Section 5 content (contact intro)
+                const contactParagraph = document.querySelector('.contact-section p');
+                if (contactParagraph) contactParagraph.textContent = content.section5Content;
+
+                // Update section titles
+                const headings = document.querySelectorAll('h2');
+                if (headings[0]) headings[0].textContent = content.section1Title;
+                if (headings[1]) headings[1].textContent = content.section2Title;
+                if (headings[2]) headings[2].textContent = content.section3Title;
+                if (headings[3]) headings[3].textContent = content.section4Title;
+                if (headings[4]) headings[4].textContent = content.section5Title;
+
+                // Update section 1 list items
+                const section1List = document.querySelectorAll('.section')[1]?.querySelectorAll('li');
+                if (section1List && content.section1Items) {
+                    content.section1Items.forEach((item, index) => {
+                        if (section1List[index]) {
+                            section1List[index].textContent = item;
+                        }
+                    });
+                }
+
+                // Update contact list item
+                const contactItem = document.querySelector('.contact-section li');
+                if (contactItem) {
+                    contactItem.innerHTML = content.contactItem;
+                }
+
+                // Update back button
+                const backButton = document.querySelector('.back-button');
+                if (backButton) {
+                    const icon = backButton.querySelector('i');
+                    if (currentLang === 'en') {
+                        icon.className = 'fas fa-arrow-left';
+                    } else {
+                        icon.className = 'fas fa-arrow-right';
+                    }
+
+                    const textNode = backButton.childNodes[2];
+                    if (textNode && textNode.nodeType === 3) {
+                        textNode.textContent = ' ' + content.backButton;
+                    }
+                }
+
+                // Update footer
+                const footer = document.querySelector('footer');
+                if (footer) {
+                    footer.textContent = content.copyright;
+                }
+
+                // Update language switcher
+                const langText = document.querySelector('.lang-text');
+                if (langText) langText.textContent = content.langText;
+            }
+
+            // Event listener for language switcher
+            langSwitcher.addEventListener('click', switchLanguage);
+
+            // Initialize with Arabic (default)
+            updateContent(arabicContent);
+        });
+    </script>
 </body>
+
 </html>
