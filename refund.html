@@ -478,204 +478,203 @@
         </footer>
     </div>
 
-    <script>
+     <script>
+        // Get language preference from URL or localStorage
+        const getLanguagePreference = () => {
+            // Check URL parameter first
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            
+            // Check localStorage as backup
+            const storedLang = localStorage.getItem('lohomna_language');
+            
+            // Priority: URL > localStorage > default Arabic
+            if (urlLang && (urlLang === 'ar' || urlLang === 'en')) {
+                return urlLang;
+            } else if (storedLang) {
+                return storedLang;
+            }
+            return 'ar'; // Default
+        };
+
+        // Set language immediately (before DOM loads)
+        const currentLang = getLanguagePreference();
+        document.documentElement.lang = currentLang;
+        document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+        document.body.lang = currentLang;
+        document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+        // Arabic content
+        const arabicContent = {
+            pageTitle: "سياسة الاسترجاع - لحومنا",
+            logoAlt: "لحومنا شعار",
+            siteTitle: "لحومنا",
+            siteSubtitle: "آخر تحديث: يناير 2026",
+            pageHeading: "سياسة الاسترجاع",
+            paragraph1: "يحرص تطبيق <strong>لحومنا</strong> على توضيح آلية الاسترجاع لضمان الشفافية وحفظ حقوق جميع الأطراف.",
+            section1Title: "نطاق سياسة الاسترجاع",
+            section1Content: "يوضح تطبيق لحومنا أن <strong>سياسة الاسترجاع والاستبدال تتم بالاتفاق المباشر بين العميل والشركة أو المتجر الذي تم الشراء منه</strong>.",
+            section2Title: "دور تطبيق لحومنا",
+            section2Content: "يعمل تطبيق لحومنا كمنصة وسيطة لعرض المنتجات وتسهيل عملية الطلب فقط، ولا يتحمل أي مسؤولية عن قرارات الاسترجاع أو الاستبدال أو شروطها.",
+            section3Title: "مسؤولية التاجر",
+            section3Items: [
+                "تحديد شروط الاسترجاع أو الاستبدال الخاصة به.",
+                "التعامل مع طلبات العملاء المتعلقة بالاسترجاع.",
+                "الالتزام بالأنظمة والقوانين المعمول بها."
+            ],
+            section4Title: "مسؤولية العميل",
+            section4Items: [
+                "مراجعة سياسة الاسترجاع الخاصة بالشركة قبل إتمام عملية الشراء.",
+                "التواصل مباشرة مع الشركة في حال الرغبة في الاسترجاع أو الاستبدال."
+            ],
+            section5Title: "التواصل",
+            section5Content: "في حال وجود أي استفسار عام بخصوص التطبيق، يمكنكم التواصل معنا عبر:",
+            contactItem: "الهاتف / واتساب: <strong>00971554484488</strong>",
+            backButton: "العودة إلى التطبيق",
+            copyright: "© 2026 لحومنا. جميع الحقوق محفوظة."
+        };
+
+        // English content
+        const englishContent = {
+            pageTitle: "Refund Policy - Lohomna",
+            logoAlt: "Lohomna Logo",
+            siteTitle: "Lohomna",
+            siteSubtitle: "Last Updated: January 2026",
+            pageHeading: "Refund Policy",
+            paragraph1: "<strong>Lohomna</strong> application is keen to clarify the refund mechanism to ensure transparency and protect the rights of all parties.",
+            section1Title: "Scope of Refund Policy",
+            section1Content: "Lohomna application clarifies that <strong>refund and exchange policies are implemented through direct agreement between the customer and the company or store from which the purchase was made</strong>.",
+            section2Title: "Role of Lohomna Application",
+            section2Content: "Lohomna application works only as an intermediary platform for displaying products and facilitating the ordering process, and bears no responsibility for refund or exchange decisions or their terms.",
+            section3Title: "Merchant Responsibility",
+            section3Items: [
+                "Determine their own refund or exchange terms.",
+                "Handle customer requests related to refunds.",
+                "Comply with applicable regulations and laws."
+            ],
+            section4Title: "Customer Responsibility",
+            section4Items: [
+                "Review the company's refund policy before completing the purchase process.",
+                "Communicate directly with the company in case of wanting a refund or exchange."
+            ],
+            section5Title: "Contact",
+            section5Content: "If you have any general inquiries regarding the application, you can contact us via:",
+            contactItem: "Phone / WhatsApp: <strong>00971554484488</strong>",
+            backButton: "Back to App",
+            copyright: "© 2026 Lohomna. All rights reserved."
+        };
+
         document.addEventListener('DOMContentLoaded', function () {
-            // Language switching functionality
+            // Hide the language switcher
             const langSwitcher = document.getElementById('langSwitcher');
-            const htmlElement = document.documentElement;
-            const bodyElement = document.body;
-
-            // Initialize with Arabic (default)
-            let currentLang = 'ar';
-
-            // Arabic content
-            const arabicContent = {
-                pageTitle: "سياسة الاسترجاع - لحومنا",
-                logoAlt: "لحومنا شعار",
-                siteTitle: "لحومنا",
-                siteSubtitle: "جودة اللحوم الطازجة مباشرة إلى منزلك",
-                lastUpdated: "آخر تحديث: يناير 2026",
-                pageHeading: "سياسة الاسترجاع",
-                paragraph1: "يحرص تطبيق <strong>لحومنا</strong> على توضيح آلية الاسترجاع لضمان الشفافية وحفظ حقوق جميع الأطراف.",
-                section1Title: "نطاق سياسة الاسترجاع",
-                section1Content: "يوضح تطبيق لحومنا أن <strong>سياسة الاسترجاع والاستبدال تتم بالاتفاق المباشر بين العميل والشركة أو المتجر الذي تم الشراء منه</strong>.",
-                section2Title: "دور تطبيق لحومنا",
-                section2Content: "يعمل تطبيق لحومنا كمنصة وسيطة لعرض المنتجات وتسهيل عملية الطلب فقط، ولا يتحمل أي مسؤولية عن قرارات الاسترجاع أو الاستبدال أو شروطها.",
-                section3Title: "مسؤولية التاجر",
-                section3Items: [
-                    "تحديد شروط الاسترجاع أو الاستبدال الخاصة به.",
-                    "التعامل مع طلبات العملاء المتعلقة بالاسترجاع.",
-                    "الالتزام بالأنظمة والقوانين المعمول بها."
-                ],
-                section4Title: "مسؤولية العميل",
-                section4Items: [
-                    "مراجعة سياسة الاسترجاع الخاصة بالشركة قبل إتمام عملية الشراء.",
-                    "التواصل مباشرة مع الشركة في حال الرغبة في الاسترجاع أو الاستبدال."
-                ],
-                section5Title: "التواصل",
-                section5Content: "في حال وجود أي استفسار عام بخصوص التطبيق، يمكنكم التواصل معنا عبر:",
-                contactItem: "الهاتف / واتساب: <strong>00971554484488</strong>",
-                backButton: "العودة إلى التطبيق",
-                copyright: "© 2026 لحومنا. جميع الحقوق محفوظة.",
-                langText: "English"
-            };
-
-            // English content
-            const englishContent = {
-                pageTitle: "Refund Policy - Lohomna",
-                logoAlt: "Lohomna Logo",
-                siteTitle: "Lohomna",
-                siteSubtitle: "Fresh Meat Quality Directly to Your Home",
-                lastUpdated: "Last Updated: January 2026",
-                pageHeading: "Refund Policy",
-                paragraph1: "<strong>Lohomna</strong> application is keen to clarify the refund mechanism to ensure transparency and protect the rights of all parties.",
-                section1Title: "Scope of Refund Policy",
-                section1Content: "Lohomna application clarifies that <strong>refund and exchange policies are implemented through direct agreement between the customer and the company or store from which the purchase was made</strong>.",
-                section2Title: "Role of Lohomna Application",
-                section2Content: "Lohomna application works only as an intermediary platform for displaying products and facilitating the ordering process, and bears no responsibility for refund or exchange decisions or their terms.",
-                section3Title: "Merchant Responsibility",
-                section3Items: [
-                    "Determine their own refund or exchange terms.",
-                    "Handle customer requests related to refunds.",
-                    "Comply with applicable regulations and laws."
-                ],
-                section4Title: "Customer Responsibility",
-                section4Items: [
-                    "Review the company's refund policy before completing the purchase process.",
-                    "Communicate directly with the company in case of wanting a refund or exchange."
-                ],
-                section5Title: "Contact",
-                section5Content: "If you have any general inquiries regarding the application, you can contact us via:",
-                contactItem: "Phone / WhatsApp: <strong>00971554484488</strong>",
-                backButton: "Back to App",
-                copyright: "© 2026 Lohomna. All rights reserved.",
-                langText: "عربي"
-            };
-
-            // Function to switch language
-            function switchLanguage() {
-                if (currentLang === 'ar') {
-                    // Switch to English
-                    currentLang = 'en';
-
-                    htmlElement.lang = 'en';
-                    htmlElement.dir = 'ltr';
-                    bodyElement.lang = 'en';
-                    bodyElement.dir = 'ltr';
-
-                    updateContent(englishContent);
-
-                } else {
-                    // Switch to Arabic
-                    currentLang = 'ar';
-
-                    htmlElement.lang = 'ar';
-                    htmlElement.dir = 'rtl';
-                    bodyElement.lang = 'ar';
-                    bodyElement.dir = 'rtl';
-
-                    updateContent(arabicContent);
-                }
+            if (langSwitcher) {
+                langSwitcher.style.display = 'none';
             }
-
-            // Function to update content based on language
-            function updateContent(content) {
-                // Update page title
-                document.title = content.pageTitle;
-
-                // Update logo alt text
-                document.querySelector('.logo-image').alt = content.logoAlt;
-
-                // Update site title and subtitle
-                document.querySelector('.site-title').textContent = content.siteTitle;
-                document.querySelector('.site-subtitle').textContent = content.lastUpdated;
-
-                // Update page heading
-                document.querySelector('h1').textContent = content.pageHeading;
-
-                // Update paragraphs
-                const paragraphs = document.querySelectorAll('.section p');
-                
-                // Introduction paragraph
-                if (paragraphs[0]) paragraphs[0].innerHTML = content.paragraph1;
-                
-                // Section 1 content
-                if (paragraphs[1]) paragraphs[1].innerHTML = content.section1Content;
-                
-                // Section 2 content
-                if (paragraphs[2]) paragraphs[2].textContent = content.section2Content;
-                
-                // Contact section paragraph (section 5)
-                const contactSectionParagraph = document.querySelector('.contact-section p');
-                if (contactSectionParagraph) contactSectionParagraph.textContent = content.section5Content;
-
-                // Update section titles
-                const headings = document.querySelectorAll('h2');
-                if (headings[0]) headings[0].textContent = content.section1Title;
-                if (headings[1]) headings[1].textContent = content.section2Title;
-                if (headings[2]) headings[2].textContent = content.section3Title;
-                if (headings[3]) headings[3].textContent = content.section4Title;
-                if (headings[4]) headings[4].textContent = content.section5Title;
-
-                // Update merchant list items (section 3)
-                const merchantList = document.querySelectorAll('.section')[3]?.querySelectorAll('li');
-                if (merchantList && content.section3Items) {
-                    content.section3Items.forEach((item, index) => {
-                        if (merchantList[index]) {
-                            merchantList[index].textContent = item;
-                        }
-                    });
-                }
-
-                // Update customer list items (section 4)
-                const customerList = document.querySelectorAll('.section')[4]?.querySelectorAll('li');
-                if (customerList && content.section4Items) {
-                    content.section4Items.forEach((item, index) => {
-                        if (customerList[index]) {
-                            customerList[index].textContent = item;
-                        }
-                    });
-                }
-
-                // Update contact list item (contact section)
-                const contactListItem = document.querySelector('.contact-section li');
-                if (contactListItem) {
-                    contactListItem.innerHTML = content.contactItem;
-                }
-
-                // Update back button
-                const backButton = document.querySelector('.back-button');
-                if (backButton) {
-                    const icon = backButton.querySelector('i');
-                    if (currentLang === 'en') {
-                        icon.className = 'fas fa-arrow-left';
-                    } else {
-                        icon.className = 'fas fa-arrow-right';
-                    }
-
-                    const textNode = backButton.childNodes[2];
-                    if (textNode && textNode.nodeType === 3) {
-                        textNode.textContent = ' ' + content.backButton;
-                    }
-                }
-
-                // Update footer
-                const footer = document.querySelector('footer');
-                if (footer) {
-                    footer.textContent = content.copyright;
-                }
-
-                // Update language switcher
-                const langText = document.querySelector('.lang-text');
-                if (langText) langText.textContent = content.langText;
+            
+            // Adjust header to center without language switcher
+            const header = document.querySelector('.header');
+            if (header) {
+                header.style.justifyContent = 'center';
             }
-
-            // Event listener for language switcher
-            langSwitcher.addEventListener('click', switchLanguage);
-
-            // Initialize with Arabic (default)
-            updateContent(arabicContent);
+            
+            // Determine which content to use
+            const content = currentLang === 'ar' ? arabicContent : englishContent;
+            updateContent(content);
+            
+            // Update back button to include language parameter
+            const backButton = document.querySelector('.back-button');
+            if (backButton) {
+                let backUrl = 'index.html';
+                if (currentLang === 'en') {
+                    backUrl += '?lang=en';
+                }
+                backButton.href = backUrl;
+            }
         });
+
+        // Function to update content based on language
+        function updateContent(content) {
+            // Update page title
+            document.title = content.pageTitle;
+
+            // Update logo alt text
+            const logoImage = document.querySelector('.logo-image');
+            if (logoImage) logoImage.alt = content.logoAlt;
+
+            // Update site title and subtitle
+            const siteTitle = document.querySelector('.site-title');
+            const siteSubtitle = document.querySelector('.site-subtitle');
+            if (siteTitle) siteTitle.textContent = content.siteTitle;
+            if (siteSubtitle) siteSubtitle.textContent = content.siteSubtitle;
+
+            // Update page heading
+            const pageHeading = document.querySelector('h1');
+            if (pageHeading) pageHeading.textContent = content.pageHeading;
+
+            // Update paragraphs
+            const paragraphs = document.querySelectorAll('.section p');
+            if (paragraphs[0]) paragraphs[0].innerHTML = content.paragraph1;
+            if (paragraphs[1]) paragraphs[1].innerHTML = content.section1Content;
+            if (paragraphs[2]) paragraphs[2].textContent = content.section2Content;
+            
+            // Update contact section paragraph
+            const contactParagraph = document.querySelector('.contact-section p');
+            if (contactParagraph) contactParagraph.textContent = content.section5Content;
+
+            // Update section titles
+            const headings = document.querySelectorAll('h2');
+            if (headings[0]) headings[0].textContent = content.section1Title;
+            if (headings[1]) headings[1].textContent = content.section2Title;
+            if (headings[2]) headings[2].textContent = content.section3Title;
+            if (headings[3]) headings[3].textContent = content.section4Title;
+            if (headings[4]) headings[4].textContent = content.section5Title;
+
+            // Update merchant list items (section 3)
+            const merchantSection = document.querySelectorAll('.section')[3];
+            if (merchantSection) {
+                const merchantItems = merchantSection.querySelectorAll('li');
+                content.section3Items.forEach((item, index) => {
+                    if (merchantItems[index]) {
+                        merchantItems[index].textContent = item;
+                    }
+                });
+            }
+
+            // Update customer list items (section 4)
+            const customerSection = document.querySelectorAll('.section')[4];
+            if (customerSection) {
+                const customerItems = customerSection.querySelectorAll('li');
+                content.section4Items.forEach((item, index) => {
+                    if (customerItems[index]) {
+                        customerItems[index].textContent = item;
+                    }
+                });
+            }
+
+            // Update contact list item
+            const contactListItem = document.querySelector('.contact-section li');
+            if (contactListItem) {
+                contactListItem.innerHTML = content.contactItem;
+            }
+
+            // Update back button text and icon
+            const backButton = document.querySelector('.back-button');
+            if (backButton) {
+                const icon = backButton.querySelector('i');
+                if (icon) {
+                    icon.className = currentLang === 'en' ? 'fas fa-arrow-left' : 'fas fa-arrow-right';
+                }
+                
+                const textNode = backButton.childNodes[2];
+                if (textNode && textNode.nodeType === 3) {
+                    textNode.textContent = ' ' + content.backButton;
+                }
+            }
+
+            // Update footer
+            const footer = document.querySelector('footer');
+            if (footer) footer.textContent = content.copyright;
+        }
     </script>
 </body>
 
