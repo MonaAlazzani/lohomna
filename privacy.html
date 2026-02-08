@@ -493,195 +493,193 @@
         </footer>
     </div>
 
-    <script>
+        <script>
+        // Get language preference from URL or localStorage
+        const getLanguagePreference = () => {
+            // Check URL parameter first
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            
+            // Check localStorage as backup
+            const storedLang = localStorage.getItem('lohomna_language');
+            
+            // Priority: URL > localStorage > default Arabic
+            if (urlLang && (urlLang === 'ar' || urlLang === 'en')) {
+                return urlLang;
+            } else if (storedLang) {
+                return storedLang;
+            }
+            return 'ar'; // Default
+        };
+
+        // Set language immediately (before DOM loads)
+        const currentLang = getLanguagePreference();
+        document.documentElement.lang = currentLang;
+        document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+        document.body.lang = currentLang;
+        document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+        // Arabic content
+        const arabicContent = {
+            pageTitle: "سياسة الخصوصية - لحومنا",
+            logoAlt: "لحومنا شعار",
+            siteTitle: "لحومنا",
+            siteSubtitle: "آخر تحديث: يناير 2026",
+            pageHeading: "سياسة الخصوصية",
+            paragraph1: "نحن في تطبيق <strong>لحومنا</strong> نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.",
+            section1Title: "المعلومات التي نجمعها",
+            section1Intro: "نجمع فقط المعلومات الضرورية لتقديم خدماتنا، وتشمل:",
+            section1Items: [
+                "الاسم الكامل",
+                "رقم الهاتف"
+            ],
+            section2Title: "كيفية استخدام المعلومات",
+            section2Content: "نستخدم معلوماتك فقط للتواصل معك أو لتقديم خدمات التطبيق، ولا نشارك بياناتك مع أي طرف ثالث.",
+            section3Title: "أمان البيانات",
+            section3Content: "نحتفظ ببياناتك بأمان على خوادمنا، ولا نقوم بتخزين أي بيانات مالية أو معلومات حساسة أخرى.",
+            section4Title: "حقوقك",
+            section4Content: "يحق لك طلب تعديل أو حذف بياناتك في أي وقت من خلال التواصل معنا عبر قنوات الدعم المتاحة.",
+            section5Title: "التواصل معنا",
+            section5Content: "لأي استفسار، يمكنكم التواصل معنا عبر:",
+            contactItem: "الهاتف / واتساب: <strong>00971554484488</strong>",
+            backButton: "العودة إلى التطبيق",
+            copyright: "© 2026 لحومنا. جميع الحقوق محفوظة."
+        };
+
+        // English content
+        const englishContent = {
+            pageTitle: "Privacy Policy - Lohomna",
+            logoAlt: "Lohomna Logo",
+            siteTitle: "Lohomna",
+            siteSubtitle: "Last Updated: January 2026",
+            pageHeading: "Privacy Policy",
+            paragraph1: "We at the <strong>Lohomna</strong> application respect your privacy and are committed to protecting your personal data.",
+            section1Title: "Information We Collect",
+            section1Intro: "We collect only the necessary information to provide our services, including:",
+            section1Items: [
+                "Full name",
+                "Phone number"
+            ],
+            section2Title: "How We Use Information",
+            section2Content: "We use your information only to communicate with you or to provide application services, and we do not share your data with any third party.",
+            section3Title: "Data Security",
+            section3Content: "We keep your data secure on our servers, and we do not store any financial data or other sensitive information.",
+            section4Title: "Your Rights",
+            section4Content: "You have the right to request modification or deletion of your data at any time by contacting us through available support channels.",
+            section5Title: "Contact Us",
+            section5Content: "For any inquiries, you can contact us via:",
+            contactItem: "Phone / WhatsApp: <strong>00971554484488</strong>",
+            backButton: "Back to App",
+            copyright: "© 2026 Lohomna. All rights reserved."
+        };
+
         document.addEventListener('DOMContentLoaded', function () {
-            // Language switching functionality
+            // Hide the language switcher
             const langSwitcher = document.getElementById('langSwitcher');
-            const htmlElement = document.documentElement;
-            const bodyElement = document.body;
-
-            // Initialize with Arabic (default)
-            let currentLang = 'ar';
-
-            // Arabic content
-            const arabicContent = {
-                pageTitle: "سياسة الخصوصية - لحومنا",
-                logoAlt: "لحومنا شعار",
-                siteTitle: "لحومنا",
-                siteSubtitle: "جودة اللحوم الطازجة مباشرة إلى منزلك",
-                lastUpdated: "آخر تحديث: يناير 2026",
-                pageHeading: "سياسة الخصوصية",
-                paragraph1: "نحن في تطبيق <strong>لحومنا</strong> نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.",
-                section1Title: "المعلومات التي نجمعها",
-                section1Intro: "نجمع فقط المعلومات الضرورية لتقديم خدماتنا، وتشمل:",
-                section1Items: [
-                    "الاسم الكامل",
-                    "رقم الهاتف"
-                ],
-                section2Title: "كيفية استخدام المعلومات",
-                section2Content: "نستخدم معلوماتك فقط للتواصل معك أو لتقديم خدمات التطبيق، ولا نشارك بياناتك مع أي طرف ثالث.",
-                section3Title: "أمان البيانات",
-                section3Content: "نحتفظ ببياناتك بأمان على خوادمنا، ولا نقوم بتخزين أي بيانات مالية أو معلومات حساسة أخرى.",
-                section4Title: "حقوقك",
-                section4Content: "يحق لك طلب تعديل أو حذف بياناتك في أي وقت من خلال التواصل معنا عبر قنوات الدعم المتاحة.",
-                section5Title: "التواصل معنا",
-                section5Content: "لأي استفسار، يمكنكم التواصل معنا عبر:",
-                contactItem: "الهاتف / واتساب: <strong>00971554484488</strong>",
-                backButton: "العودة إلى التطبيق",
-                copyright: "© 2026 لحومنا. جميع الحقوق محفوظة.",
-                langText: "English"
-            };
-
-            // English content
-            const englishContent = {
-                pageTitle: "Privacy Policy - Lohomna",
-                logoAlt: "Lohomna Logo",
-                siteTitle: "Lohomna",
-                siteSubtitle: "Fresh Meat Quality Directly to Your Home",
-                lastUpdated: "Last Updated: January 2026",
-                pageHeading: "Privacy Policy",
-                paragraph1: "We at the <strong>Lohomna</strong> application respect your privacy and are committed to protecting your personal data.",
-                section1Title: "Information We Collect",
-                section1Intro: "We collect only the necessary information to provide our services, including:",
-                section1Items: [
-                    "Full name",
-                    "Phone number"
-                ],
-                section2Title: "How We Use Information",
-                section2Content: "We use your information only to communicate with you or to provide application services, and we do not share your data with any third party.",
-                section3Title: "Data Security",
-                section3Content: "We keep your data secure on our servers, and we do not store any financial data or other sensitive information.",
-                section4Title: "Your Rights",
-                section4Content: "You have the right to request modification or deletion of your data at any time by contacting us through available support channels.",
-                section5Title: "Contact Us",
-                section5Content: "For any inquiries, you can contact us via:",
-                contactItem: "Phone / WhatsApp: <strong>00971554484488</strong>",
-                backButton: "Back to App",
-                copyright: "© 2026 Lohomna. All rights reserved.",
-                langText: "عربي"
-            };
-
-            // Function to switch language
-            function switchLanguage() {
-                if (currentLang === 'ar') {
-                    // Switch to English
-                    currentLang = 'en';
-
-                    htmlElement.lang = 'en';
-                    htmlElement.dir = 'ltr';
-                    bodyElement.lang = 'en';
-                    bodyElement.dir = 'ltr';
-
-                    updateContent(englishContent);
-
-                } else {
-                    // Switch to Arabic
-                    currentLang = 'ar';
-
-                    htmlElement.lang = 'ar';
-                    htmlElement.dir = 'rtl';
-                    bodyElement.lang = 'ar';
-                    bodyElement.dir = 'rtl';
-
-                    updateContent(arabicContent);
-                }
+            if (langSwitcher) {
+                langSwitcher.style.display = 'none';
             }
-
-            // Function to update content based on language
-            function updateContent(content) {
-                // Update page title
-                document.title = content.pageTitle;
-
-                // Update logo alt text
-                document.querySelector('.logo-image').alt = content.logoAlt;
-
-                // Update site title and subtitle
-                document.querySelector('.site-title').textContent = content.siteTitle;
-                document.querySelector('.site-subtitle').textContent = content.lastUpdated;
-
-                // Update page heading
-                document.querySelector('h1').textContent = content.pageHeading;
-
-                // Update paragraphs
-                const paragraphs = document.querySelectorAll('.section p');
-                
-                // Introduction paragraph
-                if (paragraphs[0]) paragraphs[0].innerHTML = content.paragraph1;
-                
-                // Section 1 intro (after the title)
-                const section1Paragraph = document.querySelectorAll('.section')[1]?.querySelector('p');
-                if (section1Paragraph) section1Paragraph.textContent = content.section1Intro;
-                
-                // Section 2 content
-                if (paragraphs[2]) paragraphs[2].textContent = content.section2Content;
-                
-                // Section 3 content
-                if (paragraphs[3]) paragraphs[3].textContent = content.section3Content;
-                
-                // Section 4 content
-                if (paragraphs[4]) paragraphs[4].textContent = content.section4Content;
-                
-                // Section 5 content (contact intro)
-                const contactParagraph = document.querySelector('.contact-section p');
-                if (contactParagraph) contactParagraph.textContent = content.section5Content;
-
-                // Update section titles
-                const headings = document.querySelectorAll('h2');
-                if (headings[0]) headings[0].textContent = content.section1Title;
-                if (headings[1]) headings[1].textContent = content.section2Title;
-                if (headings[2]) headings[2].textContent = content.section3Title;
-                if (headings[3]) headings[3].textContent = content.section4Title;
-                if (headings[4]) headings[4].textContent = content.section5Title;
-
-                // Update section 1 list items
-                const section1List = document.querySelectorAll('.section')[1]?.querySelectorAll('li');
-                if (section1List && content.section1Items) {
-                    content.section1Items.forEach((item, index) => {
-                        if (section1List[index]) {
-                            section1List[index].textContent = item;
-                        }
-                    });
-                }
-
-                // Update contact list item
-                const contactItem = document.querySelector('.contact-section li');
-                if (contactItem) {
-                    contactItem.innerHTML = content.contactItem;
-                }
-
-                // Update back button
-                const backButton = document.querySelector('.back-button');
-                if (backButton) {
-                    const icon = backButton.querySelector('i');
-                    if (currentLang === 'en') {
-                        icon.className = 'fas fa-arrow-left';
-                    } else {
-                        icon.className = 'fas fa-arrow-right';
-                    }
-
-                    const textNode = backButton.childNodes[2];
-                    if (textNode && textNode.nodeType === 3) {
-                        textNode.textContent = ' ' + content.backButton;
-                    }
-                }
-
-                // Update footer
-                const footer = document.querySelector('footer');
-                if (footer) {
-                    footer.textContent = content.copyright;
-                }
-
-                // Update language switcher
-                const langText = document.querySelector('.lang-text');
-                if (langText) langText.textContent = content.langText;
+            
+            // Adjust header to center without language switcher
+            const header = document.querySelector('.header');
+            if (header) {
+                header.style.justifyContent = 'center';
             }
-
-            // Event listener for language switcher
-            langSwitcher.addEventListener('click', switchLanguage);
-
-            // Initialize with Arabic (default)
-            updateContent(arabicContent);
+            
+            // Determine which content to use
+            const content = currentLang === 'ar' ? arabicContent : englishContent;
+            updateContent(content);
+            
+            // Update back button to include language parameter
+            const backButton = document.querySelector('.back-button');
+            if (backButton) {
+                let backUrl = 'index.html';
+                if (currentLang === 'en') {
+                    backUrl += '?lang=en';
+                }
+                backButton.href = backUrl;
+            }
         });
+
+        // Function to update content based on language
+        function updateContent(content) {
+            // Update page title
+            document.title = content.pageTitle;
+
+            // Update logo alt text
+            const logoImage = document.querySelector('.logo-image');
+            if (logoImage) logoImage.alt = content.logoAlt;
+
+            // Update site title and subtitle
+            const siteTitle = document.querySelector('.site-title');
+            const siteSubtitle = document.querySelector('.site-subtitle');
+            if (siteTitle) siteTitle.textContent = content.siteTitle;
+            if (siteSubtitle) siteSubtitle.textContent = content.siteSubtitle;
+
+            // Update page heading
+            const pageHeading = document.querySelector('h1');
+            if (pageHeading) pageHeading.textContent = content.pageHeading;
+
+            // Update introduction paragraph
+            const introParagraph = document.querySelectorAll('.section')[0]?.querySelector('p');
+            if (introParagraph) introParagraph.innerHTML = content.paragraph1;
+
+            // Update section 1 intro paragraph
+            const section1Paragraph = document.querySelectorAll('.section')[1]?.querySelector('p');
+            if (section1Paragraph) section1Paragraph.textContent = content.section1Intro;
+
+            // Update other content paragraphs
+            const paragraphs = document.querySelectorAll('.section p');
+            if (paragraphs[2]) paragraphs[2].textContent = content.section2Content;
+            if (paragraphs[3]) paragraphs[3].textContent = content.section3Content;
+            if (paragraphs[4]) paragraphs[4].textContent = content.section4Content;
+            
+            // Update contact section paragraph
+            const contactParagraph = document.querySelector('.contact-section p');
+            if (contactParagraph) contactParagraph.textContent = content.section5Content;
+
+            // Update section titles
+            const headings = document.querySelectorAll('h2');
+            if (headings[0]) headings[0].textContent = content.section1Title;
+            if (headings[1]) headings[1].textContent = content.section2Title;
+            if (headings[2]) headings[2].textContent = content.section3Title;
+            if (headings[3]) headings[3].textContent = content.section4Title;
+            if (headings[4]) headings[4].textContent = content.section5Title;
+
+            // Update section 1 list items
+            const section1List = document.querySelectorAll('.section')[1]?.querySelectorAll('li');
+            if (section1List && content.section1Items) {
+                content.section1Items.forEach((item, index) => {
+                    if (section1List[index]) {
+                        section1List[index].textContent = item;
+                    }
+                });
+            }
+
+            // Update contact list item
+            const contactListItem = document.querySelector('.contact-section li');
+            if (contactListItem) {
+                contactListItem.innerHTML = content.contactItem;
+            }
+
+            // Update back button text and icon
+            const backButton = document.querySelector('.back-button');
+            if (backButton) {
+                const icon = backButton.querySelector('i');
+                if (icon) {
+                    icon.className = currentLang === 'en' ? 'fas fa-arrow-left' : 'fas fa-arrow-right';
+                }
+                
+                const textNode = backButton.childNodes[2];
+                if (textNode && textNode.nodeType === 3) {
+                    textNode.textContent = ' ' + content.backButton;
+                }
+            }
+
+            // Update footer
+            const footer = document.querySelector('footer');
+            if (footer) footer.textContent = content.copyright;
+        }
     </script>
 </body>
 
