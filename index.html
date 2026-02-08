@@ -173,7 +173,7 @@
             width: 100%;
         }
 
-        /* New simplified styling */
+        /* Language Switcher */
         .lang-switcher {
             display: inline-flex;
             align-items: center;
@@ -204,7 +204,7 @@
         }
 
         /* Hero Section */
-         .hero {
+        .hero {
             padding: 200px 0 300px;
             position: relative;
             overflow: hidden;
@@ -517,8 +517,6 @@
             color: var(--text-tertiary);
         }
 
-
-
         /* Social Media Section */
         .social {
             padding: 120px 0;
@@ -709,6 +707,242 @@
             transform: translateY(0);
         }
 
+        /* Mobile Menu Button - FIXED: Always show by default */
+        .mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(218, 73, 0, 0.1);
+            color: var(--primary);
+        }
+
+        /* Desktop navigation - hide on mobile */
+        .desktop-nav {
+            display: block;
+        }
+
+        /* Mobile Menu */
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+            z-index: 2000;
+            padding: 80px 24px 0;
+            overflow-y: auto;
+            visibility: hidden;
+            transition: transform 0.3s ease, visibility 0.3s;
+        }
+
+        [dir="rtl"] .mobile-menu {
+            right: 0;
+            left: auto;
+            transform: translateX(100%);
+        }
+
+        /* For English (LTR) */
+        [dir="ltr"] .mobile-menu {
+            left: 0;
+            right: auto;
+            transform: translateX(-100%);
+        }
+
+        /* Active state - menu slides in */
+        [dir="rtl"] .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        [dir="ltr"] .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu.active {
+            visibility: visible;
+        }
+
+        /* Mobile menu close button */
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 2001;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-close:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        /* Arabic - close button on the right */
+        [dir="rtl"] .mobile-menu-close {
+            right: 20px;
+            left: auto;
+        }
+
+        /* English - close button on the left */
+        [dir="ltr"] .mobile-menu-close {
+            left: 20px;
+            right: auto;
+        }
+
+        /* Mobile Menu Content */
+        .mobile-menu-content {
+            padding-top: 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-category {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .menu-category:first-child {
+            margin-top: 0;
+        }
+
+        .menu-category-title {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        [lang="ar"] .menu-category-title {
+            letter-spacing: 0;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 12px;
+        }
+
+        .mobile-menu-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 14px 20px;
+            display: block;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: 1px solid transparent;
+            background: var(--bg-card);
+        }
+
+        .mobile-menu-link:hover,
+        .mobile-menu-link.active {
+            background: rgba(218, 73, 0, 0.05);
+            border-color: var(--primary-light);
+            color: var(--primary);
+            transform: translateX(-5px);
+        }
+
+        [dir="ltr"] .mobile-menu-link:hover,
+        [dir="ltr"] .mobile-menu-link.active {
+            transform: translateX(5px);
+        }
+
+        /* Mobile menu footer */
+        .mobile-menu-footer {
+            padding: 20px 0 40px;
+            border-top: 1px solid var(--border);
+            margin-top: 20px;
+        }
+
+        .mobile-menu-footer .mobile-lang-switcher {
+            margin-bottom: 20px;
+            justify-content: flex-start;
+            padding: 12px 20px;
+            border-radius: var(--radius);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-weight: 600;
+            width: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .mobile-menu-footer .mobile-lang-switcher i {
+            color: var(--primary);
+        }
+
+        .mobile-menu-footer .mobile-lang-switcher:hover {
+            background: rgba(218, 73, 0, 0.05);
+            border-color: var(--primary-light);
+            color: var(--primary);
+            transform: translateX(-5px);
+        }
+
+        [dir="ltr"] .mobile-menu-footer .mobile-lang-switcher:hover {
+            transform: translateX(5px);
+        }
+
+        .mobile-menu-copyright {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Mobile menu overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1999;
+            backdrop-filter: blur(3px);
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .about-content {
@@ -734,12 +968,16 @@
                 font-size: 1.1rem;
             }
 
-            nav ul {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .desktop-nav {
                 display: none;
             }
 
-            .mobile-menu-btn {
-                display: block;
+            .lang-switcher {
+                display: none;
             }
 
             .section-title h2 {
@@ -764,6 +1002,20 @@
             }
         }
 
+        @media (min-width: 769px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .desktop-nav {
+                display: block;
+            }
+
+            .lang-switcher {
+                display: inline-flex;
+            }
+        }
+
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 2.2rem;
@@ -780,82 +1032,6 @@
             .logo-image {
                 height: 40px;
             }
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-dark);
-            z-index: 2000;
-            padding: 80px 24px;
-            transition: right 0.3s ease;
-        }
-
-        [lang="en"] .mobile-menu {
-            right: -100%;
-            left: auto;
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        [lang="en"] .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu-close {
-            position: absolute;
-            top: 24px;
-            left: 24px;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        [lang="ar"] .mobile-menu-close {
-            left: auto;
-            right: 24px;
-        }
-
-        .mobile-menu-links {
-            list-style: none;
-        }
-
-        .mobile-menu-links li {
-            margin-bottom: 24px;
-        }
-
-        .mobile-menu-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 1.2rem;
-            padding: 12px 0;
-            display: block;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .mobile-lang-switcher {
-            margin-top: 40px;
-            width: 100%;
-            justify-content: center;
         }
     </style>
 </head>
@@ -890,25 +1066,45 @@
     </header>
 
     <!-- Mobile Menu -->
+    <!-- Make sure your mobile menu HTML looks exactly like this -->
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" id="mobileMenuClose">
             <i class="fas fa-times"></i>
         </button>
-        <ul class="mobile-menu-links">
-            <li><a href="#home" class="active">الرئيسية</a></li>
-            <li><a href="#about">من نحن</a></li>
-            <li><a href="#features">المميزات</a></li>
-            <li><a href="#download">التطبيق</a></li>
-            <li><a href="#social">التواصل</a></li>
-            <li><a href="terms.html">شروط الاستخدام</a></li>
-            <li><a href="privacy.html">سياسة الخصوصية</a></li>
-            <li><a href="refund.html">سياسة الاسترجاع</a></li>
 
-        </ul>
-        <div class="lang-switcher mobile-lang-switcher" id="mobileLangSwitcher">
-            <span class="lang-text">English</span>
+        <div class="mobile-menu-content">
+            <ul class="mobile-menu-links">
+                <li class="menu-category">
+                    <span class="menu-category-title" id="mobileMenuMainTitle">القائمة الرئيسية</span>
+                </li>
+                <!-- Make sure ALL links have the class "mobile-menu-link" -->
+                <li><a href="#home" class="active mobile-menu-link">الرئيسية</a></li>
+                <li><a href="#about" class="mobile-menu-link">من نحن</a></li>
+                <li><a href="#features" class="mobile-menu-link">المميزات</a></li>
+                <li><a href="#download" class="mobile-menu-link">التطبيق</a></li>
+                <li><a href="#social" class="mobile-menu-link">التواصل</a></li>
+
+                <li class="menu-category">
+                    <span class="menu-category-title" id="mobileMenuLegalTitle">معلومات قانونية</span>
+                </li>
+                <!-- Make sure legal links also have the class "mobile-menu-link" -->
+                <li><a href="terms.html" class="mobile-menu-link">شروط الاستخدام</a></li>
+                <li><a href="privacy.html" class="mobile-menu-link">سياسة الخصوصية</a></li>
+                <li><a href="refund.html" class="mobile-menu-link">سياسة الاسترجاع</a></li>
+            </ul>
+
+            <div class="mobile-menu-footer">
+                <div class="lang-switcher mobile-lang-switcher" id="mobileLangSwitcher">
+                    <i class="fas fa-globe"></i>
+                    <span class="lang-text">English</span>
+                </div>
+                <p class="mobile-menu-copyright" id="mobileMenuCopyright">© 2026 لحومنا</p>
+            </div>
         </div>
     </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -1204,7 +1400,10 @@
                 homeLink: "الرئيسية",
                 aboutLink: "من نحن",
                 featuresLink: "المميزات",
-                downloadLink: "حمل التطبيق"
+                downloadLink: "حمل التطبيق",
+                mobileMenuMainTitle: "القائمة الرئيسية",
+                mobileMenuLegalTitle: "معلومات قانونية",
+                mobileMenuCopyright: "© 2026 لحومنا"
             };
 
             // English content
@@ -1251,7 +1450,10 @@
                 homeLink: "Home",
                 aboutLink: "About Us",
                 featuresLink: "Features",
-                downloadLink: "Download App"
+                downloadLink: "Download App",
+                mobileMenuMainTitle: "Main Menu",
+                mobileMenuLegalTitle: "Legal Information",
+                mobileMenuCopyright: "© 2026 Lohomna"
             };
 
             // Function to switch language
@@ -1286,35 +1488,117 @@
                     langSwitcher.querySelector('.lang-text').textContent = 'English';
                     mobileLangSwitcher.querySelector('.lang-text').textContent = 'English';
                 }
+
+                // Save language preference to localStorage
+                localStorage.setItem('lohomna_language', currentLang);
+
+                // Update all external links with language parameter
+                updatePageLinks();
+            }
+
+            // Function to update all external links with language parameter
+            function updatePageLinks() {
+                const links = document.querySelectorAll('a[href*=".html"]');
+                links.forEach(link => {
+                    const currentHref = link.getAttribute('href');
+                    if (currentHref && currentHref.includes('.html')) {
+                        // Remove existing lang parameter if exists
+                        let baseUrl = currentHref.split('?')[0];
+                        // Add new lang parameter
+                        link.href = `${baseUrl}?lang=${currentLang}`;
+                    }
+                });
             }
 
             // Function to update content based on language
+            // Function to update content based on language
+            // Function to update content based on language
             function updateContent(content) {
+                console.log('Updating content for language:', currentLang);
+
                 // Update logo alt text
                 document.querySelector('.logo-image').alt = content.logoAlt;
 
                 // Update site name
                 document.querySelector('.logo-text').textContent = content.siteName;
 
-                // Update navigation
-                const navLinks = document.querySelectorAll('nav a, .mobile-menu-links a');
-                navLinks[0].textContent = content.home;
-                navLinks[1].textContent = content.about;
-                navLinks[2].textContent = content.features;
-                navLinks[3].textContent = content.download;
-                navLinks[4].textContent = content.social;
+                // Update desktop navigation
+                const desktopNavLinks = document.querySelectorAll('.desktop-nav a');
+                if (desktopNavLinks.length >= 5) {
+                    desktopNavLinks[0].textContent = content.home;
+                    desktopNavLinks[1].textContent = content.about;
+                    desktopNavLinks[2].textContent = content.features;
+                    desktopNavLinks[3].textContent = content.download;
+                    desktopNavLinks[4].textContent = content.social;
+                }
 
-                // Update mobile menu legal links
-                if (navLinks[5]) navLinks[5].textContent = content.terms;
-                if (navLinks[6]) navLinks[6].textContent = content.privacy;
-                if (navLinks[7]) navLinks[7].textContent = content.refund;
+                // Update mobile menu titles
+                const mobileMenuMainTitle = document.getElementById('mobileMenuMainTitle');
+                const mobileMenuLegalTitle = document.getElementById('mobileMenuLegalTitle');
+                const mobileMenuCopyright = document.getElementById('mobileMenuCopyright');
+
+                if (mobileMenuMainTitle) mobileMenuMainTitle.textContent = content.mobileMenuMainTitle;
+                if (mobileMenuLegalTitle) mobileMenuLegalTitle.textContent = content.mobileMenuLegalTitle;
+                if (mobileMenuCopyright) mobileMenuCopyright.textContent = content.mobileMenuCopyright;
+
+                // DEBUG: Check mobile menu links
+                const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+                console.log('Found mobile menu links:', mobileMenuLinks.length);
+
+                // Update mobile menu links - FIXED: Using correct indices
+                // Update mobile menu links - FIXED: Using correct indices (8 links, not 9)
+                if (mobileMenuLinks.length >= 8) {
+                    // Main navigation links (indices 0-4)
+                    mobileMenuLinks[0].textContent = content.home;
+                    mobileMenuLinks[1].textContent = content.about;
+                    mobileMenuLinks[2].textContent = content.features;
+                    mobileMenuLinks[3].textContent = content.download;
+                    mobileMenuLinks[4].textContent = content.social;
+
+                    // Legal links (indices 5-7)
+                    mobileMenuLinks[5].textContent = content.terms;
+                    mobileMenuLinks[6].textContent = content.privacy;
+                    mobileMenuLinks[7].textContent = content.refund;
+
+                    console.log('Updated mobile menu links:', {
+                        home: content.home,
+                        about: content.about,
+                        features: content.features,
+                        download: content.download,
+                        social: content.social,
+                        terms: content.terms,
+                        privacy: content.privacy,
+                        refund: content.refund
+                    });
+                } else {
+                    console.error('Not enough mobile menu links found. Expected 8, found:', mobileMenuLinks.length);
+
+                    // Try alternative selector
+                    const altMobileLinks = document.querySelectorAll('.mobile-menu-links a');
+                    console.log('Alternative selector found:', altMobileLinks.length, 'links');
+
+                    if (altMobileLinks.length >= 8) {
+                        altMobileLinks[0].textContent = content.home;
+                        altMobileLinks[1].textContent = content.about;
+                        altMobileLinks[2].textContent = content.features;
+                        altMobileLinks[3].textContent = content.download;
+                        altMobileLinks[4].textContent = content.social;
+                        altMobileLinks[5].textContent = content.terms;
+                        altMobileLinks[6].textContent = content.privacy;
+                        altMobileLinks[7].textContent = content.refund;
+                    }
+                }
+
                 // Update hero section
                 document.querySelector('.hero h1').textContent = content.heroTitle;
                 document.querySelector('.hero p').textContent = content.heroText;
                 document.querySelector('.cta-button').innerHTML = content.ctaButton + ' <i class="fas fa-arrow-down"></i>';
 
                 // Update about section
-                document.querySelectorAll('.section-title h2')[0].textContent = content.aboutTitle;
+                const sectionTitles = document.querySelectorAll('.section-title h2');
+                if (sectionTitles.length >= 1) {
+                    sectionTitles[0].textContent = content.aboutTitle;
+                }
 
                 // Update both parts of about text
                 const aboutParagraphs = document.querySelectorAll('.about-text p');
@@ -1326,34 +1610,51 @@
                 }
 
                 // Update features section
-                document.querySelectorAll('.section-title h2')[1].textContent = content.featuresTitle;
+                if (sectionTitles.length >= 2) {
+                    sectionTitles[1].textContent = content.featuresTitle;
+                }
+
                 const featureCards = document.querySelectorAll('.feature-card');
-                featureCards[0].querySelector('h3').textContent = content.feature1;
-                featureCards[0].querySelector('p').textContent = content.feature1Text;
-                featureCards[1].querySelector('h3').textContent = content.feature2;
-                featureCards[1].querySelector('p').textContent = content.feature2Text;
-                featureCards[2].querySelector('h3').textContent = content.feature3;
-                featureCards[2].querySelector('p').textContent = content.feature3Text;
-                featureCards[3].querySelector('h3').textContent = content.feature4;
-                featureCards[3].querySelector('p').textContent = content.feature4Text;
-                featureCards[4].querySelector('h3').textContent = content.feature5;
-                featureCards[4].querySelector('p').textContent = content.feature5Text;
+                if (featureCards.length >= 5) {
+                    featureCards[0].querySelector('h3').textContent = content.feature1;
+                    featureCards[0].querySelector('p').textContent = content.feature1Text;
+                    featureCards[1].querySelector('h3').textContent = content.feature2;
+                    featureCards[1].querySelector('p').textContent = content.feature2Text;
+                    featureCards[2].querySelector('h3').textContent = content.feature3;
+                    featureCards[2].querySelector('p').textContent = content.feature3Text;
+                    featureCards[3].querySelector('h3').textContent = content.feature4;
+                    featureCards[3].querySelector('p').textContent = content.feature4Text;
+                    featureCards[4].querySelector('h3').textContent = content.feature5;
+                    featureCards[4].querySelector('p').textContent = content.feature5Text;
+                }
 
                 // Update download section
-                document.querySelectorAll('.section-title h2')[2].textContent = content.downloadTitle;
+                if (sectionTitles.length >= 3) {
+                    sectionTitles[2].textContent = content.downloadTitle;
+                }
+
                 document.querySelector('.download-text').textContent = content.downloadText;
-                document.querySelectorAll('.download-info h3')[0].textContent = content.appStore;
-                document.querySelectorAll('.download-info h3')[1].textContent = content.googlePlay;
+
+                const downloadInfos = document.querySelectorAll('.download-info h3');
+                if (downloadInfos.length >= 2) {
+                    downloadInfos[0].textContent = content.appStore;
+                    downloadInfos[1].textContent = content.googlePlay;
+                }
+
                 document.querySelectorAll('.coming-soon').forEach(el => el.textContent = content.soon);
 
                 // Update social media section
-                document.querySelectorAll('.section-title h2')[3].textContent = content.socialTitle;
+                if (sectionTitles.length >= 4) {
+                    sectionTitles[3].textContent = content.socialTitle;
+                }
 
                 // Update footer
                 const footerColumns = document.querySelectorAll('.footer-column h3');
-                footerColumns[1].textContent = content.footerQuickLinks;
-                footerColumns[2].textContent = content.footerLegal;
-                footerColumns[3].textContent = content.footerContact;
+                if (footerColumns.length >= 4) {
+                    footerColumns[1].textContent = content.footerQuickLinks;
+                    footerColumns[2].textContent = content.footerLegal;
+                    footerColumns[3].textContent = content.footerContact;
+                }
 
                 // Update footer quick links
                 const footerQuickLinks = document.querySelectorAll('.footer-links');
@@ -1379,10 +1680,16 @@
                 }
 
                 // Update footer description
-                document.querySelector('.footer-column p').textContent = content.aboutText.split('.')[0] + '.';
+                const footerDesc = document.querySelector('.footer-column p');
+                if (footerDesc) {
+                    footerDesc.textContent = content.aboutText.split('.')[0] + '.';
+                }
 
                 // Update copyright
-                document.querySelector('.copyright p').textContent = content.copyright;
+                const copyright = document.querySelector('.copyright p');
+                if (copyright) {
+                    copyright.textContent = content.copyright;
+                }
 
                 // Update contact info
                 const contactItems = document.querySelectorAll('.contact-item');
@@ -1390,6 +1697,49 @@
                     contactItems[1].querySelector('span').textContent = content.whatsapp;
                     contactItems[2].querySelector('span').textContent = content.location;
                 }
+            }
+
+            function initializeLanguage() {
+                // Check URL for language parameter first
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+
+                // Check localStorage
+                const storedLang = localStorage.getItem('lohomna_language');
+
+                // Determine initial language
+                if (urlLang && (urlLang === 'ar' || urlLang === 'en')) {
+                    currentLang = urlLang;
+                } else if (storedLang) {
+                    currentLang = storedLang;
+                } else {
+                    currentLang = 'ar'; // Default
+                }
+
+                // Apply language settings
+                if (currentLang === 'en') {
+                    htmlElement.lang = 'en';
+                    htmlElement.dir = 'ltr';
+                    bodyElement.lang = 'en';
+                    bodyElement.dir = 'ltr';
+                    updateContent(englishContent);
+                    langSwitcher.querySelector('.lang-text').textContent = 'عربي';
+                    mobileLangSwitcher.querySelector('.lang-text').textContent = 'عربي';
+                } else {
+                    htmlElement.lang = 'ar';
+                    htmlElement.dir = 'rtl';
+                    bodyElement.lang = 'ar';
+                    bodyElement.dir = 'rtl';
+                    updateContent(arabicContent);
+                    langSwitcher.querySelector('.lang-text').textContent = 'English';
+                    mobileLangSwitcher.querySelector('.lang-text').textContent = 'English';
+                }
+
+                // Update all links with language parameter
+                updatePageLinks();
+
+                // Save to localStorage
+                localStorage.setItem('lohomna_language', currentLang);
             }
 
             // Event listeners for language switcher
@@ -1400,23 +1750,66 @@
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             const mobileMenuClose = document.getElementById('mobileMenuClose');
-            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
 
+            // Open mobile menu
             mobileMenuBtn.addEventListener('click', () => {
                 mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
 
-            mobileMenuClose.addEventListener('click', () => {
+            // Close mobile menu function
+            function closeMobileMenu() {
                 mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
                 document.body.style.overflow = 'auto';
+            }
+
+            // Close mobile menu when clicking close button
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+            // Close mobile menu when clicking overlay
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+            // Handle mobile menu link clicks
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Check if it's an anchor link (starts with #)
+                    if (link.getAttribute('href').startsWith('#')) {
+                        closeMobileMenu();
+
+                        // Get the target section
+                        const targetId = link.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+
+                        if (targetElement) {
+                            // Scroll to section after a small delay to allow menu to close
+                            setTimeout(() => {
+                                window.scrollTo({
+                                    top: targetElement.offsetTop - 80,
+                                    behavior: 'smooth'
+                                });
+                            }, 300);
+                        }
+                    }
+                    // For external links (like terms.html), they'll open normally
+                });
             });
 
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                });
+            // Close mobile menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Close mobile menu when switching language from mobile menu
+            mobileLangSwitcher.addEventListener('click', () => {
+                setTimeout(() => {
+                    closeMobileMenu();
+                }, 100);
             });
 
             // Smooth scrolling for anchor links
@@ -1436,7 +1829,7 @@
                         });
 
                         // Update active nav link
-                        document.querySelectorAll('nav a').forEach(link => {
+                        document.querySelectorAll('nav a, .mobile-menu-link').forEach(link => {
                             link.classList.remove('active');
                         });
                         this.classList.add('active');
@@ -1468,7 +1861,7 @@
             window.addEventListener('scroll', function () {
                 const scrollPosition = window.scrollY + 100;
                 const sections = document.querySelectorAll('section[id]');
-                const navLinks = document.querySelectorAll('nav a');
+                const navLinks = document.querySelectorAll('nav a, .mobile-menu-link');
 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
@@ -1487,7 +1880,6 @@
             });
 
             // Header scroll effect
-            // Header scroll effect (Light Mode)
             window.addEventListener('scroll', function () {
                 const header = document.querySelector('header');
 
@@ -1500,12 +1892,39 @@
                 }
             });
 
+            // Add a test function to debug mobile menu
+            function testMobileMenuTranslation() {
+                console.log('=== Testing Mobile Menu Translation ===');
+                console.log('Current language:', currentLang);
 
-            // Initialize with Arabic (default)
-            updateContent(arabicContent);
+                const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+                console.log('Mobile menu links found:', mobileMenuLinks.length);
+
+                mobileMenuLinks.forEach((link, index) => {
+                    console.log(`Link ${index}:`, link.textContent, '| href:', link.getAttribute('href'));
+                });
+
+                // Try to manually update
+                const content = currentLang === 'en' ? englishContent : arabicContent;
+                if (mobileMenuLinks.length >= 9) {
+                    console.log('Manually updating links...');
+                    mobileMenuLinks[0].textContent = content.home;
+                    mobileMenuLinks[1].textContent = content.about;
+                    mobileMenuLinks[2].textContent = content.features;
+                    mobileMenuLinks[3].textContent = content.download;
+                    mobileMenuLinks[4].textContent = content.social;
+                    mobileMenuLinks[5].textContent = content.terms;
+                    mobileMenuLinks[6].textContent = content.privacy;
+                    mobileMenuLinks[7].textContent = content.refund;
+                    console.log('Manual update complete');
+                }
+            }
+
+            // Call this after language initialization for testing
+            initializeLanguage();
+            testMobileMenuTranslation();
         });
     </script>
 </body>
 
 </html>
-
