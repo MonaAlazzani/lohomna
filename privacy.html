@@ -438,8 +438,10 @@
             <h2>المعلومات التي نجمعها</h2>
             <p>نجمع فقط المعلومات الضرورية لتقديم خدماتنا، وتشمل:</p>
             <ul>
-                <li>الاسم الكامل</li>
+                <li>الاسم</li>
                 <li>رقم الهاتف</li>
+                <li>البريد الإلكتروني</li>
+                <li>العنوان</li>
             </ul>
         </div>
 
@@ -493,16 +495,16 @@
         </footer>
     </div>
 
-        <script>
+    <script>
         // Get language preference from URL or localStorage
         const getLanguagePreference = () => {
             // Check URL parameter first
             const urlParams = new URLSearchParams(window.location.search);
             const urlLang = urlParams.get('lang');
-            
+
             // Check localStorage as backup
             const storedLang = localStorage.getItem('lohomna_language');
-            
+
             // Priority: URL > localStorage > default Arabic
             if (urlLang && (urlLang === 'ar' || urlLang === 'en')) {
                 return urlLang;
@@ -530,8 +532,10 @@
             section1Title: "المعلومات التي نجمعها",
             section1Intro: "نجمع فقط المعلومات الضرورية لتقديم خدماتنا، وتشمل:",
             section1Items: [
-                "الاسم الكامل",
-                "رقم الهاتف"
+                "الاسم",
+                "رقم الهاتف",
+                "البريد الإلكتروني",
+                "العنوان"
             ],
             section2Title: "كيفية استخدام المعلومات",
             section2Content: "نستخدم معلوماتك فقط للتواصل معك أو لتقديم خدمات التطبيق، ولا نشارك بياناتك مع أي طرف ثالث.",
@@ -557,8 +561,10 @@
             section1Title: "Information We Collect",
             section1Intro: "We collect only the necessary information to provide our services, including:",
             section1Items: [
-                "Full name",
-                "Phone number"
+                "Name",
+                "Phone number",
+                "Email",
+                "Address"
             ],
             section2Title: "How We Use Information",
             section2Content: "We use your information only to communicate with you or to provide application services, and we do not share your data with any third party.",
@@ -579,17 +585,17 @@
             if (langSwitcher) {
                 langSwitcher.style.display = 'none';
             }
-            
+
             // Adjust header to center without language switcher
             const header = document.querySelector('.header');
             if (header) {
                 header.style.justifyContent = 'center';
             }
-            
+
             // Determine which content to use
             const content = currentLang === 'ar' ? arabicContent : englishContent;
             updateContent(content);
-            
+
             // Update back button to include language parameter
             const backButton = document.querySelector('.back-button');
             if (backButton) {
@@ -633,7 +639,7 @@
             if (paragraphs[2]) paragraphs[2].textContent = content.section2Content;
             if (paragraphs[3]) paragraphs[3].textContent = content.section3Content;
             if (paragraphs[4]) paragraphs[4].textContent = content.section4Content;
-            
+
             // Update contact section paragraph
             const contactParagraph = document.querySelector('.contact-section p');
             if (contactParagraph) contactParagraph.textContent = content.section5Content;
@@ -669,7 +675,7 @@
                 if (icon) {
                     icon.className = currentLang === 'en' ? 'fas fa-arrow-left' : 'fas fa-arrow-right';
                 }
-                
+
                 const textNode = backButton.childNodes[2];
                 if (textNode && textNode.nodeType === 3) {
                     textNode.textContent = ' ' + content.backButton;
