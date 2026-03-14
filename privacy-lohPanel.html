@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - LohPanel</title>
+    <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
+
+    <!-- Icons & Fonts (keeping the same style) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #DA4900;
+            --primary-dark: #B83D00;
+            --primary-light: #FF7A38;
+            --primary-gradient: linear-gradient(135deg, #DA4900 0%, #FF7A38 100%);
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-tertiary: #666666;
+            --border: #E0E0E0;
+            --divider: #DA4900;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFFFFF;
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: center; /* centered because switcher hidden */
+            align-items: center;
+            padding: 30px 0;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FFF;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .site-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        /* Hide language switcher */
+        .lang-switcher {
+            display: none;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--divider);
+            border-radius: 2px;
+        }
+
+        p {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.6;
+        }
+
+        li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .contact-section {
+            margin-bottom: 50px;
+        }
+
+        .back-button-container {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 35px;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(218, 73, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .header { flex-direction: column; gap: 20px; text-align: center; }
+            .logo-section { flex-direction: column; gap: 15px; }
+            .site-title { font-size: 1.9rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo (no language switcher) -->
+    <div class="header">
+        <div class="logo-section">
+            <img src="images/logo.jpeg" alt="LohPanel Logo" class="logo-image">
+            <div>
+                <div class="site-title">LohPanel</div>
+                <div class="site-subtitle">Last updated: January 2026</div>
+            </div>
+        </div>
+        <!-- language switcher hidden via CSS -->
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <h1>Privacy Policy</h1>
+
+        <!-- Introduction -->
+        <div class="section">
+            <p>
+                At <strong>LohPanel</strong> (the admin control panel for Lohomna), we value your privacy. This policy explains what information we collect from administrators and how it is used.
+            </p>
+        </div>
+
+        <!-- Information we collect (only phone & name) -->
+        <div class="section">
+            <h2>Information We Collect</h2>
+            <p>When you use LohPanel, we collect only the following information:</p>
+            <ul>
+                <li><strong>Name</strong> – to identify the administrator.</li>
+                <li><strong>Phone number</strong> – used for login (OTP verification) and for essential communications.</li>
+            </ul>
+            <p>We do <strong>not</strong> collect email addresses, government IDs, or financial information.</p>
+        </div>
+
+        <!-- How we use it -->
+        <div class="section">
+            <h2>How We Use Your Information</h2>
+            <p>Your name and phone number are used only for:</p>
+            <ul>
+                <li>Granting access to the admin panel (authentication).</li>
+                <li>Contacting you if necessary regarding panel updates or security matters.</li>
+            </ul>
+        </div>
+
+        <!-- Data access via panel (customer data) -->
+        <div class="section">
+            <h2>Data Accessed Through the Panel</h2>
+            <p>
+                As an administrator, you may view customer names and phone numbers (collected by the Lohomna app) in order to process orders. You are strictly prohibited from using this data for any purpose other than fulfilling orders and customer support.
+            </p>
+        </div>
+
+        <!-- Data security & sharing -->
+        <div class="section">
+            <h2>Data Security & Sharing</h2>
+            <p>
+                We store your name and phone number securely and do not share them with any third party. No payment or sensitive data is stored in LohPanel.
+            </p>
+        </div>
+
+        <!-- Your rights -->
+        <div class="section">
+            <h2>Your Rights</h2>
+            <p>
+                You may request a copy of your data (name and phone number) or ask for corrections by contacting us. If you no longer need access to LohPanel, you can request deletion of your admin account.
+            </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="section contact-section">
+            <h2>Contact Us</h2>
+            <p>For any privacy-related questions or to exercise your rights, please contact:</p>
+            <ul>
+                <li>Phone / WhatsApp: <strong>00971554484488</strong> (admin support)</li>
+                <li>Email: <strong>privacy@lohomna.com</strong></li>
+            </ul>
+        </div>
+
+        <!-- Back Button -->
+        <div class="back-button-container">
+            <a href="admin-panel.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Control Panel
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            © 2026 Lohomna - LohPanel. All rights reserved.
+        </footer>
+    </div>
+
+    <!-- No JavaScript needed for language switching (English only) -->
+</body>
+</html>
