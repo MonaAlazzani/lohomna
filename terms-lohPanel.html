@@ -1,681 +1,266 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شروط استخدام لوحة التحكم - LohPanel</title>
+    <title>Admin Terms · LohPanel</title>
     <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
 
-    <!-- Icons & Fonts (same as original) -->
+    <!-- Font Awesome + Poppins (clean, modern) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* exactly the same styles as original, only minor color hint for admin (optional) */
-        :root {
-            --primary: #DA4900;
-            --primary-dark: #B83D00;
-            --primary-light: #FF7A38;
-            --primary-gradient: linear-gradient(135deg, #DA4900 0%, #FF7A38 100%);
-            --black-gradient: linear-gradient(135deg, #1A1A1A 0%, #2C3E50 100%);
-            --text-primary: #000000;
-            --text-secondary: #333333;
-            --text-tertiary: #666666;
-            --border: #E0E0E0;
-            --divider: #DA4900;
-            --transition: all 0.3s ease;
-        }
-
-        [lang="en"] {
-            direction: ltr;
-            text-align: left;
-        }
-
+        /* same compact style, English only */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --primary: #DA4900;
+            --primary-dark: #B83D00;
+            --primary-gradient: linear-gradient(135deg, #DA4900 0%, #FF7A38 100%);
+            --text: #1e1e1e;
+            --text-light: #4a4a4a;
+            --border: #eaeaea;
+            --divider: #DA4900;
         }
 
         body {
-            font-family: 'Almarai', sans-serif;
-            background-color: #FFFFFF;
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            padding: 20px;
-            max-width: 1000px;
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            max-width: 960px;
             margin: 0 auto;
         }
 
-        body[lang="en"] {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Header Section */
+        /* header – centered, clean */
         .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 30px 0;
-            margin-bottom: 40px;
+            padding: 1.5rem 0 2.5rem 0;
             border-bottom: 2px solid var(--border);
+            margin-bottom: 2.5rem;
         }
 
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 1.2rem;
         }
 
         .logo-image {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #FFF;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid white;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.06);
         }
 
         .site-title {
             font-size: 2.2rem;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--primary);
+            line-height: 1.2;
         }
 
         .site-subtitle {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-top: 5px;
+            color: var(--text-light);
+            font-size: 0.95rem;
         }
 
-        /* Language Switcher - same as original (but will be hidden) */
-        .lang-switcher {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 2px 20px;
-            background: #F8F8F8;
-            border: 1px solid var(--border);
-            border-radius: 25px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .lang-switcher:hover {
-            background: var(--primary-gradient);
-            color: white;
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(218, 73, 0, 0.2);
-        }
-
-        .lang-icon {
-            font-size: 1.1rem;
-        }
-
-        /* Main Content */
-        .content-wrapper {
-            padding: 20px 0;
-        }
-
-        /* Last Updated */
-        .last-updated {
-            text-align: center;
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-            margin-bottom: 40px;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        /* Main Title */
+        /* headings */
         h1 {
-            color: var(--text-primary);
             text-align: center;
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin-bottom: 50px;
-            padding-bottom: 20px;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
             position: relative;
         }
-
         h1::after {
             content: '';
             position: absolute;
             bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
             height: 4px;
             background: var(--primary-gradient);
-            border-radius: 2px;
-        }
-
-        [lang="en"] h1::after {
-            right: 50%;
-            transform: translateX(50%);
-        }
-
-        /* Section Styling */
-        .section {
-            margin-bottom: 50px;
+            border-radius: 4px;
         }
 
         h2 {
-            color: var(--text-primary);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            position: relative;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--divider);
+            width: fit-content;
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 80px;
-            height: 3px;
-            background: var(--divider);
-            border-radius: 2px;
+        p, li {
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 1rem;
         }
 
-        [lang="en"] h2::after {
-            right: auto;
-            left: 0;
-        }
-
-        p {
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        strong {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        /* Lists */
         ul {
             list-style: none;
-            padding-right: 20px;
-            margin-bottom: 20px;
-        }
-
-        [lang="en"] ul {
-            padding-right: 0;
-            padding-left: 20px;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         li {
-            color: var(--text-primary);
-            margin-bottom: 12px;
             position: relative;
-            padding-right: 25px;
-            line-height: 1.6;
+            padding-left: 1.8rem;
+            margin-bottom: 0.7rem;
         }
-
-        [lang="en"] li {
-            padding-right: 0;
-            padding-left: 25px;
-        }
-
         li::before {
             content: '';
             position: absolute;
-            right: 0;
-            top: 10px;
+            left: 0;
+            top: 0.6rem;
             width: 8px;
             height: 8px;
             background: var(--primary);
             border-radius: 50%;
         }
 
-        [lang="en"] li::before {
-            right: auto;
-            left: 0;
-        }
-
-        /* Contact Section - Normal styling */
-        .contact-section {
-            margin-bottom: 50px;
-            padding: 0;
-            background: transparent;
-            border-radius: 0;
-            box-shadow: none;
-        }
-
-        .contact-section h2 {
-            color: var(--text-primary);
-            border-bottom-color: var(--divider);
-        }
-
-        .contact-section p {
-            color: var(--text-primary);
-            margin-bottom: 25px;
+        strong {
+            color: var(--primary);
+            font-weight: 600;
         }
 
         .contact-section ul {
-            margin-top: 0;
+            margin-top: 0.5rem;
         }
 
-        .contact-section li {
-            color: var(--text-primary);
-        }
-
-        .contact-section li::before {
-            background: var(--primary);
-        }
-
-        .contact-section strong {
-            color: var(--primary);
-            background: transparent;
-            padding: 0;
-            border-radius: 0;
-        }
-
-        /* Back Button */
+        /* back button */
         .back-button-container {
             text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
+            margin: 3.5rem 0 2rem;
+            padding-top: 2rem;
             border-top: 1px solid var(--border);
         }
 
         .back-button {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 15px 35px;
+            gap: 0.8rem;
+            padding: 0.9rem 2.5rem;
             background: var(--primary-gradient);
             color: white;
             text-decoration: none;
-            border-radius: 25px;
-            transition: var(--transition);
-            font-weight: 600;
-            font-size: 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: 0.2s;
             border: none;
-            cursor: pointer;
         }
-
         .back-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(218, 73, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(218,73,0,0.25);
         }
 
-        /* Footer */
         footer {
             text-align: center;
-            color: var(--text-tertiary);
+            color: #777;
             font-size: 0.9rem;
-            padding: 30px 0;
-            margin-top: 40px;
-            border-top: 1px solid var(--border);
+            padding: 2rem 0 0.5rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body { padding: 15px; }
-            .header { flex-direction: column; gap: 20px; text-align: center; padding: 20px 0; }
-            .logo-section { flex-direction: column; gap: 15px; }
+        @media (max-width: 600px) {
+            .logo-section { gap: 0.8rem; }
             .site-title { font-size: 1.9rem; }
-            h1 { font-size: 2rem; margin-bottom: 40px; }
-            h2 { font-size: 1.4rem; }
-            .contact-card { padding: 30px 25px; margin: 50px 0 30px; }
-        }
-
-        @media (max-width: 480px) {
-            .site-title { font-size: 1.7rem; }
-            h1 { font-size: 1.8rem; }
+            h1 { font-size: 1.9rem; }
             h2 { font-size: 1.3rem; }
-            p, li { font-size: 1rem; }
-            .back-button { padding: 12px 30px; font-size: 0.95rem; }
         }
     </style>
 </head>
-<body lang="ar" dir="rtl">
-    <!-- Header with Logo and Language Switcher (hidden) -->
+<body>
+
+    <!-- header – no language switcher, just brand -->
     <div class="header">
         <div class="logo-section">
-            <!-- same logo, alt admin panel name -->
-            <img src="images/logo.jpeg" alt="LohPanel Admin" class="logo-image">
+            <img src="images/logo.jpeg" alt="LohPanel" class="logo-image">
             <div>
                 <div class="site-title">LohPanel</div>
-                <div class="site-subtitle">آخر تحديث: يناير 2026</div>
+                <div class="site-subtitle">updated · January 2026</div>
             </div>
         </div>
-        <!-- Language switcher (will be hidden) -->
-        <div class="lang-switcher" id="langSwitcher">
-            <span class="lang-text">English</span>
-        </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="content-wrapper">
-        <h1>شروط استخدام لوحة التحكم</h1>
+    <h1>Admin terms of use</h1>
 
-        <!-- Intro / acceptance -->
-        <div class="section">
-            <p>
-                باستخدامك لوحة تحكم <strong>LohPanel</strong> (يُشار إليها لاحقاً بـ "اللوحة")، فإنك توافق على الالتزام بهذه الشروط المخصصة للمسؤولين. إذا كنت لا توافق على أي جزء منها، يرجى عدم استخدام اللوحة.
-            </p>
-        </div>
-
-        <!-- 1. Access and authentication (phone only) -->
-        <div class="section">
-            <h2>الدخول والمصادقة</h2>
-            <p>
-                يتطلب الدخول إلى لوحة التحكم استخدام رقم الهاتف فقط، دون الحاجة إلى بريد إلكتروني أو كلمة مرور تقليدية. يتم إرسال رمز تحقق عبر الرسائل القصيرة (OTP) للتحقق من هوية المسؤول. يحظر مشاركة رقم الهاتف المسجل مع أي طرف آخر، والمسؤول يتحمل كامل المسؤولية عن أي دخول غير مصرح به ناتج عن إهمال الحفاظ على سرية الرقم أو رمز التحقق.
-            </p>
-        </div>
-
-        <!-- 2. Admin privileges: products, orders, notifications, statistics, profit -->
-        <div class="section">
-            <h2>صلاحيات المسؤول</h2>
-            <p>
-                تمنح اللوحة المسؤولين الصلاحيات التالية حصراً ضمن نطاق تطبيق "لحومنا":
-            </p>
-            <ul>
-                <li><strong>إدارة المنتجات:</strong> إضافة، تعديل، أو حذف المنتجات (الذبائح، القطع، الأسعار).</li>
-                <li><strong>معاينة الطلبات:</strong> الاطلاع على جميع طلبات العملاء، حالاتها، وتفاصيل التوصيل.</li>
-                <li><strong>إرسال الإشعارات:</strong> إرسال إشعارات فورية (push notifications) للمستخدمين (عملاء التطبيق).</li>
-                <li><strong>إحصائيات الأرباح والعملاء:</strong> عرض تقارير وإحصائيات حول الأرباح، عدد العملاء، ومؤشرات الأداء.</li>
-            </ul>
-            <p>
-                تُستخدم هذه الصلاحيات لأغراض التشغيل والصيانة والتطوير فقط، ولا يجوز استخدامها لأغراض تجارية خارج نطاق عمل التطبيق أو انتهاك خصوصية العملاء.
-            </p>
-        </div>
-
-        <!-- 3. Data confidentiality & security -->
-        <div class="section">
-            <h2>سرية البيانات وأمانها</h2>
-            <p>
-                يطلع المسؤول على بيانات حساسة مثل معلومات العملاء (الأسماء، أرقام الهواتف، عناوين التوصيل) وتفاصيل الطلبات. يلتزم المسؤول بعدم مشاركة هذه البيانات مع أي طرف ثالث، وعدم استخدامها إلا لغرض معالجة الطلبات وتحسين الخدمة. أي اختراق أو تسريب متعمد يعرض المسؤول للمساءلة القانونية.
-            </p>
-        </div>
-
-        <!-- 4. Accuracy of information (products, profit) -->
-        <div class="section">
-            <h2>دقة المعلومات</h2>
-            <p>
-                يتحمل المسؤول دقة البيانات التي يُدخلها في نظام المنتجات (الأوصاف، الأسعار، الكميات). كما يجب عليه التأكد من صحة معلومات الأرباح قبل الاعتماد عليها أو مشاركتها مع الإدارة. في حال اكتشاف أخطاء جسيمة، يجب تصحيحها فوراً.
-            </p>
-        </div>
-
-        <!-- 5. Use of notifications -->
-        <div class="section">
-            <h2>استخدام الإشعارات</h2>
-            <p>
-                يُسمح بإرسال الإشعارات للمستخدمين للأغراض التشغيلية (تأكيد الطلب، تحديث الحالة، عروض ترويجية متعلقة بالذبائح) وفق سياسة الاستخدام المقبول. يُحظر إرسال إشعارات مسيئة أو متكررة بشكل مزعج. يحتفظ التطبيق بسجل للإشعارات المرسلة.
-            </p>
-        </div>
-
-        <!-- 6. Intellectual property & admin responsibilities -->
-        <div class="section">
-            <h2>الملكية الفكرية والمسؤولية</h2>
-            <p>
-                جميع حقوق الملكية الفكرية للوحة التحكم والبيانات المرتبطة بها تعود حصرياً إلى تطبيق "لحومنا". لا يحق للمسؤول نسخ أو تعديل أو هندسة عكسية للوحة أو استخدامها لأغراض تنافسية. المسؤولية القانونية تقع على عاتق المسؤول في حال استخدام الصلاحيات بطريقة تضر بالتطبيق أو عملائه.
-            </p>
-        </div>
-
-        <!-- 7. Modifications and termination -->
-        <div class="section">
-            <h2>التعديلات وإنهاء الوصول</h2>
-            <p>
-                يحق لإدارة التطبيق تعديل شروط استخدام لوحة التحكم في أي وقت. كما يحق لها إنهاء صلاحية دخول أي مسؤول دون إبداء أسباب، خاصة في حال الاشتباه بإساءة الاستخدام أو خرق الشروط.
-            </p>
-        </div>
-
-        <!-- Contact Section (same as original but admin-specific) -->
-        <div class="section contact-section">
-            <h2>الدعم الفني</h2>
-            <p>للاستفسارات المتعلقة بلوحة التحكم، يرجى التواصل مع إدارة النظام عبر:</p>
-            <ul>
-                <li>الهاتف / واتساب: <strong>00971554484488</strong> (للمسؤولين فقط)</li>
-                <li>بريد إلكتروني: <strong>admin@lohomna.com</strong></li>
-            </ul>
-        </div>
-
-        <!-- Back Button (to admin panel) -->
-        <div class="back-button-container">
-            <a href="admin-panel.html" class="back-button">
-                <i class="fas fa-arrow-right"></i>
-                العودة إلى لوحة التحكم
-            </a>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            © 2026 لحومنا - LohPanel. جميع الحقوق محفوظة.
-        </footer>
+    <!-- intro / acceptance (short) -->
+    <div class="section">
+        <p>By accessing <strong>LohPanel</strong> (the admin control panel for Lohomna), you agree to these simplified terms. If you don’t agree, do not use the panel.</p>
     </div>
 
-    <script>
-        // Get language preference from URL or localStorage (same as original logic)
-        const getLanguagePreference = () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const urlLang = urlParams.get('lang');
-            const storedLang = localStorage.getItem('lohomna_language');
-            if (urlLang && (urlLang === 'ar' || urlLang === 'en')) {
-                return urlLang;
-            } else if (storedLang) {
-                return storedLang;
-            }
-            return 'ar';
-        };
+    <!-- 1. login – phone only -->
+    <h2>Login & phone</h2>
+    <p>Access requires only your <strong>phone number</strong> (OTP via SMS). Never share your registered number or verification codes — you are responsible for any unauthorised access caused by negligence.</p>
 
-        const currentLang = getLanguagePreference();
-        document.documentElement.lang = currentLang;
-        document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-        document.body.lang = currentLang;
-        document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    <!-- 2. what admins can do (products, orders, notifications, stats) -->
+    <h2>Admin privileges</h2>
+    <p>You may use the panel exclusively for:</p>
+    <ul>
+        <li><strong>Manage products</strong> – add, edit or delete meat items, prices, cuts.</li>
+        <li><strong>View orders</strong> – see customer orders, status, delivery details.</li>
+        <li><strong>Send notifications</strong> – push alerts to app users (operational / offers).</li>
+        <li><strong>Statistics</strong> – view profit reports & customer analytics.</li>
+    </ul>
+    <p>These permissions are only for operating & improving the service — never for outside commercial use or violating customer privacy.</p>
 
-        // Arabic content for Admin panel
-        const arabicContent = {
-            pageTitle: "شروط استخدام لوحة التحكم - LohPanel",
-            logoAlt: "شعار لوحة التحكم",
-            siteTitle: "LohPanel",
-            siteSubtitle: "آخر تحديث: يناير 2026",
-            pageHeading: "شروط استخدام لوحة التحكم",
-            introPara: "باستخدامك لوحة تحكم <strong>LohPanel</strong> (يُشار إليها لاحقاً بـ \"اللوحة\")، فإنك توافق على الالتزام بهذه الشروط المخصصة للمسؤولين. إذا كنت لا توافق على أي جزء منها، يرجى عدم استخدام اللوحة.",
-            section1Title: "الدخول والمصادقة",
-            section1Content: "يتطلب الدخول إلى لوحة التحكم استخدام رقم الهاتف فقط، دون الحاجة إلى بريد إلكتروني أو كلمة مرور تقليدية. يتم إرسال رمز تحقق عبر الرسائل القصيرة (OTP) للتحقق من هوية المسؤول. يحظر مشاركة رقم الهاتف المسجل مع أي طرف آخر، والمسؤول يتحمل كامل المسؤولية عن أي دخول غير مصرح به ناتج عن إهمال الحفاظ على سرية الرقم أو رمز التحقق.",
-            section2Title: "صلاحيات المسؤول",
-            section2ContentBefore: "تمنح اللوحة المسؤولين الصلاحيات التالية حصراً ضمن نطاق تطبيق \"لحومنا\":",
-            section2List: [
-                "<strong>إدارة المنتجات:</strong> إضافة، تعديل، أو حذف المنتجات (الذبائح، القطع، الأسعار).",
-                "<strong>معاينة الطلبات:</strong> الاطلاع على جميع طلبات العملاء، حالاتها، وتفاصيل التوصيل.",
-                "<strong>إرسال الإشعارات:</strong> إرسال إشعارات فورية (push notifications) للمستخدمين (عملاء التطبيق).",
-                "<strong>إحصائيات الأرباح والعملاء:</strong> عرض تقارير وإحصائيات حول الأرباح، عدد العملاء، ومؤشرات الأداء."
-            ],
-            section2ContentAfter: "تُستخدم هذه الصلاحيات لأغراض التشغيل والصيانة والتطوير فقط، ولا يجوز استخدامها لأغراض تجارية خارج نطاق عمل التطبيق أو انتهاك خصوصية العملاء.",
-            section3Title: "سرية البيانات وأمانها",
-            section3Content: "يطلع المسؤول على بيانات حساسة مثل معلومات العملاء (الأسماء، أرقام الهواتف، عناوين التوصيل) وتفاصيل الطلبات. يلتزم المسؤول بعدم مشاركة هذه البيانات مع أي طرف ثالث، وعدم استخدامها إلا لغرض معالجة الطلبات وتحسين الخدمة. أي اختراق أو تسريب متعمد يعرض المسؤول للمساءلة القانونية.",
-            section4Title: "دقة المعلومات",
-            section4Content: "يتحمل المسؤول دقة البيانات التي يُدخلها في نظام المنتجات (الأوصاف، الأسعار، الكميات). كما يجب عليه التأكد من صحة معلومات الأرباح قبل الاعتماد عليها أو مشاركتها مع الإدارة. في حال اكتشاف أخطاء جسيمة، يجب تصحيحها فوراً.",
-            section5Title: "استخدام الإشعارات",
-            section5Content: "يُسمح بإرسال الإشعارات للمستخدمين للأغراض التشغيلية (تأكيد الطلب، تحديث الحالة، عروض ترويجية متعلقة بالذبائح) وفق سياسة الاستخدام المقبول. يُحظر إرسال إشعارات مسيئة أو متكررة بشكل مزعج. يحتفظ التطبيق بسجل للإشعارات المرسلة.",
-            section6Title: "الملكية الفكرية والمسؤولية",
-            section6Content: "جميع حقوق الملكية الفكرية للوحة التحكم والبيانات المرتبطة بها تعود حصرياً إلى تطبيق \"لحومنا\". لا يحق للمسؤول نسخ أو تعديل أو هندسة عكسية للوحة أو استخدامها لأغراض تنافسية. المسؤولية القانونية تقع على عاتق المسؤول في حال استخدام الصلاحيات بطريقة تضر بالتطبيق أو عملائه.",
-            section7Title: "التعديلات وإنهاء الوصول",
-            section7Content: "يحق لإدارة التطبيق تعديل شروط استخدام لوحة التحكم في أي وقت. كما يحق لها إنهاء صلاحية دخول أي مسؤول دون إبداء أسباب، خاصة في حال الاشتباه بإساءة الاستخدام أو خرق الشروط.",
-            contactTitle: "الدعم الفني",
-            contactLead: "للاستفسارات المتعلقة بلوحة التحكم، يرجى التواصل مع إدارة النظام عبر:",
-            contactItem1: "الهاتف / واتساب: <strong>00971554484488</strong> (للمسؤولين فقط)",
-            contactItem2: "بريد إلكتروني: <strong>admin@lohomna.com</strong>",
-            backButton: "العودة إلى لوحة التحكم",
-            copyright: "© 2026 لحومنا - LohPanel. جميع الحقوق محفوظة."
-        };
+    <!-- 3. data confidentiality (customer info) -->
+    <h2>Confidentiality</h2>
+    <p>You will see customer names, phone numbers, and addresses. You must <strong>never share</strong> this data with anyone else, and only use it to process orders. Any intentional leak leads to immediate legal action.</p>
 
-        // English content for Admin panel
-        const englishContent = {
-            pageTitle: "Admin Panel Terms of Use - LohPanel",
-            logoAlt: "Admin Panel Logo",
-            siteTitle: "LohPanel",
-            siteSubtitle: "Last Updated: January 2026",
-            pageHeading: "Admin Panel Terms of Use",
-            introPara: "By using the <strong>LohPanel</strong> control panel (hereinafter referred to as \"the Panel\"), you agree to comply with these terms specifically for administrators. If you do not agree with any part, please do not use the Panel.",
-            section1Title: "Access and Authentication",
-            section1Content: "Access to the control panel requires using only the phone number, without the need for an email or traditional password. A verification code (OTP) is sent via SMS to verify the administrator's identity. Sharing the registered phone number with any other party is prohibited, and the administrator bears full responsibility for any unauthorized access resulting from failure to maintain the confidentiality of the number or verification code.",
-            section2Title: "Administrator Privileges",
-            section2ContentBefore: "The Panel grants administrators the following permissions exclusively within the scope of the 'Lohomna' application:",
-            section2List: [
-                "<strong>Product Management:</strong> Add, modify, or delete products (carcasses, cuts, prices).",
-                "<strong>View Orders:</strong> View all customer orders, their status, and delivery details.",
-                "<strong>Send Notifications:</strong> Send push notifications to users (app customers).",
-                "<strong>Profit & Customer Statistics:</strong> View reports and statistics on profits, number of customers, and performance indicators."
-            ],
-            section2ContentAfter: "These permissions are used only for operational, maintenance, and development purposes. They may not be used for commercial purposes outside the scope of the application or to violate customer privacy.",
-            section3Title: "Data Confidentiality & Security",
-            section3Content: "The administrator accesses sensitive data such as customer information (names, phone numbers, delivery addresses) and order details. The administrator undertakes not to share this data with any third party and to use it only for processing orders and improving the service. Any intentional breach or leak exposes the administrator to legal accountability.",
-            section4Title: "Accuracy of Information",
-            section4Content: "The administrator is responsible for the accuracy of data entered into the product system (descriptions, prices, quantities). They must also ensure the correctness of profit information before relying on or sharing it with management. If critical errors are discovered, they must be corrected immediately.",
-            section5Title: "Use of Notifications",
-            section5Content: "Notifications may be sent to users for operational purposes (order confirmation, status updates, promotional offers related to meats) in accordance with acceptable use policy. Sending abusive or excessively annoying notifications is prohibited. The application maintains a log of sent notifications.",
-            section6Title: "Intellectual Property & Responsibility",
-            section6Content: "All intellectual property rights to the control panel and associated data are exclusively owned by the 'Lohomna' application. The administrator may not copy, modify, reverse engineer the panel, or use it for competitive purposes. Legal liability rests with the administrator if privileges are used in a way that harms the application or its customers.",
-            section7Title: "Modifications & Termination",
-            section7Content: "The application management reserves the right to modify the control panel terms of use at any time. It also reserves the right to terminate any administrator's access without giving reasons, especially if misuse or breach of terms is suspected.",
-            contactTitle: "Technical Support",
-            contactLead: "For inquiries related to the control panel, please contact system administration via:",
-            contactItem1: "Phone / WhatsApp: <strong>00971554484488</strong> (for administrators only)",
-            contactItem2: "Email: <strong>admin@lohomna.com</strong>",
-            backButton: "Back to Control Panel",
-            copyright: "© 2026 Lohomna - LohPanel. All rights reserved."
-        };
+    <!-- 4. accuracy (products, profit) – short -->
+    <h2>Accuracy</h2>
+    <p>You are responsible for correct product info (prices, descriptions) and profit figures. Fix errors immediately.</p>
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Hide language switcher (optional but consistent with original)
-            const langSwitcher = document.getElementById('langSwitcher');
-            if (langSwitcher) langSwitcher.style.display = 'none';
+    <!-- 5. notifications – short -->
+    <h2>Notifications</h2>
+    <p>Only send operational or relevant promotional messages. No spam or abusive alerts. A log is kept.</p>
 
-            // Center header more (since switcher hidden)
-            const header = document.querySelector('.header');
-            if (header) header.style.justifyContent = 'center';
+    <!-- 6. intellectual property / responsibility -->
+    <h2>© IP & responsibility</h2>
+    <p>All rights to LohPanel and its data belong to <strong>Lohomna</strong>. You may not copy, reverse‑engineer, or use it competitively. You are liable for any harm caused by misuse.</p>
 
-            // Choose content
-            const content = currentLang === 'ar' ? arabicContent : englishContent;
+    <!-- 7. changes & termination -->
+    <h2>Changes & access</h2>
+    <p>We may update these terms at any time. We can also revoke your access without notice if we suspect misuse.</p>
 
-            // Update dynamic fields
-            document.title = content.pageTitle;
-            document.querySelector('.logo-image')?.setAttribute('alt', content.logoAlt);
-            document.querySelector('.site-title').textContent = content.siteTitle;
-            document.querySelector('.site-subtitle').textContent = content.siteSubtitle;
-            document.querySelector('h1').textContent = content.pageHeading;
+    <!-- contact (admin support) -->
+    <h2>Support</h2>
+    <div class="contact-section">
+        <p>For panel‑related questions:</p>
+        <ul>
+            <li><strong>00971554484488</strong> (admin WhatsApp only)</li>
+            <li><strong>admin@lohomna.com</strong></li>
+        </ul>
+    </div>
 
-            // Update paragraphs (index based)
-            const paragraphs = document.querySelectorAll('.section > p');
-            // intro
-            if (paragraphs[0]) paragraphs[0].innerHTML = content.introPara;
+    <!-- back button -->
+    <div class="back-button-container">
+        <a href="admin-panel.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to panel
+        </a>
+    </div>
 
-            // section1 content (single p)
-            if (paragraphs[1]) paragraphs[1].textContent = content.section1Content;
+    <footer>
+        © 2026 Lohomna – LohPanel. All rights reserved.
+    </footer>
 
-            // section2: before list, then list, then after (we have two paragraphs for section2? better handle manually)
-            // We'll target section2 specifically to avoid index confusion
-            const sections = document.querySelectorAll('.section');
-            // section2 (index 1) has: h2, p, ul, p
-            const section2 = sections[1];
-            if (section2) {
-                const pInSection2 = section2.querySelectorAll('p');
-                if (pInSection2[0]) pInSection2[0].textContent = content.section2ContentBefore;
-                // update list items
-                const listItems = section2.querySelectorAll('li');
-                if (listItems.length === 4) {
-                    listItems[0].innerHTML = content.section2List[0];
-                    listItems[1].innerHTML = content.section2List[1];
-                    listItems[2].innerHTML = content.section2List[2];
-                    listItems[3].innerHTML = content.section2List[3];
-                }
-                if (pInSection2[1]) pInSection2[1].textContent = content.section2ContentAfter;
-            }
-
-            // section3 content (third .section, index 2)
-            const section3 = sections[2];
-            if (section3) {
-                const p = section3.querySelector('p');
-                if (p) p.textContent = content.section3Content;
-            }
-            // section4
-            const section4 = sections[3];
-            if (section4) {
-                const p = section4.querySelector('p');
-                if (p) p.textContent = content.section4Content;
-            }
-            // section5
-            const section5 = sections[4];
-            if (section5) {
-                const p = section5.querySelector('p');
-                if (p) p.textContent = content.section5Content;
-            }
-            // section6
-            const section6 = sections[5];
-            if (section6) {
-                const p = section6.querySelector('p');
-                if (p) p.textContent = content.section6Content;
-            }
-            // section7
-            const section7 = sections[6];
-            if (section7) {
-                const p = section7.querySelector('p');
-                if (p) p.textContent = content.section7Content;
-            }
-
-            // contact section (index 7)
-            const contactSection = sections[7];
-            if (contactSection) {
-                const contactP = contactSection.querySelector('p');
-                if (contactP) contactP.textContent = content.contactLead;
-                const contactItems = contactSection.querySelectorAll('li');
-                if (contactItems.length >= 2) {
-                    contactItems[0].innerHTML = content.contactItem1;
-                    contactItems[1].innerHTML = content.contactItem2;
-                }
-                const contactHeading = contactSection.querySelector('h2');
-                if (contactHeading) contactHeading.textContent = content.contactTitle;
-            }
-
-            // headings h2 (all except contact already updated manually, but we'll update by order)
-            const headings = document.querySelectorAll('h2');
-            if (headings[0]) headings[0].textContent = content.section1Title;
-            if (headings[1]) headings[1].textContent = content.section2Title;
-            if (headings[2]) headings[2].textContent = content.section3Title;
-            if (headings[3]) headings[3].textContent = content.section4Title;
-            if (headings[4]) headings[4].textContent = content.section5Title;
-            if (headings[5]) headings[5].textContent = content.section6Title;
-            if (headings[6]) headings[6].textContent = content.section7Title;
-            if (headings[7]) headings[7].textContent = content.contactTitle;
-
-            // back button
-            const backBtn = document.querySelector('.back-button');
-            if (backBtn) {
-                const icon = backBtn.querySelector('i');
-                if (icon) icon.className = currentLang === 'en' ? 'fas fa-arrow-left' : 'fas fa-arrow-right';
-                // get text node (after icon)
-                const textNode = backBtn.childNodes[2];
-                if (textNode && textNode.nodeType === 3) textNode.textContent = ' ' + content.backButton;
-                // update href (optional)
-                backBtn.href = currentLang === 'en' ? 'admin-panel.html?lang=en' : 'admin-panel.html';
-            }
-
-            // footer
-            const footer = document.querySelector('footer');
-            if (footer) footer.textContent = content.copyright;
-        });
-    </script>
+    <!-- no script needed – pure English, no switcher -->
 </body>
 </html>
