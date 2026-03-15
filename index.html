@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لحومنا - Lohomna</title>
-    <!-- Add this line to set the browser tab icon -->
+    <!-- browser tab icon -->
     <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
     <link rel="icon" type="image/png" sizes="32x32" href="images/logo.jpeg">
     <link rel="icon" type="image/png" sizes="16x16" href="images/logo.jpeg">
     <link rel="apple-touch-icon" sizes="180x180" href="images/logo.jpeg">
 
+    <!-- Font Awesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
             --primary: #DA4900;
@@ -25,26 +26,21 @@
             --primary-light: #FF7A38;
             --primary-gradient: linear-gradient(135deg, #DA4900 0%, #FF7A38 100%);
 
-            --bg-dark: #F7F7F7;
-            /* main background */
-            --bg-card: #FFFFFF;
-            /* cards */
-            --bg-section: #F1F1F1;
-            /* sections */
+            /* Dark black official theme */
+            --bg-dark: #0A0A0A;
+            --bg-card: #1A1A1A;
+            --bg-section: #141414;
 
-            --text-primary: #111111;
-            --text-secondary: #555555;
-            --text-tertiary: #888888;
+            --text-primary: #FFFFFF;
+            --text-secondary: #FFFFFF;
+            --text-tertiary: #FFFFFF;
 
-            --border: #E0E0E0;
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-
+            --border: #333333;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
             --radius: 12px;
             --radius-lg: 20px;
         }
-
 
         [lang="en"] {
             direction: ltr;
@@ -82,19 +78,16 @@
             padding: 0 24px;
         }
 
-        /* Header */
+        /* Header (fixed) */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
-
             border-bottom: 1px solid var(--border);
             box-shadow: var(--shadow);
-
             transition: var(--transition);
         }
 
@@ -102,9 +95,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 20px 24px;
+            /* top/bottom: 20px, left/right: 24px */
         }
-
 
         .logo {
             display: flex;
@@ -130,14 +123,14 @@
             letter-spacing: -0.5px;
         }
 
-        /* Navigation */
-        nav ul {
+        /* Desktop navigation */
+        .desktop-nav ul {
             display: flex;
             list-style: none;
             gap: 32px;
         }
 
-        nav a {
+        .desktop-nav a {
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
@@ -147,12 +140,12 @@
             transition: var(--transition);
         }
 
-        nav a:hover,
-        nav a.active {
+        .desktop-nav a:hover,
+        .desktop-nav a.active {
             color: var(--text-primary);
         }
 
-        nav a::after {
+        .desktop-nav a::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -163,54 +156,36 @@
             transition: var(--transition);
         }
 
-        [lang="en"] nav a::after {
+        [lang="en"] .desktop-nav a::after {
             right: auto;
             left: 0;
         }
 
-        nav a:hover::after,
-        nav a.active::after {
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
             width: 100%;
         }
 
-        /* Language Switcher */
-        .lang-switcher {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 12px;
+        /* Language switcher - just text, no container */
+        .lang-switcher-text {
             color: var(--text-primary);
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            text-decoration: none;
-            background: transparent;
-            border: none;
-            min-width: 60px;
+            font-size: 1rem;
+            padding: 4px 8px;
         }
 
-        .lang-switcher:hover {
+        .lang-switcher-text:hover {
             color: var(--primary);
-            transform: translateY(-2px);
         }
 
-        /* Mobile language switcher */
-        .mobile-lang-switcher {
-            margin-top: 40px;
-            width: 100%;
-            justify-content: center;
-            background: transparent !important;
-            border: none !important;
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
             padding: 200px 0 300px;
             position: relative;
             overflow: hidden;
-            background:
-                linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
-                url("images/sheep.jpg");
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), url("images/sheep.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -218,7 +193,7 @@
 
         .hero h1,
         .hero p {
-            color: #ffffff;
+            color: var(--text-primary);
         }
 
         .hero::before {
@@ -228,8 +203,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background:
-                radial-gradient(circle at 20% 80%, rgba(218, 73, 0, 0.15) 0%, transparent 50%),
+            background: radial-gradient(circle at 20% 80%, rgba(218, 73, 0, 0.2) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(218, 73, 0, 0.1) 0%, transparent 50%);
             z-index: -1;
         }
@@ -253,19 +227,11 @@
 
         .hero p {
             font-size: 1.3rem;
-            color: var(--text-secondary);
             margin-bottom: 48px;
+            color: var(--text-secondary);
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 0.8s ease forwards 0.4s;
-        }
-
-        .hero h1 {
-            color: #ffffff;
-        }
-
-        .hero p {
-            color: rgba(255, 255, 255, 0.7);
         }
 
         .cta-button {
@@ -293,7 +259,7 @@
             box-shadow: 0 15px 40px rgba(218, 73, 0, 0.4);
         }
 
-        /* About Section */
+        /* About */
         .about {
             padding: 120px 0;
             background: var(--bg-section);
@@ -337,29 +303,13 @@
         .about-text p {
             margin-bottom: 24px;
             line-height: 1.8;
+            color: var(--text-secondary);
         }
 
-        .about-image {
-            height: 900px;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Features Section */
+        /* Features */
         .features {
             padding: 120px 0;
+            background: var(--bg-dark);
         }
 
         .features-grid {
@@ -426,7 +376,7 @@
             line-height: 1.6;
         }
 
-        /* Download Section */
+        /* Download */
         .download {
             padding: 120px 0;
             background: var(--bg-section);
@@ -506,6 +456,7 @@
             font-size: 1.3rem;
             margin-bottom: 8px;
             text-align: right;
+            color: var(--text-primary);
         }
 
         [lang="en"] .download-info h3 {
@@ -517,163 +468,166 @@
             color: var(--text-tertiary);
         }
 
-        /* Social Media Section */
+        .coming-soon {
+            color: var(--text-tertiary);
+        }
+
+        /* ===== SOCIAL MEDIA SECTION ===== */
         .social {
-            padding: 120px 0;
+            padding: 30px 0 0;
+            background: var(--bg-dark);
         }
 
-        .social-links {
+        /* Follow us text + icons in one row with space between */
+        .social-row {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .social-link {
-            display: flex;
+            justify-content: space-between;
+            /* Text left, icons right */
             align-items: center;
-            gap: 16px;
-            padding: 20px 32px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            text-decoration: none;
+            width: 100%;
+            /* Ensure full width */
+        }
+
+        .follow-text {
             color: var(--text-primary);
-            transition: var(--transition);
-            min-width: 220px;
-            position: relative;
-            overflow: hidden;
+            font-size: 1.0rem;
+            font-weight: 800;
+            margin: 0;
+            white-space: nowrap;
         }
 
-        /* Add the top colored line */
-        .social-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--primary-gradient);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        /* Update hover effect to match feature cards */
-        .social-link:hover {
-            background: var(--bg-card);
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
-        }
-
-        /* Show the top line on hover */
-        .social-link:hover::before {
-            transform: scaleX(1);
+        .social-icons-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            /* Align icons to the right within their container */
+            align-items: center;
+            gap: 30px;
+            /* Space between icons */
         }
 
         .social-icon {
-            font-size: 1.8rem;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
             transition: var(--transition);
+        }
+
+        .social-icon:hover {
             color: var(--primary);
+            transform: translateY(-4px);
         }
 
-        /* Make icon have gradient background on hover (like feature icons) */
-        .social-link:hover .social-icon {
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            transform: scale(1.1);
+        /* ===== DIVIDER ===== */
+        .grey-divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+            margin: 20px 0 30px;
         }
 
-        .social-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 4px;
+        /* ===== TERMS & PRIVACY ROW (no headline) ===== */
+        .legal-row {
+            background: var(--bg-dark);
+            padding: 0 0 40px;
         }
 
-        .social-info p {
-            font-size: 0.9rem;
-            color: var(--text-tertiary);
+        .legal-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
         }
 
-        /* Footer */
-        footer {
-            background: var(--bg-section);
-            padding: 80px 0 30px;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 48px;
-            margin-bottom: 60px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 24px;
-            color: var(--text-primary);
-        }
-
-        .footer-column p {
-            color: var(--text-tertiary);
-            line-height: 1.7;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 16px;
-        }
-
-        .footer-links a {
-            color: var(--text-tertiary);
+        .legal-link {
+            color: var(--text-secondary);
             text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        .footer-links a:hover {
+        .legal-link:hover {
             color: var(--primary);
-            transform: translateX(5px);
         }
 
-        [lang="ar"] .footer-links a:hover {
-            transform: translateX(-5px);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .dot-separator {
             color: var(--text-tertiary);
+            font-size: 0.9rem;
         }
 
-        .contact-icon {
-            color: var(--primary);
-            font-size: 1.1rem;
+        /* Footer minimal (only copyright) */
+        footer {
+            background: var(--bg-dark);
+            padding: 0 0 30px;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid var(--border);
             color: var(--text-tertiary);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
         }
 
-        /* Animations */
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .feature-card,
+            .download-btn {
+                min-width: 100%;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                /* Changed from 'center' to 'space-between' */
+                align-items: center;
+                gap: 20px;
+                /* Optional: adds minimum gap when wrapping */
+            }
+
+            .social-icons-group {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .legal-links {
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .desktop-nav {
+                display: block;
+            }
+        }
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -683,16 +637,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
             }
         }
 
@@ -706,333 +650,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Mobile Menu Button - FIXED: Always show by default */
-        .mobile-menu-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1001;
-            width: 44px;
-            height: 44px;
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-
-        .mobile-menu-btn:hover {
-            background: rgba(218, 73, 0, 0.1);
-            color: var(--primary);
-        }
-
-        /* Desktop navigation - hide on mobile */
-        .desktop-nav {
-            display: block;
-        }
-
-        /* Mobile Menu */
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-dark);
-            z-index: 2000;
-            padding: 80px 24px 0;
-            overflow-y: auto;
-            visibility: hidden;
-            transition: transform 0.3s ease, visibility 0.3s;
-        }
-
-        [dir="rtl"] .mobile-menu {
-            right: 0;
-            left: auto;
-            transform: translateX(100%);
-        }
-
-        /* For English (LTR) */
-        [dir="ltr"] .mobile-menu {
-            left: 0;
-            right: auto;
-            transform: translateX(-100%);
-        }
-
-        /* Active state - menu slides in */
-        [dir="rtl"] .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        [dir="ltr"] .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .mobile-menu.active {
-            visibility: visible;
-        }
-
-        /* Mobile menu close button */
-        .mobile-menu-close {
-            position: absolute;
-            top: 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            color: var(--text-primary);
-            font-size: 1.3rem;
-            cursor: pointer;
-            z-index: 2001;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .mobile-menu-close:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: rotate(90deg);
-        }
-
-        /* Arabic - close button on the right */
-        [dir="rtl"] .mobile-menu-close {
-            right: 20px;
-            left: auto;
-        }
-
-        /* English - close button on the left */
-        [dir="ltr"] .mobile-menu-close {
-            left: 20px;
-            right: auto;
-        }
-
-        /* Mobile Menu Content */
-        .mobile-menu-content {
-            padding-top: 40px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .menu-category {
-            margin-top: 30px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-light);
-        }
-
-        .menu-category:first-child {
-            margin-top: 0;
-        }
-
-        .menu-category-title {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        [lang="ar"] .menu-category-title {
-            letter-spacing: 0;
-        }
-
-        .mobile-menu-links {
-            list-style: none;
-            flex: 1;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        .mobile-menu-links li {
-            margin-bottom: 12px;
-        }
-
-        .mobile-menu-link {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 14px 20px;
-            display: block;
-            border-radius: var(--radius);
-            transition: var(--transition);
-            border: 1px solid transparent;
-            background: var(--bg-card);
-        }
-
-        .mobile-menu-link:hover,
-        .mobile-menu-link.active {
-            background: rgba(218, 73, 0, 0.05);
-            border-color: var(--primary-light);
-            color: var(--primary);
-            transform: translateX(-5px);
-        }
-
-        [dir="ltr"] .mobile-menu-link:hover,
-        [dir="ltr"] .mobile-menu-link.active {
-            transform: translateX(5px);
-        }
-
-        /* Mobile menu footer */
-        .mobile-menu-footer {
-            padding: 20px 0 40px;
-            border-top: 1px solid var(--border);
-            margin-top: 20px;
-        }
-
-        .mobile-menu-footer .mobile-lang-switcher {
-            margin-bottom: 20px;
-            justify-content: flex-start;
-            padding: 12px 20px;
-            border-radius: var(--radius);
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            font-weight: 600;
-            width: auto;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-
-        .mobile-menu-footer .mobile-lang-switcher i {
-            color: var(--primary);
-        }
-
-        .mobile-menu-footer .mobile-lang-switcher:hover {
-            background: rgba(218, 73, 0, 0.05);
-            border-color: var(--primary-light);
-            color: var(--primary);
-            transform: translateX(-5px);
-        }
-
-        [dir="ltr"] .mobile-menu-footer .mobile-lang-switcher:hover {
-            transform: translateX(5px);
-        }
-
-        .mobile-menu-copyright {
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        /* Mobile menu overlay */
-        .mobile-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1999;
-            backdrop-filter: blur(3px);
-        }
-
-        .mobile-menu-overlay.active {
-            display: block;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .about-image {
-                height: 400px;
-            }
-
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .desktop-nav {
-                display: none;
-            }
-
-            .lang-switcher {
-                display: none;
-            }
-
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-
-            .feature-card,
-            .download-btn,
-            .social-link {
-                min-width: 100%;
-            }
-
-            .download-buttons,
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .mobile-menu-btn {
-                display: none;
-            }
-
-            .desktop-nav {
-                display: block;
-            }
-
-            .lang-switcher {
-                display: inline-flex;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-
-            .logo-text {
-                font-size: 1.5rem;
-            }
-
-            .logo-image {
-                height: 40px;
-            }
-        }
     </style>
 </head>
 
@@ -1045,10 +662,7 @@
                 <span class="logo-text">لحومنا</span>
             </a>
 
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-
+            <!-- Desktop navigation -->
             <nav class="desktop-nav">
                 <ul>
                     <li><a href="#home" class="active">الرئيسية</a></li>
@@ -1059,58 +673,16 @@
                 </ul>
             </nav>
 
-            <div class="lang-switcher" id="langSwitcher">
-                <span class="lang-text">English</span>
-            </div>
+            <!-- Language switcher: just text, no container -->
+            <span class="lang-switcher-text" id="langSwitcherText">English</span>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <!-- Make sure your mobile menu HTML looks exactly like this -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" id="mobileMenuClose">
-            <i class="fas fa-times"></i>
-        </button>
-
-        <div class="mobile-menu-content">
-            <ul class="mobile-menu-links">
-                <li class="menu-category">
-                    <span class="menu-category-title" id="mobileMenuMainTitle">القائمة الرئيسية</span>
-                </li>
-                <!-- Make sure ALL links have the class "mobile-menu-link" -->
-                <li><a href="#home" class="active mobile-menu-link">الرئيسية</a></li>
-                <li><a href="#about" class="mobile-menu-link">من نحن</a></li>
-                <li><a href="#features" class="mobile-menu-link">المميزات</a></li>
-                <li><a href="#download" class="mobile-menu-link">التطبيق</a></li>
-                <li><a href="#social" class="mobile-menu-link">التواصل</a></li>
-
-                <li class="menu-category">
-                    <span class="menu-category-title" id="mobileMenuLegalTitle">معلومات قانونية</span>
-                </li>
-                <!-- Make sure legal links also have the class "mobile-menu-link" -->
-                <li><a href="terms.html" class="mobile-menu-link">شروط الاستخدام</a></li>
-                <li><a href="privacy.html" class="mobile-menu-link">سياسة الخصوصية</a></li>
-                <li><a href="refund.html" class="mobile-menu-link">سياسة الاسترجاع</a></li>
-            </ul>
-
-            <div class="mobile-menu-footer">
-                <div class="lang-switcher mobile-lang-switcher" id="mobileLangSwitcher">
-                    <i class="fas fa-globe"></i>
-                    <span class="lang-text">English</span>
-                </div>
-                <p class="mobile-menu-copyright" id="mobileMenuCopyright">© 2026 لحومنا</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>لحومنا </h1>
+                <h1>لحومنا</h1>
                 <p>تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية. نلتزم بأعلى معايير
                     النظافة والأمان والموثوقية.</p>
                 <a href="#download" class="cta-button">
@@ -1121,14 +693,13 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-title fade-in">
                 <h2>من نحن</h2>
                 <div class="title-line"></div>
             </div>
-
             <div class="about-content">
                 <div class="about-text fade-in">
                     <p>لحومنا هو تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية. يلتزم
@@ -1141,88 +712,70 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features -->
     <section id="features" class="features">
         <div class="container">
             <div class="section-title fade-in">
                 <h2>مميزاتنا</h2>
                 <div class="title-line"></div>
             </div>
-
             <div class="features-grid">
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-stethoscope"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-stethoscope"></i></div>
                     <h3>فحص طبي</h3>
                     <p>جميع الحيوانات تخضع لفحص طبي دقيق قبل الذبح لضمان سلامتها وصحتها.</p>
                 </div>
-
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
                     <h3>ذبح إسلامي</h3>
                     <p>جميع الذبائح تُنفّذ وفق الشريعة الإسلامية وبأعلى معايير الجودة والرعاية للحيوان.</p>
                 </div>
-
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-truck"></i></div>
                     <h3>توصيل إلى باب المنزل</h3>
                     <p>نوصل طلباتك طازجة مباشرة إلى باب منزلك مع الحفاظ على أعلى معايير الجودة.</p>
                 </div>
-
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>جودة عالية</h3>
                     <p>نلتزم بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية.</p>
                 </div>
-
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-star"></i></div>
                     <h3>تجربة متميزة</h3>
                     <p>واجهة مستخدم سهلة ومريحة تجعل عملية الطلب بسيطة وسريعة للجميع.</p>
+                </div>
+                <!-- NEW FEATURE CARD - Cooking Service -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>خدمة الطبخ</h3>
+                    <p>نوفر خدمة طبخ الذبيحة وتجهيزها حسب رغبة العميل لتكون جاهزة للتقديم.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
+    <!-- Download -->
     <section id="download" class="download">
         <div class="container">
             <div class="section-title fade-in">
                 <h2>حمل تطبيق لحومنا</h2>
                 <div class="title-line"></div>
             </div>
-
             <div class="download-content">
                 <p class="download-text fade-in">حمل تطبيق لحومنا الآن واستمتع بتجربة فريدة في طلب الذبائح الطازجة
                     المذبوحة إسلامياً. التطبيق متوفر قريباً على متاجر التطبيقات.</p>
-
                 <div class="download-buttons">
                     <a href="#" class="download-btn fade-in">
-                        <div class="download-icon">
-                            <i class="fab fa-apple"></i>
-                        </div>
+                        <div class="download-icon"><i class="fab fa-apple"></i></div>
                         <div class="download-info">
                             <h3>حمله من App Store</h3>
-                            <span class="coming-soon">قريباً</span>
                         </div>
                     </a>
-
                     <a href="#" class="download-btn fade-in">
-                        <div class="download-icon">
-                            <i class="fab fa-google-play"></i>
-                        </div>
+                        <div class="download-icon"><i class="fab fa-google-play"></i></div>
                         <div class="download-info">
                             <h3>حمله من Google Play</h3>
-                            <span class="coming-soon">قريباً</span>
                         </div>
                     </a>
                 </div>
@@ -1230,136 +783,67 @@
         </div>
     </section>
 
-    <!-- Social Media Section -->
+    <!-- Social Media: "Follow us" text + icons in one row with spacing -->
     <section id="social" class="social">
         <div class="container">
-            <div class="section-title fade-in">
-                <h2>تابعنا على وسائل التواصل</h2>
-                <div class="title-line"></div>
-            </div>
-
-            <div class="social-links">
-                <a href="https://instagram.com/lohomna" target="_blank" class="social-link fade-in">
-                    <div class="social-icon">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="social-info">
-                        <h3>Instagram</h3>
-                        <p>@lohomna</p>
-                    </div>
-                </a>
-
-                <a href="https://snapchat.com/add/lohomna" target="_blank" class="social-link fade-in">
-                    <div class="social-icon">
-                        <i class="fab fa-snapchat"></i>
-                    </div>
-                    <div class="social-info">
-                        <h3>Snapchat</h3>
-                        <p>@lohomna</p>
-                    </div>
-                </a>
-
-                <a href="https://twitter.com/lohomna" target="_blank" class="social-link fade-in">
-                    <div class="social-icon">
-                        <i class="fab fa-twitter"></i>
-                    </div>
-                    <div class="social-info">
-                        <h3>Twitter (X)</h3>
-                        <p>@lohomna</p>
-                    </div>
-                </a>
-
-                <a href="https://tiktok.com/@lohomna" target="_blank" class="social-link fade-in">
-                    <div class="social-icon">
-                        <i class="fab fa-tiktok"></i>
-                    </div>
-                    <div class="social-info">
-                        <h3>TikTok</h3>
-                        <p>@lohomna</p>
-                    </div>
-                </a>
-
-                <a href="https://youtube.com/@lohomna" target="_blank" class="social-link fade-in">
-                    <div class="social-icon">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                    <div class="social-info">
-                        <h3>YouTube</h3>
-                        <p>@lohomna</p>
-                    </div>
-                </a>
+            <div class="social-row">
+                <span class="follow-text" id="followText">Follow us</span>
+                <div class="social-icons-group">
+                    <a href="https://instagram.com/lohomna" target="_blank" class="social-icon"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://snapchat.com/add/lohomna" target="_blank" class="social-icon"><i
+                            class="fab fa-snapchat"></i></a>
+                    <a href="https://twitter.com/lohomna" target="_blank" class="social-icon"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://tiktok.com/@lohomna" target="_blank" class="social-icon"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://youtube.com/@lohomna" target="_blank" class="social-icon"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/971554484488" target="_blank" class="social-icon"><i
+                            class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Grey divider -->
+    <div class="container">
+        <div class="grey-divider"></div>
+    </div>
+
+    <!-- Terms & Privacy row (no headline, just links) -->
+    <div class="legal-row">
+        <div class="container">
+            <div class="legal-links">
+                <a href="privacy.html" class="legal-link" id="privacyLink">سياسة الخصوصية</a>
+                <span class="dot-separator">•</span>
+                <a href="terms.html" class="legal-link" id="termsLink">شروط الاستخدام</a>
+                <span class="dot-separator">•</span>
+                <a href="refund.html" class="legal-link" id="refundLink">سياسة الاسترجاع</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (only copyright) -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>لحومنا</h3>
-                    <p>تطبيق إماراتي يقدّم الذبائح الطازجة بعناية، ويُنفّذ الذبح وفق الشريعة الإسلامية.</p>
-                </div>
-
-                <div class="footer-column">
-                    <h3>روابط سريعة</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#about">من نحن</a></li>
-                        <li><a href="#features">المميزات</a></li>
-                        <li><a href="#download">حمل التطبيق</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>معلومات قانونية</h3>
-                    <ul class="footer-links">
-                        <li><a href="terms.html">شروط الاستخدام</a></li>
-                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
-                        <li><a href="refund.html">سياسة الاسترجاع</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>اتصل بنا</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-phone contact-icon"></i>
-                            <span>00971554484488</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-whatsapp contact-icon"></i>
-                            <span>واتساب: 00971554484488</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt contact-icon"></i>
-                            <span>أبو ظبي، الإمارات العربية المتحدة</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="copyright">
-                <p>© 2026 لحومنا جميع الحقوق محفوظة.</p>
+            <div class="copyright" id="copyright">
+                © 2026 لحومنا. جميع الحقوق محفوظة.
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Language switching functionality
-            const langSwitcher = document.getElementById('langSwitcher');
-            const mobileLangSwitcher = document.getElementById('mobileLangSwitcher');
+            // Language switching
+            const langSwitcher = document.getElementById('langSwitcherText');
             const htmlElement = document.documentElement;
             const bodyElement = document.body;
-
-            // Initialize with Arabic (default)
             let currentLang = 'ar';
 
-            // Arabic content
+            // Complete Arabic/English content
             const arabicContent = {
                 siteName: "لحومنا",
-                logoAlt: "لحومنا شعار",
                 home: "الرئيسية",
                 about: "من نحن",
                 features: "المميزات",
@@ -1385,39 +869,30 @@
                 feature4Text: "نلتزم بأعلى معايير النظافة والأمان والموثوقية في جميع مراحل العملية.",
                 feature5: "تجربة متميزة",
                 feature5Text: "واجهة مستخدم سهلة ومريحة تجعل عملية الطلب بسيطة وسريعة للجميع.",
+                feature6: "خدمة الطبخ",
+                feature6Text: "نوفر خدمة طبخ الذبيحة وتجهيزها حسب رغبة العميل لتكون جاهزة للتقديم.",
                 downloadTitle: "حمل تطبيق لحومنا",
                 downloadText: "حمل تطبيق لحومنا الآن واستمتع بتجربة فريدة في طلب الذبائح الطازجة المذبوحة إسلامياً. التطبيق متوفر قريباً على متاجر التطبيقات.",
-                socialTitle: "تابعنا على وسائل التواصل",
-                footerQuickLinks: "روابط سريعة",
-                footerLegal: "معلومات قانونية",
-                footerContact: "اتصل بنا",
-                copyright: "© 2026 لحومنا. جميع الحقوق محفوظة.",
-                whatsapp: "واتساب: 00971554484488",
-                location: "أبو ظبي، الإمارات العربية المتحدة",
                 appStore: "حمله من App Store",
                 googlePlay: "حمله من Google Play",
                 soon: "قريباً",
-                homeLink: "الرئيسية",
-                aboutLink: "من نحن",
-                featuresLink: "المميزات",
-                downloadLink: "حمل التطبيق",
-                mobileMenuMainTitle: "القائمة الرئيسية",
-                mobileMenuLegalTitle: "معلومات قانونية",
-                mobileMenuCopyright: "© 2026 لحومنا"
+                followText: "تابعنا",
+                privacyLink: "سياسة الخصوصية",
+                termsLink: "شروط الاستخدام",
+                refundLink: "سياسة الاسترجاع",
+                copyright: "© 2026 لحومنا. جميع الحقوق محفوظة."
             };
 
-            // English content
             const englishContent = {
                 siteName: "Lohomna",
-                logoAlt: "Lohomna Logo",
                 home: "Home",
                 about: "About Us",
                 features: "Features",
                 download: "Download",
                 social: "Contact",
                 terms: "Terms of Use",
-                refund: "Refund Policy",
                 privacy: "Privacy Policy",
+                refund: "Refund Policy",
                 heroTitle: "Lohomna",
                 heroText: "A UAE-based app that delivers fresh, carefully selected meat slaughtered according to Islamic law. We adhere to the highest standards of cleanliness, safety, and reliability.",
                 ctaButton: "Download App Now",
@@ -1435,185 +910,55 @@
                 feature4Text: "We adhere to the highest standards of hygiene, safety, and reliability at all stages of the process.",
                 feature5: "Premium Experience",
                 feature5Text: "An easy and comfortable user interface makes the ordering process simple and fast for everyone.",
+                feature6: "Cooking Service",
+                feature6Text: "We provide a meat cooking service and prepare it according to the customer's preference, ready to serve.",
                 downloadTitle: "Download Lohomna App",
                 downloadText: "Download the Lohomna app now and enjoy a unique experience in ordering fresh, Islamically slaughtered meat. The app will be available soon on app stores.",
-                socialTitle: "Follow Us on Social Media",
-                footerQuickLinks: "Quick Links",
-                footerLegal: "Legal Information",
-                footerContact: "Contact Us",
-                copyright: "© 2026 Lohomna. All rights reserved.",
-                whatsapp: "WhatsApp: 00971554484488",
-                location: "Abu Dhabi, United Arab Emirates",
                 appStore: "Download on App Store",
                 googlePlay: "Get it on Google Play",
                 soon: "Coming Soon",
-                homeLink: "Home",
-                aboutLink: "About Us",
-                featuresLink: "Features",
-                downloadLink: "Download App",
-                mobileMenuMainTitle: "Main Menu",
-                mobileMenuLegalTitle: "Legal Information",
-                mobileMenuCopyright: "© 2026 Lohomna"
+                followText: "Follow us",
+                privacyLink: "Privacy Policy",
+                termsLink: "Terms of Use",
+                refundLink: "Refund Policy",
+                copyright: "© 2026 Lohomna. All rights reserved."
             };
 
-            // Function to switch language
-            function switchLanguage() {
-                if (currentLang === 'ar') {
-                    // Switch to English
-                    currentLang = 'en';
-
-                    htmlElement.lang = 'en';
-                    htmlElement.dir = 'ltr';
-                    bodyElement.lang = 'en';
-                    bodyElement.dir = 'ltr';
-
-                    updateContent(englishContent);
-
-                    // Update language switcher button text
-                    langSwitcher.querySelector('.lang-text').textContent = 'عربي';
-                    mobileLangSwitcher.querySelector('.lang-text').textContent = 'عربي';
-
-                } else {
-                    // Switch to Arabic
-                    currentLang = 'ar';
-
-                    htmlElement.lang = 'ar';
-                    htmlElement.dir = 'rtl';
-                    bodyElement.lang = 'ar';
-                    bodyElement.dir = 'rtl';
-
-                    updateContent(arabicContent);
-
-                    // Update language switcher button text
-                    langSwitcher.querySelector('.lang-text').textContent = 'English';
-                    mobileLangSwitcher.querySelector('.lang-text').textContent = 'English';
-                }
-
-                // Save language preference to localStorage
-                localStorage.setItem('lohomna_language', currentLang);
-
-                // Update all external links with language parameter
-                updatePageLinks();
-            }
-
-            // Function to update all external links with language parameter
-            function updatePageLinks() {
-                const links = document.querySelectorAll('a[href*=".html"]');
-                links.forEach(link => {
-                    const currentHref = link.getAttribute('href');
-                    if (currentHref && currentHref.includes('.html')) {
-                        // Remove existing lang parameter if exists
-                        let baseUrl = currentHref.split('?')[0];
-                        // Add new lang parameter
-                        link.href = `${baseUrl}?lang=${currentLang}`;
-                    }
-                });
-            }
-
-            // Function to update content based on language
-            // Function to update content based on language
-            // Function to update content based on language
             function updateContent(content) {
-                console.log('Updating content for language:', currentLang);
-
-                // Update logo alt text
-                document.querySelector('.logo-image').alt = content.logoAlt;
-
-                // Update site name
+                // Update logo text
                 document.querySelector('.logo-text').textContent = content.siteName;
 
-                // Update desktop navigation
-                const desktopNavLinks = document.querySelectorAll('.desktop-nav a');
-                if (desktopNavLinks.length >= 5) {
-                    desktopNavLinks[0].textContent = content.home;
-                    desktopNavLinks[1].textContent = content.about;
-                    desktopNavLinks[2].textContent = content.features;
-                    desktopNavLinks[3].textContent = content.download;
-                    desktopNavLinks[4].textContent = content.social;
+                // Desktop nav
+                const desktopLinks = document.querySelectorAll('.desktop-nav a');
+                if (desktopLinks.length >= 5) {
+                    desktopLinks[0].textContent = content.home;
+                    desktopLinks[1].textContent = content.about;
+                    desktopLinks[2].textContent = content.features;
+                    desktopLinks[3].textContent = content.download;
+                    desktopLinks[4].textContent = content.social;
                 }
 
-                // Update mobile menu titles
-                const mobileMenuMainTitle = document.getElementById('mobileMenuMainTitle');
-                const mobileMenuLegalTitle = document.getElementById('mobileMenuLegalTitle');
-                const mobileMenuCopyright = document.getElementById('mobileMenuCopyright');
-
-                if (mobileMenuMainTitle) mobileMenuMainTitle.textContent = content.mobileMenuMainTitle;
-                if (mobileMenuLegalTitle) mobileMenuLegalTitle.textContent = content.mobileMenuLegalTitle;
-                if (mobileMenuCopyright) mobileMenuCopyright.textContent = content.mobileMenuCopyright;
-
-                // DEBUG: Check mobile menu links
-                const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-                console.log('Found mobile menu links:', mobileMenuLinks.length);
-
-                // Update mobile menu links - FIXED: Using correct indices
-                // Update mobile menu links - FIXED: Using correct indices (8 links, not 9)
-                if (mobileMenuLinks.length >= 8) {
-                    // Main navigation links (indices 0-4)
-                    mobileMenuLinks[0].textContent = content.home;
-                    mobileMenuLinks[1].textContent = content.about;
-                    mobileMenuLinks[2].textContent = content.features;
-                    mobileMenuLinks[3].textContent = content.download;
-                    mobileMenuLinks[4].textContent = content.social;
-
-                    // Legal links (indices 5-7)
-                    mobileMenuLinks[5].textContent = content.terms;
-                    mobileMenuLinks[6].textContent = content.privacy;
-                    mobileMenuLinks[7].textContent = content.refund;
-
-                    console.log('Updated mobile menu links:', {
-                        home: content.home,
-                        about: content.about,
-                        features: content.features,
-                        download: content.download,
-                        social: content.social,
-                        terms: content.terms,
-                        privacy: content.privacy,
-                        refund: content.refund
-                    });
-                } else {
-                    console.error('Not enough mobile menu links found. Expected 8, found:', mobileMenuLinks.length);
-
-                    // Try alternative selector
-                    const altMobileLinks = document.querySelectorAll('.mobile-menu-links a');
-                    console.log('Alternative selector found:', altMobileLinks.length, 'links');
-
-                    if (altMobileLinks.length >= 8) {
-                        altMobileLinks[0].textContent = content.home;
-                        altMobileLinks[1].textContent = content.about;
-                        altMobileLinks[2].textContent = content.features;
-                        altMobileLinks[3].textContent = content.download;
-                        altMobileLinks[4].textContent = content.social;
-                        altMobileLinks[5].textContent = content.terms;
-                        altMobileLinks[6].textContent = content.privacy;
-                        altMobileLinks[7].textContent = content.refund;
-                    }
-                }
-
-                // Update hero section
+                // Hero
                 document.querySelector('.hero h1').textContent = content.heroTitle;
                 document.querySelector('.hero p').textContent = content.heroText;
                 document.querySelector('.cta-button').innerHTML = content.ctaButton + ' <i class="fas fa-arrow-down"></i>';
 
-                // Update about section
+                // Section titles
                 const sectionTitles = document.querySelectorAll('.section-title h2');
-                if (sectionTitles.length >= 1) {
+                if (sectionTitles.length >= 3) {
                     sectionTitles[0].textContent = content.aboutTitle;
+                    sectionTitles[1].textContent = content.featuresTitle;
+                    sectionTitles[2].textContent = content.downloadTitle;
                 }
 
-                // Update both parts of about text
+                // About paragraphs
                 const aboutParagraphs = document.querySelectorAll('.about-text p');
-                if (aboutParagraphs.length >= 1) {
-                    aboutParagraphs[0].textContent = content.aboutText;
-                }
                 if (aboutParagraphs.length >= 2) {
+                    aboutParagraphs[0].textContent = content.aboutText;
                     aboutParagraphs[1].textContent = content.aboutTextPart2;
                 }
 
-                // Update features section
-                if (sectionTitles.length >= 2) {
-                    sectionTitles[1].textContent = content.featuresTitle;
-                }
-
+                // Feature cards
                 const featureCards = document.querySelectorAll('.feature-card');
                 if (featureCards.length >= 5) {
                     featureCards[0].querySelector('h3').textContent = content.feature1;
@@ -1626,303 +971,112 @@
                     featureCards[3].querySelector('p').textContent = content.feature4Text;
                     featureCards[4].querySelector('h3').textContent = content.feature5;
                     featureCards[4].querySelector('p').textContent = content.feature5Text;
+                    featureCards[5].querySelector('h3').textContent = content.feature6;
+                    featureCards[5].querySelector('p').textContent = content.feature6Text;
                 }
 
-                // Update download section
-                if (sectionTitles.length >= 3) {
-                    sectionTitles[2].textContent = content.downloadTitle;
-                }
-
+                // Download section
                 document.querySelector('.download-text').textContent = content.downloadText;
 
-                const downloadInfos = document.querySelectorAll('.download-info h3');
-                if (downloadInfos.length >= 2) {
-                    downloadInfos[0].textContent = content.appStore;
-                    downloadInfos[1].textContent = content.googlePlay;
+                const downloadHeadings = document.querySelectorAll('.download-info h3');
+                if (downloadHeadings.length >= 2) {
+                    downloadHeadings[0].textContent = content.appStore;
+                    downloadHeadings[1].textContent = content.googlePlay;
                 }
 
-                document.querySelectorAll('.coming-soon').forEach(el => el.textContent = content.soon);
+                document.querySelectorAll('.coming-soon').forEach(el => {
+                    el.textContent = content.soon;
+                });
 
-                // Update social media section
-                if (sectionTitles.length >= 4) {
-                    sectionTitles[3].textContent = content.socialTitle;
+                // Follow text
+                document.getElementById('followText').textContent = content.followText;
+
+                // Legal links
+                const legalLinks = document.querySelectorAll('.legal-link');
+                if (legalLinks.length >= 3) {
+                    legalLinks[0].textContent = content.privacyLink;
+                    legalLinks[1].textContent = content.termsLink;
+                    legalLinks[2].textContent = content.refundLink;
                 }
 
-                // Update footer
-                const footerColumns = document.querySelectorAll('.footer-column h3');
-                if (footerColumns.length >= 4) {
-                    footerColumns[1].textContent = content.footerQuickLinks;
-                    footerColumns[2].textContent = content.footerLegal;
-                    footerColumns[3].textContent = content.footerContact;
-                }
+                // Footer copyright
+                document.getElementById('copyright').textContent = content.copyright;
 
-                // Update footer quick links
-                const footerQuickLinks = document.querySelectorAll('.footer-links');
-                if (footerQuickLinks.length > 0) {
-                    const quickLinks = footerQuickLinks[0].querySelectorAll('a');
-                    if (quickLinks.length >= 4) {
-                        quickLinks[0].textContent = content.homeLink;
-                        quickLinks[1].textContent = content.aboutLink;
-                        quickLinks[2].textContent = content.featuresLink;
-                        quickLinks[3].textContent = content.downloadLink;
-                    }
-                }
+                // Update language switcher text
+                langSwitcher.textContent = currentLang === 'ar' ? 'English' : 'عربي';
+            }
 
-                // Update footer legal links
-                if (footerQuickLinks.length > 1) {
-                    const legalLinks = footerQuickLinks[1].querySelectorAll('a');
-
-                    if (legalLinks.length >= 3) {
-                        legalLinks[0].textContent = content.terms;
-                        legalLinks[1].textContent = content.privacy;
-                        legalLinks[2].textContent = content.refund;
-                    }
+            function switchLanguage() {
+                if (currentLang === 'ar') {
+                    currentLang = 'en';
+                    htmlElement.lang = 'en'; htmlElement.dir = 'ltr';
+                    bodyElement.lang = 'en'; bodyElement.dir = 'ltr';
+                    updateContent(englishContent);
+                } else {
+                    currentLang = 'ar';
+                    htmlElement.lang = 'ar'; htmlElement.dir = 'rtl';
+                    bodyElement.lang = 'ar'; bodyElement.dir = 'rtl';
+                    updateContent(arabicContent);
                 }
+                localStorage.setItem('lohomna_language', currentLang);
 
-                // Update footer description
-                const footerDesc = document.querySelector('.footer-column p');
-                if (footerDesc) {
-                    footerDesc.textContent = content.aboutText.split('.')[0] + '.';
-                }
-
-                // Update copyright
-                const copyright = document.querySelector('.copyright p');
-                if (copyright) {
-                    copyright.textContent = content.copyright;
-                }
-
-                // Update contact info
-                const contactItems = document.querySelectorAll('.contact-item');
-                if (contactItems.length >= 3) {
-                    contactItems[1].querySelector('span').textContent = content.whatsapp;
-                    contactItems[2].querySelector('span').textContent = content.location;
-                }
+                // Update external links with language parameter
+                document.querySelectorAll('a[href*=".html"]').forEach(link => {
+                    let base = link.href.split('?')[0];
+                    if (base.includes('.html')) link.href = base + `?lang=${currentLang}`;
+                });
             }
 
             function initializeLanguage() {
-                // Check URL for language parameter first
-                const urlParams = new URLSearchParams(window.location.search);
-                const urlLang = urlParams.get('lang');
-
-                // Check localStorage
+                const urlLang = new URLSearchParams(window.location.search).get('lang');
                 const storedLang = localStorage.getItem('lohomna_language');
+                if (urlLang && (urlLang === 'ar' || urlLang === 'en')) currentLang = urlLang;
+                else if (storedLang) currentLang = storedLang;
+                else currentLang = 'ar';
 
-                // Determine initial language
-                if (urlLang && (urlLang === 'ar' || urlLang === 'en')) {
-                    currentLang = urlLang;
-                } else if (storedLang) {
-                    currentLang = storedLang;
-                } else {
-                    currentLang = 'ar'; // Default
-                }
-
-                // Apply language settings
                 if (currentLang === 'en') {
-                    htmlElement.lang = 'en';
-                    htmlElement.dir = 'ltr';
-                    bodyElement.lang = 'en';
-                    bodyElement.dir = 'ltr';
+                    htmlElement.lang = 'en'; htmlElement.dir = 'ltr';
+                    bodyElement.lang = 'en'; bodyElement.dir = 'ltr';
                     updateContent(englishContent);
-                    langSwitcher.querySelector('.lang-text').textContent = 'عربي';
-                    mobileLangSwitcher.querySelector('.lang-text').textContent = 'عربي';
                 } else {
-                    htmlElement.lang = 'ar';
-                    htmlElement.dir = 'rtl';
-                    bodyElement.lang = 'ar';
-                    bodyElement.dir = 'rtl';
+                    htmlElement.lang = 'ar'; htmlElement.dir = 'rtl';
+                    bodyElement.lang = 'ar'; bodyElement.dir = 'rtl';
                     updateContent(arabicContent);
-                    langSwitcher.querySelector('.lang-text').textContent = 'English';
-                    mobileLangSwitcher.querySelector('.lang-text').textContent = 'English';
                 }
-
-                // Update all links with language parameter
-                updatePageLinks();
-
-                // Save to localStorage
                 localStorage.setItem('lohomna_language', currentLang);
             }
 
-            // Event listeners for language switcher
             langSwitcher.addEventListener('click', switchLanguage);
-            mobileLangSwitcher.addEventListener('click', switchLanguage);
 
-            // Mobile menu functionality
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileMenuClose = document.getElementById('mobileMenuClose');
-            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-
-            // Open mobile menu
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.add('active');
-                mobileMenuOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-
-            // Close mobile menu function
-            function closeMobileMenu() {
-                mobileMenu.classList.remove('active');
-                mobileMenuOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-
-            // Close mobile menu when clicking close button
-            mobileMenuClose.addEventListener('click', closeMobileMenu);
-
-            // Close mobile menu when clicking overlay
-            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-
-            // Handle mobile menu link clicks
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    // Check if it's an anchor link (starts with #)
-                    if (link.getAttribute('href').startsWith('#')) {
-                        closeMobileMenu();
-
-                        // Get the target section
-                        const targetId = link.getAttribute('href');
-                        const targetElement = document.querySelector(targetId);
-
-                        if (targetElement) {
-                            // Scroll to section after a small delay to allow menu to close
-                            setTimeout(() => {
-                                window.scrollTo({
-                                    top: targetElement.offsetTop - 80,
-                                    behavior: 'smooth'
-                                });
-                            }, 300);
-                        }
-                    }
-                    // For external links (like terms.html), they'll open normally
-                });
-            });
-
-            // Close mobile menu on escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                    closeMobileMenu();
-                }
-            });
-
-            // Close mobile menu when switching language from mobile menu
-            mobileLangSwitcher.addEventListener('click', () => {
-                setTimeout(() => {
-                    closeMobileMenu();
-                }, 100);
-            });
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]:not(.cta-button)').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     if (this.getAttribute('href') === '#') return;
-
                     e.preventDefault();
-
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-
-                        // Update active nav link
-                        document.querySelectorAll('nav a, .mobile-menu-link').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        this.classList.add('active');
-                    }
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
                 });
             });
 
             // Scroll animations
             const fadeElements = document.querySelectorAll('.fade-in');
-
             function checkScroll() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-
-                    if (elementTop < windowHeight - 100) {
-                        element.classList.add('visible');
-                    }
+                fadeElements.forEach(el => {
+                    const top = el.getBoundingClientRect().top;
+                    if (top < window.innerHeight - 100) el.classList.add('visible');
                 });
             }
-
-            // Initial check
-            checkScroll();
-
-            // Check on scroll
             window.addEventListener('scroll', checkScroll);
-
-            // Update active nav link on scroll
-            window.addEventListener('scroll', function () {
-                const scrollPosition = window.scrollY + 100;
-                const sections = document.querySelectorAll('section[id]');
-                const navLinks = document.querySelectorAll('nav a, .mobile-menu-link');
-
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    const sectionId = section.getAttribute('id');
-
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${sectionId}`) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            });
+            checkScroll();
 
             // Header scroll effect
             window.addEventListener('scroll', function () {
                 const header = document.querySelector('header');
-
-                if (window.scrollY > 100) {
-                    header.style.background = 'rgba(255, 255, 255, 0.98)';
-                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.08)';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255, 0.9)';
-                    header.style.boxShadow = 'none';
-                }
+                header.style.background = window.scrollY > 100 ? 'rgba(10,10,10,0.98)' : 'rgba(10,10,10,0.95)';
+                header.style.boxShadow = window.scrollY > 100 ? '0 5px 20px rgba(0,0,0,0.5)' : 'none';
             });
 
-            // Add a test function to debug mobile menu
-            function testMobileMenuTranslation() {
-                console.log('=== Testing Mobile Menu Translation ===');
-                console.log('Current language:', currentLang);
-
-                const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-                console.log('Mobile menu links found:', mobileMenuLinks.length);
-
-                mobileMenuLinks.forEach((link, index) => {
-                    console.log(`Link ${index}:`, link.textContent, '| href:', link.getAttribute('href'));
-                });
-
-                // Try to manually update
-                const content = currentLang === 'en' ? englishContent : arabicContent;
-                if (mobileMenuLinks.length >= 9) {
-                    console.log('Manually updating links...');
-                    mobileMenuLinks[0].textContent = content.home;
-                    mobileMenuLinks[1].textContent = content.about;
-                    mobileMenuLinks[2].textContent = content.features;
-                    mobileMenuLinks[3].textContent = content.download;
-                    mobileMenuLinks[4].textContent = content.social;
-                    mobileMenuLinks[5].textContent = content.terms;
-                    mobileMenuLinks[6].textContent = content.privacy;
-                    mobileMenuLinks[7].textContent = content.refund;
-                    console.log('Manual update complete');
-                }
-            }
-
-            // Call this after language initialization for testing
             initializeLanguage();
-            testMobileMenuTranslation();
         });
     </script>
 </body>
