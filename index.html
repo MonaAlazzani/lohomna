@@ -28,8 +28,9 @@
 
             /* Dark black official theme */
             --bg-dark: #0A0A0A;
-            --bg-card: #1A1A1A;
-            --bg-section: #141414;
+            --bg-card: #151515;
+            /* Darker card background (was #1A1A1A) */
+            --bg-section: #0F0F0F;
 
             --text-primary: #FFFFFF;
             --text-secondary: #FFFFFF;
@@ -492,7 +493,7 @@
         .follow-text {
             color: var(--text-primary);
             font-size: 1.0rem;
-            font-weight: 800;
+            font-weight: 500;
             margin: 0;
             white-space: nowrap;
         }
@@ -618,7 +619,26 @@
             }
 
             .legal-links {
-                gap: 16px;
+                gap: 6px;
+                /* Minimum gap */
+                flex-wrap: nowrap;
+                justify-content: center;
+                width: 100%;
+                padding: 0 5px;
+            }
+
+            .legal-link {
+                font-size: 0.8rem;
+                /* 12px - small enough for mobile */
+                white-space: nowrap;
+                letter-spacing: -0.01em;
+                /* Slightly tighter letter spacing */
+            }
+
+            .dot-separator {
+                font-size: 0.9rem;
+                margin: 0 -2px;
+                /* Reduce space around dots */
             }
         }
 
