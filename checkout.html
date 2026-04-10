@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Checkout</title>
+
+    <script src="https://test-gateway.mastercard.com/static/checkout/checkout.min.js"
+        data-error="errorCallback"
+        data-cancel="cancelCallback">
+    </script>
+
+    <script>
+        function errorCallback(error) {
+            console.log("Error:", JSON.stringify(error));
+        }
+
+        function cancelCallback() {
+            console.log("Payment cancelled");
+        }
+
+        function startCheckout(sessionId) {
+            Checkout.configure({
+                session: {
+                    id: sessionId
+                }
+            });
+
+            Checkout.showPaymentPage();
+        }
+
+        // أخذ sessionId من الرابط
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            const sessionId = params.get("sessionId");
+
+            if (sessionId) {
+                startCheckout(sessionId);
+            } else {
+                document.body.innerHTML = "Missing sessionId";
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <h3>Loading payment...</h3>
+</body>
+</html>
